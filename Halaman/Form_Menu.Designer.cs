@@ -36,10 +36,6 @@
             this.labelDateTime = new System.Windows.Forms.Label();
             this.pnlSidebar = new Guna.UI2.WinForms.Guna2Panel();
             this.btnAkun = new Guna.UI2.WinForms.Guna2Button();
-            this.pnlObat = new System.Windows.Forms.Panel();
-            this.btnMasterObat = new Guna.UI2.WinForms.Guna2Button();
-            this.btnViewObat = new Guna.UI2.WinForms.Guna2Button();
-            this.btnObat = new Guna.UI2.WinForms.Guna2Button();
             this.btnPasien = new Guna.UI2.WinForms.Guna2Button();
             this.pnlKaryawan = new System.Windows.Forms.Panel();
             this.btnMasterKaryawan = new Guna.UI2.WinForms.Guna2Button();
@@ -56,13 +52,21 @@
             this.lblNama = new System.Windows.Forms.Label();
             this.lblN = new System.Windows.Forms.Label();
             this.dateTimer = new System.Windows.Forms.Timer(this.components);
+            this.pnlPasien = new System.Windows.Forms.Panel();
+            this.btnMasterPasien = new Guna.UI2.WinForms.Guna2Button();
+            this.btnViewPasien = new Guna.UI2.WinForms.Guna2Button();
+            this.btnObat = new Guna.UI2.WinForms.Guna2Button();
+            this.btnViewObat = new Guna.UI2.WinForms.Guna2Button();
+            this.btnMasterObat = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlObat = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlSidebar.SuspendLayout();
-            this.pnlObat.SuspendLayout();
             this.pnlKaryawan.SuspendLayout();
             this.pnlContainer.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            this.pnlPasien.SuspendLayout();
+            this.pnlObat.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -109,9 +113,10 @@
             // 
             this.pnlSidebar.AutoScroll = true;
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(200)))), ((int)(((byte)(177)))));
-            this.pnlSidebar.Controls.Add(this.btnAkun);
             this.pnlSidebar.Controls.Add(this.pnlObat);
             this.pnlSidebar.Controls.Add(this.btnObat);
+            this.pnlSidebar.Controls.Add(this.pnlPasien);
+            this.pnlSidebar.Controls.Add(this.btnAkun);
             this.pnlSidebar.Controls.Add(this.btnPasien);
             this.pnlSidebar.Controls.Add(this.pnlKaryawan);
             this.pnlSidebar.Controls.Add(this.btnKaryawan);
@@ -157,123 +162,6 @@
             this.btnAkun.Text = "Akun";
             this.btnAkun.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // pnlObat
-            // 
-            this.pnlObat.Controls.Add(this.btnMasterObat);
-            this.pnlObat.Controls.Add(this.btnViewObat);
-            this.pnlObat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlObat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.pnlObat.Location = new System.Drawing.Point(0, 264);
-            this.pnlObat.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlObat.MaximumSize = new System.Drawing.Size(205, 110);
-            this.pnlObat.MinimumSize = new System.Drawing.Size(205, 0);
-            this.pnlObat.Name = "pnlObat";
-            this.pnlObat.Size = new System.Drawing.Size(205, 0);
-            this.pnlObat.TabIndex = 105;
-            // 
-            // btnMasterObat
-            // 
-            this.btnMasterObat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(166)))), ((int)(((byte)(125)))));
-            this.btnMasterObat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnMasterObat.BorderRadius = 6;
-            this.btnMasterObat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnMasterObat.CausesValidation = false;
-            this.btnMasterObat.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnMasterObat.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.btnMasterObat.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnMasterObat.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.btnMasterObat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMasterObat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMasterObat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMasterObat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMasterObat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMasterObat.FillColor = System.Drawing.Color.Transparent;
-            this.btnMasterObat.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMasterObat.ForeColor = System.Drawing.Color.Black;
-            this.btnMasterObat.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnMasterObat.Image = ((System.Drawing.Image)(resources.GetObject("btnMasterObat.Image")));
-            this.btnMasterObat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnMasterObat.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnMasterObat.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnMasterObat.Location = new System.Drawing.Point(0, 55);
-            this.btnMasterObat.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMasterObat.Name = "btnMasterObat";
-            this.btnMasterObat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnMasterObat.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnMasterObat.Size = new System.Drawing.Size(205, 55);
-            this.btnMasterObat.TabIndex = 45;
-            this.btnMasterObat.Text = "Master Obat";
-            this.btnMasterObat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnMasterObat.Click += new System.EventHandler(this.btnMasterObat_Click);
-            // 
-            // btnViewObat
-            // 
-            this.btnViewObat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(166)))), ((int)(((byte)(125)))));
-            this.btnViewObat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnViewObat.BorderRadius = 6;
-            this.btnViewObat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnViewObat.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnViewObat.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.btnViewObat.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnViewObat.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.btnViewObat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewObat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewObat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnViewObat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewObat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnViewObat.FillColor = System.Drawing.Color.Transparent;
-            this.btnViewObat.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewObat.ForeColor = System.Drawing.Color.Black;
-            this.btnViewObat.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnViewObat.Image = ((System.Drawing.Image)(resources.GetObject("btnViewObat.Image")));
-            this.btnViewObat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnViewObat.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnViewObat.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnViewObat.Location = new System.Drawing.Point(0, 0);
-            this.btnViewObat.Margin = new System.Windows.Forms.Padding(2);
-            this.btnViewObat.Name = "btnViewObat";
-            this.btnViewObat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnViewObat.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnViewObat.Size = new System.Drawing.Size(205, 55);
-            this.btnViewObat.TabIndex = 41;
-            this.btnViewObat.Text = "Data Obat";
-            this.btnViewObat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnViewObat.Click += new System.EventHandler(this.btnViewObat_Click);
-            // 
-            // btnObat
-            // 
-            this.btnObat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnObat.BorderRadius = 6;
-            this.btnObat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnObat.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnObat.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.btnObat.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnObat.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.btnObat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnObat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnObat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnObat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnObat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnObat.FillColor = System.Drawing.Color.Transparent;
-            this.btnObat.Font = new System.Drawing.Font("Porsche Next TT", 15F, System.Drawing.FontStyle.Bold);
-            this.btnObat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnObat.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnObat.Image = ((System.Drawing.Image)(resources.GetObject("btnObat.Image")));
-            this.btnObat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnObat.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnObat.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnObat.Location = new System.Drawing.Point(0, 198);
-            this.btnObat.Margin = new System.Windows.Forms.Padding(2);
-            this.btnObat.Name = "btnObat";
-            this.btnObat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnObat.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnObat.Size = new System.Drawing.Size(205, 66);
-            this.btnObat.TabIndex = 104;
-            this.btnObat.Text = "Obat";
-            this.btnObat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnObat.Visible = false;
-            this.btnObat.Click += new System.EventHandler(this.btnObat_Click);
-            // 
             // btnPasien
             // 
             this.btnPasien.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
@@ -306,6 +194,7 @@
             this.btnPasien.Text = "Pasien";
             this.btnPasien.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPasien.Visible = false;
+            this.btnPasien.Click += new System.EventHandler(this.btnPasien_Click);
             // 
             // pnlKaryawan
             // 
@@ -665,6 +554,206 @@
             // 
             this.dateTimer.Tick += new System.EventHandler(this.dateTimer_Tick);
             // 
+            // pnlPasien
+            // 
+            this.pnlPasien.Controls.Add(this.btnMasterPasien);
+            this.pnlPasien.Controls.Add(this.btnViewPasien);
+            this.pnlPasien.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlPasien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.pnlPasien.Location = new System.Drawing.Point(0, 198);
+            this.pnlPasien.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlPasien.MaximumSize = new System.Drawing.Size(205, 110);
+            this.pnlPasien.MinimumSize = new System.Drawing.Size(205, 0);
+            this.pnlPasien.Name = "pnlPasien";
+            this.pnlPasien.Size = new System.Drawing.Size(205, 0);
+            this.pnlPasien.TabIndex = 108;
+            // 
+            // btnMasterPasien
+            // 
+            this.btnMasterPasien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(166)))), ((int)(((byte)(125)))));
+            this.btnMasterPasien.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnMasterPasien.BorderRadius = 6;
+            this.btnMasterPasien.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnMasterPasien.CausesValidation = false;
+            this.btnMasterPasien.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnMasterPasien.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btnMasterPasien.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnMasterPasien.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.btnMasterPasien.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMasterPasien.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMasterPasien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMasterPasien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMasterPasien.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMasterPasien.FillColor = System.Drawing.Color.Transparent;
+            this.btnMasterPasien.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMasterPasien.ForeColor = System.Drawing.Color.Black;
+            this.btnMasterPasien.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnMasterPasien.Image = ((System.Drawing.Image)(resources.GetObject("btnMasterPasien.Image")));
+            this.btnMasterPasien.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnMasterPasien.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnMasterPasien.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnMasterPasien.Location = new System.Drawing.Point(0, 55);
+            this.btnMasterPasien.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMasterPasien.Name = "btnMasterPasien";
+            this.btnMasterPasien.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnMasterPasien.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnMasterPasien.Size = new System.Drawing.Size(205, 55);
+            this.btnMasterPasien.TabIndex = 45;
+            this.btnMasterPasien.Text = "Master Pasien";
+            this.btnMasterPasien.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnMasterPasien.Click += new System.EventHandler(this.btnMasterPasien_Click);
+            // 
+            // btnViewPasien
+            // 
+            this.btnViewPasien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(166)))), ((int)(((byte)(125)))));
+            this.btnViewPasien.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnViewPasien.BorderRadius = 6;
+            this.btnViewPasien.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnViewPasien.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnViewPasien.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btnViewPasien.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnViewPasien.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.btnViewPasien.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewPasien.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewPasien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnViewPasien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnViewPasien.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnViewPasien.FillColor = System.Drawing.Color.Transparent;
+            this.btnViewPasien.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewPasien.ForeColor = System.Drawing.Color.Black;
+            this.btnViewPasien.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnViewPasien.Image = ((System.Drawing.Image)(resources.GetObject("btnViewPasien.Image")));
+            this.btnViewPasien.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnViewPasien.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnViewPasien.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnViewPasien.Location = new System.Drawing.Point(0, 0);
+            this.btnViewPasien.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewPasien.Name = "btnViewPasien";
+            this.btnViewPasien.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnViewPasien.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnViewPasien.Size = new System.Drawing.Size(205, 55);
+            this.btnViewPasien.TabIndex = 41;
+            this.btnViewPasien.Text = "Data Pasien";
+            this.btnViewPasien.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnViewPasien.Click += new System.EventHandler(this.btnViewPasien_Click);
+            // 
+            // btnObat
+            // 
+            this.btnObat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnObat.BorderRadius = 6;
+            this.btnObat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnObat.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnObat.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btnObat.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnObat.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.btnObat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnObat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnObat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnObat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnObat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnObat.FillColor = System.Drawing.Color.Transparent;
+            this.btnObat.Font = new System.Drawing.Font("Porsche Next TT", 15F, System.Drawing.FontStyle.Bold);
+            this.btnObat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnObat.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnObat.Image = ((System.Drawing.Image)(resources.GetObject("btnObat.Image")));
+            this.btnObat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnObat.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnObat.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnObat.Location = new System.Drawing.Point(0, 198);
+            this.btnObat.Margin = new System.Windows.Forms.Padding(2);
+            this.btnObat.Name = "btnObat";
+            this.btnObat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnObat.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnObat.Size = new System.Drawing.Size(205, 66);
+            this.btnObat.TabIndex = 109;
+            this.btnObat.Text = "Obat";
+            this.btnObat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnObat.Visible = false;
+            this.btnObat.Click += new System.EventHandler(this.btnObat_Click);
+            // 
+            // btnViewObat
+            // 
+            this.btnViewObat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(166)))), ((int)(((byte)(125)))));
+            this.btnViewObat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnViewObat.BorderRadius = 6;
+            this.btnViewObat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnViewObat.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnViewObat.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btnViewObat.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnViewObat.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.btnViewObat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewObat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewObat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnViewObat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnViewObat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnViewObat.FillColor = System.Drawing.Color.Transparent;
+            this.btnViewObat.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewObat.ForeColor = System.Drawing.Color.Black;
+            this.btnViewObat.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnViewObat.Image = ((System.Drawing.Image)(resources.GetObject("btnViewObat.Image")));
+            this.btnViewObat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnViewObat.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnViewObat.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnViewObat.Location = new System.Drawing.Point(0, 0);
+            this.btnViewObat.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewObat.Name = "btnViewObat";
+            this.btnViewObat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnViewObat.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnViewObat.Size = new System.Drawing.Size(205, 55);
+            this.btnViewObat.TabIndex = 41;
+            this.btnViewObat.Text = "Data Obat";
+            this.btnViewObat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnViewObat.Click += new System.EventHandler(this.btnViewObat_Click);
+            // 
+            // btnMasterObat
+            // 
+            this.btnMasterObat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(166)))), ((int)(((byte)(125)))));
+            this.btnMasterObat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnMasterObat.BorderRadius = 6;
+            this.btnMasterObat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnMasterObat.CausesValidation = false;
+            this.btnMasterObat.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnMasterObat.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btnMasterObat.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnMasterObat.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.btnMasterObat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMasterObat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMasterObat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMasterObat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMasterObat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMasterObat.FillColor = System.Drawing.Color.Transparent;
+            this.btnMasterObat.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMasterObat.ForeColor = System.Drawing.Color.Black;
+            this.btnMasterObat.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnMasterObat.Image = ((System.Drawing.Image)(resources.GetObject("btnMasterObat.Image")));
+            this.btnMasterObat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnMasterObat.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnMasterObat.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnMasterObat.Location = new System.Drawing.Point(0, 55);
+            this.btnMasterObat.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMasterObat.Name = "btnMasterObat";
+            this.btnMasterObat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnMasterObat.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnMasterObat.Size = new System.Drawing.Size(205, 55);
+            this.btnMasterObat.TabIndex = 45;
+            this.btnMasterObat.Text = "Master Obat";
+            this.btnMasterObat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnMasterObat.Click += new System.EventHandler(this.btnMasterObat_Click);
+            // 
+            // pnlObat
+            // 
+            this.pnlObat.Controls.Add(this.btnMasterObat);
+            this.pnlObat.Controls.Add(this.btnViewObat);
+            this.pnlObat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlObat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.pnlObat.Location = new System.Drawing.Point(0, 264);
+            this.pnlObat.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlObat.MaximumSize = new System.Drawing.Size(205, 110);
+            this.pnlObat.MinimumSize = new System.Drawing.Size(205, 0);
+            this.pnlObat.Name = "pnlObat";
+            this.pnlObat.Size = new System.Drawing.Size(205, 0);
+            this.pnlObat.TabIndex = 110;
+            // 
             // Form_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -682,11 +771,12 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlSidebar.ResumeLayout(false);
-            this.pnlObat.ResumeLayout(false);
             this.pnlKaryawan.ResumeLayout(false);
             this.pnlContainer.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            this.pnlPasien.ResumeLayout(false);
+            this.pnlObat.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -711,13 +801,16 @@
         private Guna.UI2.WinForms.Guna2Button btnLogout;
         public Guna.UI2.WinForms.Guna2Button btnDashboard;
         private System.Windows.Forms.Timer dateTimer;
-        public Guna.UI2.WinForms.Guna2Button btnObat;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         public System.Windows.Forms.Label lblNama;
         public System.Windows.Forms.Label lblN;
+        public Guna.UI2.WinForms.Guna2Button btnAkun;
+        public System.Windows.Forms.Panel pnlPasien;
+        private Guna.UI2.WinForms.Guna2Button btnMasterPasien;
+        private Guna.UI2.WinForms.Guna2Button btnViewPasien;
         public System.Windows.Forms.Panel pnlObat;
         private Guna.UI2.WinForms.Guna2Button btnMasterObat;
         private Guna.UI2.WinForms.Guna2Button btnViewObat;
-        public Guna.UI2.WinForms.Guna2Button btnAkun;
+        public Guna.UI2.WinForms.Guna2Button btnObat;
     }
 }

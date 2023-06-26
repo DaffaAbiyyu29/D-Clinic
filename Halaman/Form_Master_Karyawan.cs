@@ -67,6 +67,7 @@ namespace D_Clinic.Halaman
         {
             clearText();
             resetIcon();
+            disablePropherties();
             imgSearchID.Image = Properties.Resources.green_id_card;
             txCariNama.PlaceholderForeColor = Color.White;
             txCariUsername.PlaceholderForeColor = Color.White;
@@ -76,6 +77,7 @@ namespace D_Clinic.Halaman
         {
             clearText();
             resetIcon();
+            disablePropherties();
             imgSearchNama.Image = Properties.Resources.green_name;
             txCariID.PlaceholderForeColor = Color.White;
             txCariUsername.PlaceholderForeColor = Color.White;

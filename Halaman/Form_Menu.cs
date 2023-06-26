@@ -160,5 +160,35 @@ namespace D_Clinic.Halaman
             obt.BringToFront();
             obt.Show();
         }
+
+        private void btnPasien_Click(object sender, EventArgs e)
+        {
+            if (pnlPasien.Height == pnlPasien.MaximumSize.Height)
+            {
+                pnlPasien.Height = pnlPasien.MinimumSize.Height;
+            }
+            else if (pnlPasien.Height == pnlPasien.MinimumSize.Height)
+            {
+                pnlPasien.Height = pnlPasien.MaximumSize.Height;
+            }
+        }
+
+        private void btnViewPasien_Click(object sender, EventArgs e)
+        {
+            Form_View_Pasien pas = new Form_View_Pasien();
+            pas.TopLevel = false;
+            pnlContainer.Controls.Add(pas);
+            pas.BringToFront();
+            pas.Show();
+        }
+
+        private void btnMasterPasien_Click(object sender, EventArgs e)
+        {
+            Form_Master_Pasien pas = new Form_Master_Pasien();
+            pas.TopLevel = false;
+            pnlContainer.Controls.Add(pas);
+            pas.BringToFront();
+            pas.Show();
+        }
     }
 }

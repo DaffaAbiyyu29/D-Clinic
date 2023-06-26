@@ -63,6 +63,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DClinicDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Halaman\Form_Master_Pasien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_Master_Pasien.Designer.cs">
+      <DependentUpon>Form_Master_Pasien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Halaman\Form_Master_Karyawan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,12 @@
     <Compile Include="Halaman\Form_View_Obat.Designer.cs">
       <DependentUpon>Form_View_Obat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Halaman\Form_View_Pasien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_View_Pasien.Designer.cs">
+      <DependentUpon>Form_View_Pasien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Halaman\Form_View_Resepsionis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +137,9 @@
     <Compile Include="Resources\Msg_Box.Designer.cs">
       <DependentUpon>Msg_Box.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Halaman\Form_Master_Pasien.resx">
+      <DependentUpon>Form_Master_Pasien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Halaman\Form_Master_Karyawan.resx">
       <DependentUpon>Form_Master_Karyawan.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Halaman\Form_View_Obat.resx">
       <DependentUpon>Form_View_Obat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Form_View_Pasien.resx">
+      <DependentUpon>Form_View_Pasien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Halaman\Form_View_Resepsionis.resx">
       <DependentUpon>Form_View_Resepsionis.cs</DependentUpon>
@@ -317,6 +335,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\show_pass1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_blood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_gender.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_keluhan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_blood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_gender.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_keluhan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_location.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

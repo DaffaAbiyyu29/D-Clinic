@@ -17,7 +17,7 @@ namespace D_Clinic.Halaman
     {
         Msg_Box mBox = new Msg_Box();
 
-        string IDObat, obatBox;
+        string IDObat;
         int lastID;
         public Form_Master_Obat()
         {
@@ -81,6 +81,7 @@ namespace D_Clinic.Halaman
         {
             clearText();
             resetIcon();
+            disablePropherties();
             imgSearchID.Image = Properties.Resources.green_id_card;
             txCariNama.PlaceholderForeColor = Color.White;
         }
@@ -89,6 +90,7 @@ namespace D_Clinic.Halaman
         {
             clearText();
             resetIcon();
+            disablePropherties();
             imgSearchNama.Image = Properties.Resources.green_name;
             txCariID.PlaceholderForeColor = Color.White;
         }
@@ -420,7 +422,6 @@ namespace D_Clinic.Halaman
                         cbKemasan.Enabled = true;
                         txEfek.Enabled = true;
                         txHargaBeli.Enabled = true;
-                        txHargaJual.Enabled = true;
                         dtpKadaluarsa.Enabled = true;
                         txStok.Enabled = true;
                         btnHapus.Enabled = true;
@@ -489,6 +490,7 @@ namespace D_Clinic.Halaman
                 txHargaJual.DisabledState.ForeColor = Color.White;
                 txHargaJual.DisabledState.BorderColor = Color.White;
             }
+            txHargaJual.DisabledState.BorderColor = Color.White;
         }
     }
 }

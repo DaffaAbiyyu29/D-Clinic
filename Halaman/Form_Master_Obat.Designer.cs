@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.tblKaryawan = new Guna.UI2.WinForms.Guna2DataGridView();
             this.idObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -126,22 +126,22 @@
             this.tblKaryawan.AllowUserToDeleteRows = false;
             this.tblKaryawan.AllowUserToResizeColumns = false;
             this.tblKaryawan.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
-            this.tblKaryawan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
+            this.tblKaryawan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tblKaryawan.AutoGenerateColumns = false;
             this.tblKaryawan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             this.tblKaryawan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.tblKaryawan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
             this.tblKaryawan.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.tblKaryawan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tblKaryawan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tblKaryawan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tblKaryawan.ColumnHeadersHeight = 40;
             this.tblKaryawan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idObatDataGridViewTextBoxColumn,
@@ -150,14 +150,14 @@
             this.tglKadaluarsaDataGridViewTextBoxColumn,
             this.stokDataGridViewTextBoxColumn});
             this.tblKaryawan.DataSource = this.obatBindingSource;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tblKaryawan.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tblKaryawan.DefaultCellStyle = dataGridViewCellStyle5;
             this.tblKaryawan.Enabled = false;
             this.tblKaryawan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
             this.tblKaryawan.Location = new System.Drawing.Point(29, 209);
@@ -212,9 +212,9 @@
             // hargaJualDataGridViewTextBoxColumn
             // 
             this.hargaJualDataGridViewTextBoxColumn.DataPropertyName = "Harga_Jual";
-            dataGridViewCellStyle8.Format = "C0";
-            dataGridViewCellStyle8.NullValue = null;
-            this.hargaJualDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Format = "C0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.hargaJualDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.hargaJualDataGridViewTextBoxColumn.HeaderText = "Harga Jual";
             this.hargaJualDataGridViewTextBoxColumn.Name = "hargaJualDataGridViewTextBoxColumn";
             this.hargaJualDataGridViewTextBoxColumn.ReadOnly = true;
@@ -223,9 +223,9 @@
             // 
             this.tglKadaluarsaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.tglKadaluarsaDataGridViewTextBoxColumn.DataPropertyName = "Tgl_Kadaluarsa";
-            dataGridViewCellStyle9.Format = "dd MMMM yyyy";
-            dataGridViewCellStyle9.NullValue = null;
-            this.tglKadaluarsaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Format = "dd MMMM yyyy";
+            dataGridViewCellStyle4.NullValue = null;
+            this.tglKadaluarsaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.tglKadaluarsaDataGridViewTextBoxColumn.HeaderText = "Tgl Kadaluarsa";
             this.tglKadaluarsaDataGridViewTextBoxColumn.Name = "tglKadaluarsaDataGridViewTextBoxColumn";
             this.tglKadaluarsaDataGridViewTextBoxColumn.ReadOnly = true;
@@ -828,7 +828,7 @@
             // 
             this.imgEfek.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
             this.imgEfek.Image = global::D_Clinic.Properties.Resources.white_efek;
-            this.imgEfek.Location = new System.Drawing.Point(20, 235);
+            this.imgEfek.Location = new System.Drawing.Point(20, 236);
             this.imgEfek.Margin = new System.Windows.Forms.Padding(2);
             this.imgEfek.Name = "imgEfek";
             this.imgEfek.Size = new System.Drawing.Size(35, 35);
@@ -852,7 +852,7 @@
             // 
             this.imgKemasan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
             this.imgKemasan.Image = global::D_Clinic.Properties.Resources.white_kemasan;
-            this.imgKemasan.Location = new System.Drawing.Point(20, 186);
+            this.imgKemasan.Location = new System.Drawing.Point(20, 184);
             this.imgKemasan.Margin = new System.Windows.Forms.Padding(2);
             this.imgKemasan.Name = "imgKemasan";
             this.imgKemasan.Size = new System.Drawing.Size(35, 35);
