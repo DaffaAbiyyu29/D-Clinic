@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{95182BEC-1AE0-4CC8-ACE1-9473811E009C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>D_Clinic</RootNamespace>
+    <AssemblyName>D-Clinic</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.4, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.4\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DClinic.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DClinic.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DClinicDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DClinicDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Form_Master_Karyawan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_Master_Karyawan.Designer.cs">
+      <DependentUpon>Form_Master_Karyawan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Login.Designer.cs">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Form_Master_Obat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_Master_Obat.Designer.cs">
+      <DependentUpon>Form_Master_Obat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Form_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_Menu.Designer.cs">
+      <DependentUpon>Form_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Form_View_Apoteker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_View_Apoteker.Designer.cs">
+      <DependentUpon>Form_View_Apoteker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Form_View_Dokter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_View_Dokter.Designer.cs">
+      <DependentUpon>Form_View_Dokter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Form_View_Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_View_Manager.Designer.cs">
+      <DependentUpon>Form_View_Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Form_View_Obat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_View_Obat.Designer.cs">
+      <DependentUpon>Form_View_Obat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Form_View_Resepsionis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_View_Resepsionis.Designer.cs">
+      <DependentUpon>Form_View_Resepsionis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Msg_Box.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\Msg_Box.Designer.cs">
+      <DependentUpon>Msg_Box.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Halaman\Form_Master_Karyawan.resx">
+      <DependentUpon>Form_Master_Karyawan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Form_Master_Obat.resx">
+      <DependentUpon>Form_Master_Obat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Form_Menu.resx">
+      <DependentUpon>Form_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Login.resx">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Form_View_Apoteker.resx">
+      <DependentUpon>Form_View_Apoteker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Form_View_Dokter.resx">
+      <DependentUpon>Form_View_Dokter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Form_View_Manager.resx">
+      <DependentUpon>Form_View_Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Form_View_Obat.resx">
+      <DependentUpon>Form_View_Obat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Form_View_Resepsionis.resx">
+      <DependentUpon>Form_View_Resepsionis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resources\Msg_Box.resx">
+      <DependentUpon>Msg_Box.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DClinic.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DClinic.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DClinic.dbml.layout">
+      <DependentUpon>DClinic.dbml</DependentUpon>
+    </None>
+    <None Include="DClinicDataSet.xsc">
+      <DependentUpon>DClinicDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DClinicDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DClinicDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DClinicDataSet.xss">
+      <DependentUpon>DClinicDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D-Clinic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D-Clinic_Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D-Clinick_Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D-Clinic_Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D-Clinic_Green1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D-Clinic_Black1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D-Clinic_Green2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide_pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show_pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white-pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_id-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_name.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_role.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_telephone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_name.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_id-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_suitcase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_telephone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_cal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_efek.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_harga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_kemasan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_merk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_stok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_cal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_efek.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_harga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_kemasan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_merk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_stok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide_pass1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show_pass1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
