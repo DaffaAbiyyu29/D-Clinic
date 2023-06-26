@@ -196,7 +196,7 @@
             // 
             this.btnKeluar.Animated = true;
             this.btnKeluar.BackColor = System.Drawing.Color.Transparent;
-            this.btnKeluar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
+            this.btnKeluar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
             this.btnKeluar.BorderRadius = 20;
             this.btnKeluar.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.btnKeluar.BorderThickness = 2;
@@ -206,8 +206,8 @@
             this.btnKeluar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnKeluar.FillColor = System.Drawing.Color.Transparent;
             this.btnKeluar.Font = new System.Drawing.Font("Porsche Next TT", 18F, System.Drawing.FontStyle.Bold);
-            this.btnKeluar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
-            this.btnKeluar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
+            this.btnKeluar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
+            this.btnKeluar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
             this.btnKeluar.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
             this.btnKeluar.Location = new System.Drawing.Point(80, 427);
             this.btnKeluar.Margin = new System.Windows.Forms.Padding(2);

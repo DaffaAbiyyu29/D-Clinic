@@ -49,7 +49,12 @@ namespace D_Clinic
 
         private void btnKeluar_Click(object sender, EventArgs e)
         {
-            Program.CloseAllForms();
+            this.Hide();
+            Msg_Box mBox = new Msg_Box();
+            mBox.text1.Text = "Terimakasih Sudah Menggunakan :D";
+            mBox.session.Text = "Logout";
+            mBox.Show();
+            mBox.InformationMessage();
         }
 
         private void btnBatal_Click(object sender, EventArgs e)
@@ -92,8 +97,7 @@ namespace D_Clinic
                         RiwayatLogin();
                         mBox.Show();
                         loginSession = "Login Berhasil";
-                        mBox.text1.Text = nama;
-                        mBox.text2.Text = jabatan;
+                        mBox.text1.Text = "Selamat Datang " +nama;
                         mBox.session.Text = loginSession;
                         this.Hide();
                     }

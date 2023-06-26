@@ -29,14 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.tblKaryawan = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.idKaryawanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jabatanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.karyawanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dClinicDataSet = new D_Clinic.DClinicDataSet();
             this.txCariUsername = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnTambah = new Guna.UI2.WinForms.Guna2Button();
+            this.imgSearchUsername = new System.Windows.Forms.PictureBox();
+            this.btnUbah = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.cbJabatan = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -46,38 +55,29 @@
             this.btnHapus = new Guna.UI2.WinForms.Guna2Button();
             this.txNama = new Guna.UI2.WinForms.Guna2TextBox();
             this.txTelp = new Guna.UI2.WinForms.Guna2TextBox();
+            this.imgJabatan = new System.Windows.Forms.PictureBox();
             this.txEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.txUsername = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txCariID = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnBatal = new Guna.UI2.WinForms.Guna2Button();
-            this.txCariNama = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnTambah = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCari = new Guna.UI2.WinForms.Guna2Button();
-            this.btnUbah = new Guna.UI2.WinForms.Guna2Button();
-            this.dClinicDataSet = new D_Clinic.DClinicDataSet();
-            this.karyawanBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.karyawanTableAdapter = new D_Clinic.DClinicDataSetTableAdapters.KaryawanTableAdapter();
-            this.idKaryawanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jabatanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imgSearchUsername = new System.Windows.Forms.PictureBox();
-            this.imgJabatan = new System.Windows.Forms.PictureBox();
             this.imgPassword = new System.Windows.Forms.PictureBox();
+            this.txPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.imgID = new System.Windows.Forms.PictureBox();
             this.imgNama = new System.Windows.Forms.PictureBox();
             this.imgUsername = new System.Windows.Forms.PictureBox();
             this.imgTelp = new System.Windows.Forms.PictureBox();
             this.imgEmail = new System.Windows.Forms.PictureBox();
+            this.txCariID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnBatal = new Guna.UI2.WinForms.Guna2Button();
+            this.txCariNama = new Guna.UI2.WinForms.Guna2TextBox();
             this.imgSearchID = new System.Windows.Forms.PictureBox();
+            this.btnCari = new Guna.UI2.WinForms.Guna2Button();
             this.imgSearchNama = new System.Windows.Forms.PictureBox();
+            this.karyawanTableAdapter = new D_Clinic.DClinicDataSetTableAdapters.KaryawanTableAdapter();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblKaryawan)).BeginInit();
-            this.guna2GroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.karyawanBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchUsername)).BeginInit();
+            this.guna2GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgJabatan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgID)).BeginInit();
@@ -140,22 +140,22 @@
             this.tblKaryawan.AllowUserToDeleteRows = false;
             this.tblKaryawan.AllowUserToResizeColumns = false;
             this.tblKaryawan.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
-            this.tblKaryawan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
+            this.tblKaryawan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tblKaryawan.AutoGenerateColumns = false;
             this.tblKaryawan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             this.tblKaryawan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.tblKaryawan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
             this.tblKaryawan.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.tblKaryawan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tblKaryawan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tblKaryawan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tblKaryawan.ColumnHeadersHeight = 40;
             this.tblKaryawan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idKaryawanDataGridViewTextBoxColumn,
@@ -163,14 +163,14 @@
             this.telpDataGridViewTextBoxColumn,
             this.jabatanDataGridViewTextBoxColumn});
             this.tblKaryawan.DataSource = this.karyawanBindingSource;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tblKaryawan.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tblKaryawan.DefaultCellStyle = dataGridViewCellStyle3;
             this.tblKaryawan.Enabled = false;
             this.tblKaryawan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
             this.tblKaryawan.Location = new System.Drawing.Point(29, 209);
@@ -208,6 +208,50 @@
             this.tblKaryawan.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.tblKaryawan.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
             // 
+            // idKaryawanDataGridViewTextBoxColumn
+            // 
+            this.idKaryawanDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.idKaryawanDataGridViewTextBoxColumn.DataPropertyName = "Id_Karyawan";
+            this.idKaryawanDataGridViewTextBoxColumn.HeaderText = "ID Karyawan";
+            this.idKaryawanDataGridViewTextBoxColumn.Name = "idKaryawanDataGridViewTextBoxColumn";
+            this.idKaryawanDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idKaryawanDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // namaDataGridViewTextBoxColumn
+            // 
+            this.namaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
+            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
+            this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
+            this.namaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.namaDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // telpDataGridViewTextBoxColumn
+            // 
+            this.telpDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.telpDataGridViewTextBoxColumn.DataPropertyName = "Telp";
+            this.telpDataGridViewTextBoxColumn.HeaderText = "Telp";
+            this.telpDataGridViewTextBoxColumn.Name = "telpDataGridViewTextBoxColumn";
+            this.telpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.telpDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // jabatanDataGridViewTextBoxColumn
+            // 
+            this.jabatanDataGridViewTextBoxColumn.DataPropertyName = "Jabatan";
+            this.jabatanDataGridViewTextBoxColumn.HeaderText = "Jabatan";
+            this.jabatanDataGridViewTextBoxColumn.Name = "jabatanDataGridViewTextBoxColumn";
+            this.jabatanDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // karyawanBindingSource
+            // 
+            this.karyawanBindingSource.DataMember = "Karyawan";
+            this.karyawanBindingSource.DataSource = this.dClinicDataSet;
+            // 
+            // dClinicDataSet
+            // 
+            this.dClinicDataSet.DataSetName = "DClinicDataSet";
+            this.dClinicDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txCariUsername
             // 
             this.txCariUsername.Animated = true;
@@ -241,6 +285,76 @@
             this.txCariUsername.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txCariUsername.TabIndex = 49;
             this.txCariUsername.Click += new System.EventHandler(this.txCariUsername_Click);
+            // 
+            // btnTambah
+            // 
+            this.btnTambah.Animated = true;
+            this.btnTambah.BackColor = System.Drawing.Color.Transparent;
+            this.btnTambah.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnTambah.BorderRadius = 10;
+            this.btnTambah.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnTambah.BorderThickness = 2;
+            this.btnTambah.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnTambah.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTambah.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTambah.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTambah.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTambah.FillColor = System.Drawing.Color.Transparent;
+            this.btnTambah.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
+            this.btnTambah.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnTambah.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnTambah.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnTambah.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnTambah.Location = new System.Drawing.Point(390, 135);
+            this.btnTambah.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTambah.Name = "btnTambah";
+            this.btnTambah.PressedColor = System.Drawing.Color.NavajoWhite;
+            this.btnTambah.PressedDepth = 50;
+            this.btnTambah.Size = new System.Drawing.Size(187, 37);
+            this.btnTambah.TabIndex = 54;
+            this.btnTambah.Text = "Tambah Karyawan";
+            this.btnTambah.UseTransparentBackground = true;
+            this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
+            // 
+            // imgSearchUsername
+            // 
+            this.imgSearchUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.imgSearchUsername.Image = global::D_Clinic.Properties.Resources.white_user;
+            this.imgSearchUsername.Location = new System.Drawing.Point(24, 135);
+            this.imgSearchUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.imgSearchUsername.Name = "imgSearchUsername";
+            this.imgSearchUsername.Size = new System.Drawing.Size(35, 35);
+            this.imgSearchUsername.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgSearchUsername.TabIndex = 58;
+            this.imgSearchUsername.TabStop = false;
+            // 
+            // btnUbah
+            // 
+            this.btnUbah.Animated = true;
+            this.btnUbah.BackColor = System.Drawing.Color.Transparent;
+            this.btnUbah.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnUbah.BorderRadius = 10;
+            this.btnUbah.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnUbah.BorderThickness = 2;
+            this.btnUbah.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUbah.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUbah.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUbah.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUbah.FillColor = System.Drawing.Color.Transparent;
+            this.btnUbah.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
+            this.btnUbah.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnUbah.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnUbah.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnUbah.Location = new System.Drawing.Point(390, 76);
+            this.btnUbah.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUbah.Name = "btnUbah";
+            this.btnUbah.PressedColor = System.Drawing.Color.NavajoWhite;
+            this.btnUbah.PressedDepth = 50;
+            this.btnUbah.Size = new System.Drawing.Size(187, 37);
+            this.btnUbah.TabIndex = 53;
+            this.btnUbah.Text = "Ubah Karyawan";
+            this.btnUbah.UseTransparentBackground = true;
+            this.btnUbah.Click += new System.EventHandler(this.btnUbah_Click);
             // 
             // panel1
             // 
@@ -418,7 +532,7 @@
             // 
             this.btnHapus.Animated = true;
             this.btnHapus.BackColor = System.Drawing.Color.Transparent;
-            this.btnHapus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnHapus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
             this.btnHapus.BorderRadius = 10;
             this.btnHapus.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.btnHapus.BorderThickness = 2;
@@ -429,9 +543,9 @@
             this.btnHapus.Enabled = false;
             this.btnHapus.FillColor = System.Drawing.Color.Transparent;
             this.btnHapus.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
-            this.btnHapus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnHapus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
             this.btnHapus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
-            this.btnHapus.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnHapus.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
             this.btnHapus.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
             this.btnHapus.Location = new System.Drawing.Point(26, 505);
             this.btnHapus.Margin = new System.Windows.Forms.Padding(2);
@@ -515,6 +629,18 @@
             this.txTelp.Click += new System.EventHandler(this.txTelp_Click);
             this.txTelp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txTelp_KeyPress);
             // 
+            // imgJabatan
+            // 
+            this.imgJabatan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.imgJabatan.Image = global::D_Clinic.Properties.Resources.white_role;
+            this.imgJabatan.Location = new System.Drawing.Point(20, 334);
+            this.imgJabatan.Margin = new System.Windows.Forms.Padding(2);
+            this.imgJabatan.Name = "imgJabatan";
+            this.imgJabatan.Size = new System.Drawing.Size(35, 35);
+            this.imgJabatan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgJabatan.TabIndex = 22;
+            this.imgJabatan.TabStop = false;
+            // 
             // txEmail
             // 
             this.txEmail.Animated = true;
@@ -585,6 +711,18 @@
             this.txUsername.TabIndex = 20;
             this.txUsername.Click += new System.EventHandler(this.txUsername_Click);
             // 
+            // imgPassword
+            // 
+            this.imgPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.imgPassword.Image = global::D_Clinic.Properties.Resources.white_pass;
+            this.imgPassword.Location = new System.Drawing.Point(20, 284);
+            this.imgPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.imgPassword.Name = "imgPassword";
+            this.imgPassword.Size = new System.Drawing.Size(35, 35);
+            this.imgPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgPassword.TabIndex = 22;
+            this.imgPassword.TabStop = false;
+            // 
             // txPassword
             // 
             this.txPassword.Animated = true;
@@ -620,272 +758,6 @@
             this.txPassword.TabIndex = 20;
             this.txPassword.UseSystemPasswordChar = true;
             this.txPassword.Click += new System.EventHandler(this.txPassword_Click);
-            // 
-            // txCariID
-            // 
-            this.txCariID.Animated = true;
-            this.txCariID.AutoRoundedCorners = true;
-            this.txCariID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txCariID.BorderColor = System.Drawing.Color.White;
-            this.txCariID.BorderRadius = 16;
-            this.txCariID.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.txCariID.BorderThickness = 2;
-            this.txCariID.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txCariID.DefaultText = "";
-            this.txCariID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txCariID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txCariID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txCariID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txCariID.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txCariID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.txCariID.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.txCariID.Font = new System.Drawing.Font("Porsche Next TT", 16F, System.Drawing.FontStyle.Bold);
-            this.txCariID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.txCariID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txCariID.Location = new System.Drawing.Point(64, 16);
-            this.txCariID.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.txCariID.MaxLength = 7;
-            this.txCariID.Name = "txCariID";
-            this.txCariID.PasswordChar = '\0';
-            this.txCariID.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txCariID.PlaceholderText = "ID Karyawan";
-            this.txCariID.SelectedText = "";
-            this.txCariID.Size = new System.Drawing.Size(306, 35);
-            this.txCariID.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txCariID.TabIndex = 47;
-            this.txCariID.Click += new System.EventHandler(this.txCariID_Click);
-            // 
-            // btnBatal
-            // 
-            this.btnBatal.Animated = true;
-            this.btnBatal.BackColor = System.Drawing.Color.Transparent;
-            this.btnBatal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
-            this.btnBatal.BorderRadius = 10;
-            this.btnBatal.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnBatal.BorderThickness = 2;
-            this.btnBatal.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBatal.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBatal.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBatal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBatal.FillColor = System.Drawing.Color.Transparent;
-            this.btnBatal.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
-            this.btnBatal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
-            this.btnBatal.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
-            this.btnBatal.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnBatal.Location = new System.Drawing.Point(28, 555);
-            this.btnBatal.Margin = new System.Windows.Forms.Padding(2);
-            this.btnBatal.Name = "btnBatal";
-            this.btnBatal.PressedColor = System.Drawing.Color.NavajoWhite;
-            this.btnBatal.PressedDepth = 50;
-            this.btnBatal.Size = new System.Drawing.Size(538, 37);
-            this.btnBatal.TabIndex = 55;
-            this.btnBatal.Text = "Batal";
-            this.btnBatal.UseTransparentBackground = true;
-            this.btnBatal.Click += new System.EventHandler(this.btnBatal_Click);
-            // 
-            // txCariNama
-            // 
-            this.txCariNama.Animated = true;
-            this.txCariNama.AutoRoundedCorners = true;
-            this.txCariNama.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txCariNama.BorderColor = System.Drawing.Color.White;
-            this.txCariNama.BorderRadius = 16;
-            this.txCariNama.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.txCariNama.BorderThickness = 2;
-            this.txCariNama.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txCariNama.DefaultText = "";
-            this.txCariNama.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txCariNama.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txCariNama.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txCariNama.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txCariNama.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txCariNama.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.txCariNama.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.txCariNama.Font = new System.Drawing.Font("Porsche Next TT", 16F, System.Drawing.FontStyle.Bold);
-            this.txCariNama.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.txCariNama.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txCariNama.Location = new System.Drawing.Point(64, 76);
-            this.txCariNama.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.txCariNama.MaxLength = 30;
-            this.txCariNama.Name = "txCariNama";
-            this.txCariNama.PasswordChar = '\0';
-            this.txCariNama.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txCariNama.PlaceholderText = "Nama Karyawan";
-            this.txCariNama.SelectedText = "";
-            this.txCariNama.Size = new System.Drawing.Size(306, 35);
-            this.txCariNama.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txCariNama.TabIndex = 48;
-            this.txCariNama.Click += new System.EventHandler(this.txCariNama_Click);
-            // 
-            // btnTambah
-            // 
-            this.btnTambah.Animated = true;
-            this.btnTambah.BackColor = System.Drawing.Color.Transparent;
-            this.btnTambah.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnTambah.BorderRadius = 10;
-            this.btnTambah.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnTambah.BorderThickness = 2;
-            this.btnTambah.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnTambah.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTambah.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTambah.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTambah.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTambah.FillColor = System.Drawing.Color.Transparent;
-            this.btnTambah.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
-            this.btnTambah.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnTambah.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnTambah.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnTambah.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnTambah.Location = new System.Drawing.Point(390, 135);
-            this.btnTambah.Margin = new System.Windows.Forms.Padding(2);
-            this.btnTambah.Name = "btnTambah";
-            this.btnTambah.PressedColor = System.Drawing.Color.NavajoWhite;
-            this.btnTambah.PressedDepth = 50;
-            this.btnTambah.Size = new System.Drawing.Size(187, 37);
-            this.btnTambah.TabIndex = 54;
-            this.btnTambah.Text = "Tambah Karyawan";
-            this.btnTambah.UseTransparentBackground = true;
-            this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
-            // 
-            // btnCari
-            // 
-            this.btnCari.Animated = true;
-            this.btnCari.BackColor = System.Drawing.Color.Transparent;
-            this.btnCari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnCari.BorderRadius = 10;
-            this.btnCari.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnCari.BorderThickness = 2;
-            this.btnCari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCari.FillColor = System.Drawing.Color.Transparent;
-            this.btnCari.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
-            this.btnCari.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnCari.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnCari.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnCari.Location = new System.Drawing.Point(390, 16);
-            this.btnCari.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCari.Name = "btnCari";
-            this.btnCari.PressedColor = System.Drawing.Color.NavajoWhite;
-            this.btnCari.PressedDepth = 50;
-            this.btnCari.Size = new System.Drawing.Size(187, 37);
-            this.btnCari.TabIndex = 52;
-            this.btnCari.Text = "Cari Karyawan";
-            this.btnCari.UseTransparentBackground = true;
-            this.btnCari.Click += new System.EventHandler(this.btnCari_Click);
-            // 
-            // btnUbah
-            // 
-            this.btnUbah.Animated = true;
-            this.btnUbah.BackColor = System.Drawing.Color.Transparent;
-            this.btnUbah.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnUbah.BorderRadius = 10;
-            this.btnUbah.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnUbah.BorderThickness = 2;
-            this.btnUbah.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnUbah.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnUbah.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnUbah.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUbah.FillColor = System.Drawing.Color.Transparent;
-            this.btnUbah.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
-            this.btnUbah.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnUbah.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnUbah.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnUbah.Location = new System.Drawing.Point(390, 76);
-            this.btnUbah.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUbah.Name = "btnUbah";
-            this.btnUbah.PressedColor = System.Drawing.Color.NavajoWhite;
-            this.btnUbah.PressedDepth = 50;
-            this.btnUbah.Size = new System.Drawing.Size(187, 37);
-            this.btnUbah.TabIndex = 53;
-            this.btnUbah.Text = "Ubah Karyawan";
-            this.btnUbah.UseTransparentBackground = true;
-            this.btnUbah.Click += new System.EventHandler(this.btnUbah_Click);
-            // 
-            // dClinicDataSet
-            // 
-            this.dClinicDataSet.DataSetName = "DClinicDataSet";
-            this.dClinicDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // karyawanBindingSource
-            // 
-            this.karyawanBindingSource.DataMember = "Karyawan";
-            this.karyawanBindingSource.DataSource = this.dClinicDataSet;
-            // 
-            // karyawanTableAdapter
-            // 
-            this.karyawanTableAdapter.ClearBeforeFill = true;
-            // 
-            // idKaryawanDataGridViewTextBoxColumn
-            // 
-            this.idKaryawanDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.idKaryawanDataGridViewTextBoxColumn.DataPropertyName = "Id_Karyawan";
-            this.idKaryawanDataGridViewTextBoxColumn.HeaderText = "ID Karyawan";
-            this.idKaryawanDataGridViewTextBoxColumn.Name = "idKaryawanDataGridViewTextBoxColumn";
-            this.idKaryawanDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idKaryawanDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // namaDataGridViewTextBoxColumn
-            // 
-            this.namaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
-            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
-            this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
-            this.namaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.namaDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // telpDataGridViewTextBoxColumn
-            // 
-            this.telpDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.telpDataGridViewTextBoxColumn.DataPropertyName = "Telp";
-            this.telpDataGridViewTextBoxColumn.HeaderText = "Telp";
-            this.telpDataGridViewTextBoxColumn.Name = "telpDataGridViewTextBoxColumn";
-            this.telpDataGridViewTextBoxColumn.ReadOnly = true;
-            this.telpDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // jabatanDataGridViewTextBoxColumn
-            // 
-            this.jabatanDataGridViewTextBoxColumn.DataPropertyName = "Jabatan";
-            this.jabatanDataGridViewTextBoxColumn.HeaderText = "Jabatan";
-            this.jabatanDataGridViewTextBoxColumn.Name = "jabatanDataGridViewTextBoxColumn";
-            this.jabatanDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // imgSearchUsername
-            // 
-            this.imgSearchUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.imgSearchUsername.Image = global::D_Clinic.Properties.Resources.white_user;
-            this.imgSearchUsername.Location = new System.Drawing.Point(24, 135);
-            this.imgSearchUsername.Margin = new System.Windows.Forms.Padding(2);
-            this.imgSearchUsername.Name = "imgSearchUsername";
-            this.imgSearchUsername.Size = new System.Drawing.Size(35, 35);
-            this.imgSearchUsername.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgSearchUsername.TabIndex = 58;
-            this.imgSearchUsername.TabStop = false;
-            // 
-            // imgJabatan
-            // 
-            this.imgJabatan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.imgJabatan.Image = global::D_Clinic.Properties.Resources.white_role;
-            this.imgJabatan.Location = new System.Drawing.Point(20, 334);
-            this.imgJabatan.Margin = new System.Windows.Forms.Padding(2);
-            this.imgJabatan.Name = "imgJabatan";
-            this.imgJabatan.Size = new System.Drawing.Size(35, 35);
-            this.imgJabatan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgJabatan.TabIndex = 22;
-            this.imgJabatan.TabStop = false;
-            // 
-            // imgPassword
-            // 
-            this.imgPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.imgPassword.Image = global::D_Clinic.Properties.Resources.white_pass;
-            this.imgPassword.Location = new System.Drawing.Point(20, 284);
-            this.imgPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.imgPassword.Name = "imgPassword";
-            this.imgPassword.Size = new System.Drawing.Size(35, 35);
-            this.imgPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgPassword.TabIndex = 22;
-            this.imgPassword.TabStop = false;
             // 
             // imgID
             // 
@@ -947,6 +819,103 @@
             this.imgEmail.TabIndex = 22;
             this.imgEmail.TabStop = false;
             // 
+            // txCariID
+            // 
+            this.txCariID.Animated = true;
+            this.txCariID.AutoRoundedCorners = true;
+            this.txCariID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txCariID.BorderColor = System.Drawing.Color.White;
+            this.txCariID.BorderRadius = 16;
+            this.txCariID.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.txCariID.BorderThickness = 2;
+            this.txCariID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txCariID.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txCariID.DefaultText = "";
+            this.txCariID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txCariID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txCariID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txCariID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txCariID.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txCariID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.txCariID.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.txCariID.Font = new System.Drawing.Font("Porsche Next TT", 16F, System.Drawing.FontStyle.Bold);
+            this.txCariID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.txCariID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txCariID.Location = new System.Drawing.Point(64, 16);
+            this.txCariID.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.txCariID.MaxLength = 7;
+            this.txCariID.Name = "txCariID";
+            this.txCariID.PasswordChar = '\0';
+            this.txCariID.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txCariID.PlaceholderText = "ID Karyawan";
+            this.txCariID.SelectedText = "";
+            this.txCariID.Size = new System.Drawing.Size(306, 35);
+            this.txCariID.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txCariID.TabIndex = 47;
+            this.txCariID.Click += new System.EventHandler(this.txCariID_Click);
+            // 
+            // btnBatal
+            // 
+            this.btnBatal.Animated = true;
+            this.btnBatal.BackColor = System.Drawing.Color.Transparent;
+            this.btnBatal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
+            this.btnBatal.BorderRadius = 10;
+            this.btnBatal.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnBatal.BorderThickness = 2;
+            this.btnBatal.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBatal.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBatal.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBatal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBatal.FillColor = System.Drawing.Color.Transparent;
+            this.btnBatal.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
+            this.btnBatal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
+            this.btnBatal.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
+            this.btnBatal.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnBatal.Location = new System.Drawing.Point(28, 555);
+            this.btnBatal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBatal.Name = "btnBatal";
+            this.btnBatal.PressedColor = System.Drawing.Color.NavajoWhite;
+            this.btnBatal.PressedDepth = 50;
+            this.btnBatal.Size = new System.Drawing.Size(538, 37);
+            this.btnBatal.TabIndex = 55;
+            this.btnBatal.Text = "Batal";
+            this.btnBatal.UseTransparentBackground = true;
+            this.btnBatal.Click += new System.EventHandler(this.btnBatal_Click);
+            // 
+            // txCariNama
+            // 
+            this.txCariNama.Animated = true;
+            this.txCariNama.AutoRoundedCorners = true;
+            this.txCariNama.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txCariNama.BorderColor = System.Drawing.Color.White;
+            this.txCariNama.BorderRadius = 16;
+            this.txCariNama.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.txCariNama.BorderThickness = 2;
+            this.txCariNama.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txCariNama.DefaultText = "";
+            this.txCariNama.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txCariNama.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txCariNama.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txCariNama.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txCariNama.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txCariNama.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.txCariNama.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.txCariNama.Font = new System.Drawing.Font("Porsche Next TT", 16F, System.Drawing.FontStyle.Bold);
+            this.txCariNama.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.txCariNama.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txCariNama.Location = new System.Drawing.Point(64, 76);
+            this.txCariNama.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.txCariNama.MaxLength = 30;
+            this.txCariNama.Name = "txCariNama";
+            this.txCariNama.PasswordChar = '\0';
+            this.txCariNama.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txCariNama.PlaceholderText = "Nama Karyawan";
+            this.txCariNama.SelectedText = "";
+            this.txCariNama.Size = new System.Drawing.Size(306, 35);
+            this.txCariNama.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txCariNama.TabIndex = 48;
+            this.txCariNama.Click += new System.EventHandler(this.txCariNama_Click);
+            // 
             // imgSearchID
             // 
             this.imgSearchID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -959,6 +928,34 @@
             this.imgSearchID.TabIndex = 50;
             this.imgSearchID.TabStop = false;
             // 
+            // btnCari
+            // 
+            this.btnCari.Animated = true;
+            this.btnCari.BackColor = System.Drawing.Color.Transparent;
+            this.btnCari.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnCari.BorderRadius = 10;
+            this.btnCari.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnCari.BorderThickness = 2;
+            this.btnCari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCari.FillColor = System.Drawing.Color.Transparent;
+            this.btnCari.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
+            this.btnCari.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnCari.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnCari.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnCari.Location = new System.Drawing.Point(390, 16);
+            this.btnCari.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCari.Name = "btnCari";
+            this.btnCari.PressedColor = System.Drawing.Color.NavajoWhite;
+            this.btnCari.PressedDepth = 50;
+            this.btnCari.Size = new System.Drawing.Size(187, 37);
+            this.btnCari.TabIndex = 52;
+            this.btnCari.Text = "Cari Karyawan";
+            this.btnCari.UseTransparentBackground = true;
+            this.btnCari.Click += new System.EventHandler(this.btnCari_Click);
+            // 
             // imgSearchNama
             // 
             this.imgSearchNama.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -970,6 +967,10 @@
             this.imgSearchNama.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgSearchNama.TabIndex = 51;
             this.imgSearchNama.TabStop = false;
+            // 
+            // karyawanTableAdapter
+            // 
+            this.karyawanTableAdapter.ClearBeforeFill = true;
             // 
             // Form_Master_Karyawan
             // 
@@ -985,10 +986,10 @@
             this.Load += new System.EventHandler(this.Form_Master_Karyawan_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tblKaryawan)).EndInit();
-            this.guna2GroupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.karyawanBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchUsername)).EndInit();
+            this.guna2GroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgJabatan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgID)).EndInit();

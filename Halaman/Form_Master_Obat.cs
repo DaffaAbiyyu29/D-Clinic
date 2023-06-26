@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace D_Clinic.Halaman
 {
     public partial class Form_Master_Obat : Form
     {
+        Msg_Box mBox = new Msg_Box();
+
         string IDObat, obatBox;
         int lastID;
         public Form_Master_Obat()
@@ -226,15 +229,80 @@ namespace D_Clinic.Halaman
             txStok.Enabled = true;
             btnSimpan.Enabled = true;
         }
+        private void HapusObat()
+        {
+            try
+            {
+                using (DClinicDataContext context = new DClinicDataContext())
+                {
+                    Obat delete = context.Obats.FirstOrDefault(data => data.Id_Obat == txID.Text);
 
+                    context.Obats.DeleteOnSubmit(delete);
+                    context.SubmitChanges();
+
+                    mBox.text1.Text = "Berhasil Menghapus Obat";
+                    mBox.session.Text = "Obat";
+                    mBox.Show();
+                    clearText();
+                    resetIcon();
+                    disablePropherties();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.obatTableAdapter.Fill(this.dClinicDataSet.Obat);
+            }
+        }
         private void btnHapus_Click(object sender, EventArgs e)
         {
-
+            HapusObat();
         }
+        private void UpdateObat()
+        {
+            dtpKadaluarsa.Format = DateTimePickerFormat.Custom;
+            dtpKadaluarsa.CustomFormat = "dd/MM/yy";
+            string unformatHargaBeli = txHargaBeli.Text.Replace(".", "");
+            string unformatHargaJual = txHargaJual.Text.Replace(".", "");
+            try
+            {
+                using (DClinicDataContext context = new DClinicDataContext())
+                {
+                    Obat update = context.Obats.FirstOrDefault(data => data.Id_Obat == txID.Text);
+                    update.Nama = txNama.Text;
+                    update.Merk = txMerk.Text;
+                    update.Kemasan = cbKemasan.Text;
+                    update.Efek = txEfek.Text;
+                    update.Harga_Beli = int.Parse(unformatHargaBeli);
+                    update.Harga_Jual = int.Parse(unformatHargaJual);
+                    update.Tgl_Kadaluarsa = dtpKadaluarsa.Value;
+                    update.Stok = int.Parse(txStok.Text);
 
+                    context.SubmitChanges();
+
+                    mBox.text1.Text = "Berhasil Memperbarui Obat";
+                    mBox.session.Text = "Obat";
+                    mBox.Show();
+                    clearText();
+                    resetIcon();
+                    disablePropherties();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.obatTableAdapter.Fill(this.dClinicDataSet.Obat);
+            }
+        }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            UpdateObat();
         }
         private void TambahObat()
         {
@@ -281,7 +349,6 @@ namespace D_Clinic.Halaman
             if (cbKemasan.SelectedIndex != 0)
             {
                 TambahObat();
-                Msg_Box mBox = new Msg_Box();
                 mBox.text1.Text = "Berhasil Menambahkan Obat :D";
                 mBox.session.Text = "Obat";
                 mBox.Show();
@@ -310,6 +377,91 @@ namespace D_Clinic.Halaman
             // TODO: This line of code loads data into the 'dClinicDataSet.Obat' table. You can move, or remove it, as needed.
             this.obatTableAdapter.Fill(this.dClinicDataSet.Obat);
 
+        }
+        private void cariObat()
+        {
+            string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
+            string query = "";
+            if (txCariID.Text.Length != 0)
+            {
+                query = "SELECT * FROM Obat WHERE Id_Obat = '" + txCariID.Text + "'";
+            }
+            else if (txCariNama.Text.Length != 0)
+            {
+                query = "SELECT * FROM Obat WHERE Nama = '" + txCariNama.Text + "'";
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        // Ambil nilai-nilai kolom dari reader
+                        string id = reader.GetString(0);
+                        string nama = reader.GetString(1);
+                        string merk = reader.GetString(2);
+                        string kemasan = reader.GetString(3);
+                        string efek = reader.GetString(4);
+                        int hargaBeli = (int)reader.GetSqlMoney(5);
+                        int hargaJual = (int)reader.GetSqlMoney(6);
+                        DateTime tglKadaluarsa = reader.GetDateTime(7);
+                        int stok = reader.GetInt32(8);
+
+                        txID.Enabled = false;
+                        txNama.Enabled = true;
+                        txMerk.Enabled = true;
+                        cbKemasan.Enabled = true;
+                        txEfek.Enabled = true;
+                        txHargaBeli.Enabled = true;
+                        txHargaJual.Enabled = true;
+                        dtpKadaluarsa.Enabled = true;
+                        txStok.Enabled = true;
+                        btnHapus.Enabled = true;
+                        btnUpdate.Enabled = true;
+
+                        string formatHargaBeli = hargaBeli.ToString("N0");
+                        string formatHargaJual = hargaJual.ToString("N0");
+                        txID.Text = id;
+                        txNama.Text = nama;
+                        txMerk.Text = merk;
+                        cbKemasan.Text = kemasan;
+                        txEfek.Text = efek;
+                        txHargaBeli.Text = formatHargaBeli;
+                        txHargaJual.Text = formatHargaJual;
+                        dtpKadaluarsa.Value = tglKadaluarsa;
+                        txStok.Text = stok.ToString();
+                    }
+                }
+                else
+                {
+                    mBox.text1.Text = "Obat " + txCariID.Text + txCariNama.Text + " Tidak Ditemukan, Silakan Cari Obat Kembali!";
+                    mBox.session.Text = "Obat";
+                    mBox.Show();
+                    mBox.WarningMessage();
+                }
+                reader.Close();
+            }
+        }
+        private void btnUbah_Click(object sender, EventArgs e)
+        {
+            if (txCariID.Text != "" || txCariNama.Text != "")
+            {
+                cariObat();
+            }
+            else
+            {
+                mBox.text1.Text = "Masukkan Obat Yang Ingin Diubah!";
+                mBox.session.Text = "Obat";
+                mBox.Show();
+                mBox.WarningMessage();
+            }
         }
 
         private void txHargaBeli_TextChanged(object sender, EventArgs e)

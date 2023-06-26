@@ -35,6 +35,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelDateTime = new System.Windows.Forms.Label();
             this.pnlSidebar = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnAkun = new Guna.UI2.WinForms.Guna2Button();
             this.pnlObat = new System.Windows.Forms.Panel();
             this.btnMasterObat = new Guna.UI2.WinForms.Guna2Button();
             this.btnViewObat = new Guna.UI2.WinForms.Guna2Button();
@@ -55,7 +56,6 @@
             this.lblNama = new System.Windows.Forms.Label();
             this.lblN = new System.Windows.Forms.Label();
             this.dateTimer = new System.Windows.Forms.Timer(this.components);
-            this.btnAkun = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlSidebar.SuspendLayout();
@@ -124,6 +124,38 @@
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(205, 858);
             this.pnlSidebar.TabIndex = 37;
+            // 
+            // btnAkun
+            // 
+            this.btnAkun.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnAkun.BorderRadius = 6;
+            this.btnAkun.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnAkun.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnAkun.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.btnAkun.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnAkun.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.btnAkun.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAkun.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAkun.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAkun.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAkun.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAkun.FillColor = System.Drawing.Color.Transparent;
+            this.btnAkun.Font = new System.Drawing.Font("Porsche Next TT", 15F, System.Drawing.FontStyle.Bold);
+            this.btnAkun.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnAkun.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnAkun.Image = ((System.Drawing.Image)(resources.GetObject("btnAkun.Image")));
+            this.btnAkun.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAkun.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnAkun.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAkun.Location = new System.Drawing.Point(0, 724);
+            this.btnAkun.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAkun.Name = "btnAkun";
+            this.btnAkun.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnAkun.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnAkun.Size = new System.Drawing.Size(205, 66);
+            this.btnAkun.TabIndex = 106;
+            this.btnAkun.Text = "Akun";
+            this.btnAkun.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // pnlObat
             // 
@@ -632,39 +664,6 @@
             // dateTimer
             // 
             this.dateTimer.Tick += new System.EventHandler(this.dateTimer_Tick);
-            // 
-            // btnAkun
-            // 
-            this.btnAkun.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnAkun.BorderRadius = 6;
-            this.btnAkun.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnAkun.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnAkun.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.btnAkun.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btnAkun.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.btnAkun.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAkun.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAkun.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAkun.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAkun.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnAkun.FillColor = System.Drawing.Color.Transparent;
-            this.btnAkun.Font = new System.Drawing.Font("Porsche Next TT", 15F, System.Drawing.FontStyle.Bold);
-            this.btnAkun.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnAkun.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnAkun.Image = ((System.Drawing.Image)(resources.GetObject("btnAkun.Image")));
-            this.btnAkun.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAkun.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnAkun.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnAkun.Location = new System.Drawing.Point(0, 724);
-            this.btnAkun.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAkun.Name = "btnAkun";
-            this.btnAkun.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnAkun.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnAkun.Size = new System.Drawing.Size(205, 66);
-            this.btnAkun.TabIndex = 106;
-            this.btnAkun.Text = "Akun";
-            this.btnAkun.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAkun.Visible = false;
             // 
             // Form_Menu
             // 

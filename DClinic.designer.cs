@@ -639,8 +639,6 @@ namespace D_Clinic
 		
 		private EntitySet<Apoteker> _Apotekers;
 		
-		private EntitySet<Riwayat_Login> _Riwayat_Logins;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -667,7 +665,6 @@ namespace D_Clinic
 			this._Managers = new EntitySet<Manager>(new Action<Manager>(this.attach_Managers), new Action<Manager>(this.detach_Managers));
 			this._Dokters = new EntitySet<Dokter>(new Action<Dokter>(this.attach_Dokters), new Action<Dokter>(this.detach_Dokters));
 			this._Apotekers = new EntitySet<Apoteker>(new Action<Apoteker>(this.attach_Apotekers), new Action<Apoteker>(this.detach_Apotekers));
-			this._Riwayat_Logins = new EntitySet<Riwayat_Login>(new Action<Riwayat_Login>(this.attach_Riwayat_Logins), new Action<Riwayat_Login>(this.detach_Riwayat_Logins));
 			OnCreated();
 		}
 		
@@ -863,19 +860,6 @@ namespace D_Clinic
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Karyawan_Riwayat_Login", Storage="_Riwayat_Logins", ThisKey="Id_Karyawan", OtherKey="Id_Karyawan")]
-		public EntitySet<Riwayat_Login> Riwayat_Logins
-		{
-			get
-			{
-				return this._Riwayat_Logins;
-			}
-			set
-			{
-				this._Riwayat_Logins.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -939,18 +923,6 @@ namespace D_Clinic
 		}
 		
 		private void detach_Apotekers(Apoteker entity)
-		{
-			this.SendPropertyChanging();
-			entity.Karyawan = null;
-		}
-		
-		private void attach_Riwayat_Logins(Riwayat_Login entity)
-		{
-			this.SendPropertyChanging();
-			entity.Karyawan = this;
-		}
-		
-		private void detach_Riwayat_Logins(Riwayat_Login entity)
 		{
 			this.SendPropertyChanging();
 			entity.Karyawan = null;
@@ -1481,8 +1453,6 @@ namespace D_Clinic
 		
 		private string _Waktu;
 		
-		private EntityRef<Karyawan> _Karyawan;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1501,7 +1471,6 @@ namespace D_Clinic
 		
 		public Riwayat_Login()
 		{
-			this._Karyawan = default(EntityRef<Karyawan>);
 			OnCreated();
 		}
 		
@@ -1536,10 +1505,6 @@ namespace D_Clinic
 			{
 				if ((this._Id_Karyawan != value))
 				{
-					if (this._Karyawan.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnId_KaryawanChanging(value);
 					this.SendPropertyChanging();
 					this._Id_Karyawan = value;
@@ -1605,40 +1570,6 @@ namespace D_Clinic
 					this._Waktu = value;
 					this.SendPropertyChanged("Waktu");
 					this.OnWaktuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Karyawan_Riwayat_Login", Storage="_Karyawan", ThisKey="Id_Karyawan", OtherKey="Id_Karyawan", IsForeignKey=true)]
-		public Karyawan Karyawan
-		{
-			get
-			{
-				return this._Karyawan.Entity;
-			}
-			set
-			{
-				Karyawan previousValue = this._Karyawan.Entity;
-				if (((previousValue != value) 
-							|| (this._Karyawan.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Karyawan.Entity = null;
-						previousValue.Riwayat_Logins.Remove(this);
-					}
-					this._Karyawan.Entity = value;
-					if ((value != null))
-					{
-						value.Riwayat_Logins.Add(this);
-						this._Id_Karyawan = value.Id_Karyawan;
-					}
-					else
-					{
-						this._Id_Karyawan = default(string);
-					}
-					this.SendPropertyChanged("Karyawan");
 				}
 			}
 		}

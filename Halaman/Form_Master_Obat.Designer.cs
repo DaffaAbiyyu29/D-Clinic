@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.tblKaryawan = new Guna.UI2.WinForms.Guna2DataGridView();
             this.idObatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,11 +56,13 @@
             this.btnHapus = new Guna.UI2.WinForms.Guna2Button();
             this.txNama = new Guna.UI2.WinForms.Guna2TextBox();
             this.txStok = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txHargaBeli = new Guna.UI2.WinForms.Guna2TextBox();
             this.txHargaJual = new Guna.UI2.WinForms.Guna2TextBox();
             this.txMerk = new Guna.UI2.WinForms.Guna2TextBox();
             this.txEfek = new Guna.UI2.WinForms.Guna2TextBox();
             this.imgID = new System.Windows.Forms.PictureBox();
             this.imgStok = new System.Windows.Forms.PictureBox();
+            this.imgHargaBeli = new System.Windows.Forms.PictureBox();
             this.imgNama = new System.Windows.Forms.PictureBox();
             this.imgHargaJual = new System.Windows.Forms.PictureBox();
             this.imgEfek = new System.Windows.Forms.PictureBox();
@@ -75,8 +77,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.obatTableAdapter = new D_Clinic.DClinicDataSetTableAdapters.ObatTableAdapter();
-            this.imgHargaBeli = new System.Windows.Forms.PictureBox();
-            this.txHargaBeli = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblKaryawan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obatBindingSource)).BeginInit();
@@ -85,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgTanggal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStok)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHargaBeli)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNama)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgHargaJual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEfek)).BeginInit();
@@ -92,7 +93,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgKemasan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchNama)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgHargaBeli)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2GroupBox1
@@ -126,22 +126,22 @@
             this.tblKaryawan.AllowUserToDeleteRows = false;
             this.tblKaryawan.AllowUserToResizeColumns = false;
             this.tblKaryawan.AllowUserToResizeRows = false;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
-            this.tblKaryawan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
+            this.tblKaryawan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.tblKaryawan.AutoGenerateColumns = false;
             this.tblKaryawan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             this.tblKaryawan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.tblKaryawan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
             this.tblKaryawan.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.tblKaryawan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tblKaryawan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tblKaryawan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.tblKaryawan.ColumnHeadersHeight = 40;
             this.tblKaryawan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idObatDataGridViewTextBoxColumn,
@@ -150,14 +150,14 @@
             this.tglKadaluarsaDataGridViewTextBoxColumn,
             this.stokDataGridViewTextBoxColumn});
             this.tblKaryawan.DataSource = this.obatBindingSource;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tblKaryawan.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tblKaryawan.DefaultCellStyle = dataGridViewCellStyle10;
             this.tblKaryawan.Enabled = false;
             this.tblKaryawan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
             this.tblKaryawan.Location = new System.Drawing.Point(29, 209);
@@ -212,9 +212,9 @@
             // hargaJualDataGridViewTextBoxColumn
             // 
             this.hargaJualDataGridViewTextBoxColumn.DataPropertyName = "Harga_Jual";
-            dataGridViewCellStyle28.Format = "C0";
-            dataGridViewCellStyle28.NullValue = null;
-            this.hargaJualDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle8.Format = "C0";
+            dataGridViewCellStyle8.NullValue = null;
+            this.hargaJualDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.hargaJualDataGridViewTextBoxColumn.HeaderText = "Harga Jual";
             this.hargaJualDataGridViewTextBoxColumn.Name = "hargaJualDataGridViewTextBoxColumn";
             this.hargaJualDataGridViewTextBoxColumn.ReadOnly = true;
@@ -223,9 +223,9 @@
             // 
             this.tglKadaluarsaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.tglKadaluarsaDataGridViewTextBoxColumn.DataPropertyName = "Tgl_Kadaluarsa";
-            dataGridViewCellStyle29.Format = "dd MMMM yyyy";
-            dataGridViewCellStyle29.NullValue = null;
-            this.tglKadaluarsaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle9.Format = "dd MMMM yyyy";
+            dataGridViewCellStyle9.NullValue = null;
+            this.tglKadaluarsaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.tglKadaluarsaDataGridViewTextBoxColumn.HeaderText = "Tgl Kadaluarsa";
             this.tglKadaluarsaDataGridViewTextBoxColumn.Name = "tglKadaluarsaDataGridViewTextBoxColumn";
             this.tglKadaluarsaDataGridViewTextBoxColumn.ReadOnly = true;
@@ -304,6 +304,7 @@
             this.btnUbah.TabIndex = 53;
             this.btnUbah.Text = "Ubah Obat";
             this.btnUbah.UseTransparentBackground = true;
+            this.btnUbah.Click += new System.EventHandler(this.btnUbah_Click);
             // 
             // panel1
             // 
@@ -525,7 +526,7 @@
             // 
             this.btnHapus.Animated = true;
             this.btnHapus.BackColor = System.Drawing.Color.Transparent;
-            this.btnHapus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnHapus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
             this.btnHapus.BorderRadius = 10;
             this.btnHapus.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.btnHapus.BorderThickness = 2;
@@ -536,9 +537,9 @@
             this.btnHapus.Enabled = false;
             this.btnHapus.FillColor = System.Drawing.Color.Transparent;
             this.btnHapus.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
-            this.btnHapus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnHapus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
             this.btnHapus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
-            this.btnHapus.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnHapus.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
             this.btnHapus.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
             this.btnHapus.Location = new System.Drawing.Point(26, 505);
             this.btnHapus.Margin = new System.Windows.Forms.Padding(2);
@@ -621,6 +622,43 @@
             this.txStok.TabIndex = 20;
             this.txStok.Click += new System.EventHandler(this.txStok_Click);
             this.txStok.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Integer_KeyPress);
+            // 
+            // txHargaBeli
+            // 
+            this.txHargaBeli.Animated = true;
+            this.txHargaBeli.AutoRoundedCorners = true;
+            this.txHargaBeli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.txHargaBeli.BorderColor = System.Drawing.Color.White;
+            this.txHargaBeli.BorderRadius = 16;
+            this.txHargaBeli.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.txHargaBeli.BorderThickness = 2;
+            this.txHargaBeli.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txHargaBeli.DefaultText = "";
+            this.txHargaBeli.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txHargaBeli.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.txHargaBeli.DisabledState.ForeColor = System.Drawing.Color.White;
+            this.txHargaBeli.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txHargaBeli.Enabled = false;
+            this.txHargaBeli.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.txHargaBeli.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.txHargaBeli.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.txHargaBeli.Font = new System.Drawing.Font("Porsche Next TT", 14F, System.Drawing.FontStyle.Bold);
+            this.txHargaBeli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.txHargaBeli.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txHargaBeli.Location = new System.Drawing.Point(60, 281);
+            this.txHargaBeli.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txHargaBeli.MaxLength = 10;
+            this.txHargaBeli.Name = "txHargaBeli";
+            this.txHargaBeli.PasswordChar = '\0';
+            this.txHargaBeli.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txHargaBeli.PlaceholderText = "Harga Beli";
+            this.txHargaBeli.SelectedText = "";
+            this.txHargaBeli.Size = new System.Drawing.Size(269, 35);
+            this.txHargaBeli.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txHargaBeli.TabIndex = 20;
+            this.txHargaBeli.TextChanged += new System.EventHandler(this.txHargaBeli_TextChanged);
+            this.txHargaBeli.Click += new System.EventHandler(this.txHarga_Click);
+            this.txHargaBeli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Integer_KeyPress);
             // 
             // txHargaJual
             // 
@@ -750,6 +788,18 @@
             this.imgStok.TabIndex = 22;
             this.imgStok.TabStop = false;
             // 
+            // imgHargaBeli
+            // 
+            this.imgHargaBeli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.imgHargaBeli.Image = global::D_Clinic.Properties.Resources.white_harga;
+            this.imgHargaBeli.Location = new System.Drawing.Point(20, 281);
+            this.imgHargaBeli.Margin = new System.Windows.Forms.Padding(2);
+            this.imgHargaBeli.Name = "imgHargaBeli";
+            this.imgHargaBeli.Size = new System.Drawing.Size(35, 35);
+            this.imgHargaBeli.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgHargaBeli.TabIndex = 22;
+            this.imgHargaBeli.TabStop = false;
+            // 
             // imgNama
             // 
             this.imgNama.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
@@ -819,6 +869,7 @@
             this.txCariID.BorderRadius = 16;
             this.txCariID.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.txCariID.BorderThickness = 2;
+            this.txCariID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txCariID.Cursor = System.Windows.Forms.Cursors.Default;
             this.txCariID.DefaultText = "";
             this.txCariID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -848,7 +899,7 @@
             // 
             this.btnBatal.Animated = true;
             this.btnBatal.BackColor = System.Drawing.Color.Transparent;
-            this.btnBatal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnBatal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
             this.btnBatal.BorderRadius = 10;
             this.btnBatal.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.btnBatal.BorderThickness = 2;
@@ -858,8 +909,8 @@
             this.btnBatal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnBatal.FillColor = System.Drawing.Color.Transparent;
             this.btnBatal.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
-            this.btnBatal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
-            this.btnBatal.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnBatal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
+            this.btnBatal.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
             this.btnBatal.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnBatal.Location = new System.Drawing.Point(28, 555);
             this.btnBatal.Margin = new System.Windows.Forms.Padding(2);
@@ -979,55 +1030,6 @@
             // 
             this.obatTableAdapter.ClearBeforeFill = true;
             // 
-            // imgHargaBeli
-            // 
-            this.imgHargaBeli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.imgHargaBeli.Image = global::D_Clinic.Properties.Resources.white_harga;
-            this.imgHargaBeli.Location = new System.Drawing.Point(20, 281);
-            this.imgHargaBeli.Margin = new System.Windows.Forms.Padding(2);
-            this.imgHargaBeli.Name = "imgHargaBeli";
-            this.imgHargaBeli.Size = new System.Drawing.Size(35, 35);
-            this.imgHargaBeli.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgHargaBeli.TabIndex = 22;
-            this.imgHargaBeli.TabStop = false;
-            // 
-            // txHargaBeli
-            // 
-            this.txHargaBeli.Animated = true;
-            this.txHargaBeli.AutoRoundedCorners = true;
-            this.txHargaBeli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.txHargaBeli.BorderColor = System.Drawing.Color.White;
-            this.txHargaBeli.BorderRadius = 16;
-            this.txHargaBeli.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.txHargaBeli.BorderThickness = 2;
-            this.txHargaBeli.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txHargaBeli.DefaultText = "";
-            this.txHargaBeli.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.txHargaBeli.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.txHargaBeli.DisabledState.ForeColor = System.Drawing.Color.White;
-            this.txHargaBeli.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txHargaBeli.Enabled = false;
-            this.txHargaBeli.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.txHargaBeli.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.txHargaBeli.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.txHargaBeli.Font = new System.Drawing.Font("Porsche Next TT", 14F, System.Drawing.FontStyle.Bold);
-            this.txHargaBeli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.txHargaBeli.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txHargaBeli.Location = new System.Drawing.Point(60, 281);
-            this.txHargaBeli.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txHargaBeli.MaxLength = 10;
-            this.txHargaBeli.Name = "txHargaBeli";
-            this.txHargaBeli.PasswordChar = '\0';
-            this.txHargaBeli.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txHargaBeli.PlaceholderText = "Harga Beli";
-            this.txHargaBeli.SelectedText = "";
-            this.txHargaBeli.Size = new System.Drawing.Size(269, 35);
-            this.txHargaBeli.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txHargaBeli.TabIndex = 20;
-            this.txHargaBeli.TextChanged += new System.EventHandler(this.txHargaBeli_TextChanged);
-            this.txHargaBeli.Click += new System.EventHandler(this.txHarga_Click);
-            this.txHargaBeli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Integer_KeyPress);
-            // 
             // Form_Master_Obat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1048,6 +1050,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgTanggal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStok)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHargaBeli)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNama)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgHargaJual)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEfek)).EndInit();
@@ -1055,7 +1058,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgKemasan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchNama)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgHargaBeli)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

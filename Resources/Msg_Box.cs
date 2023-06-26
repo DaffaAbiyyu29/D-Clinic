@@ -101,9 +101,13 @@ namespace D_Clinic.Resources
             {
                 Program.CloseAllForms();
             }
+            else if (session.Text == "Logout")
+            {
+                Program.CloseAllForms();
+            }
             else //if (session.Text == "Obat")
             {
-                this.Close();
+                this.Hide();
             }
         }
         public void WarningMessage()
@@ -117,6 +121,7 @@ namespace D_Clinic.Resources
             btnOkay.HoverState.BorderColor = Color.Gold;
             btnOkay.HoverState.FillColor = Color.Gold;
             btnOkay.HoverState.ForeColor = Color.FromArgb(47, 46, 48);
+            session.ForeColor = Color.Gold;
         }
         public void ErrorMessage()
         {
@@ -129,6 +134,20 @@ namespace D_Clinic.Resources
             btnOkay.HoverState.BorderColor = Color.FromArgb(247, 56, 89);
             btnOkay.HoverState.FillColor = Color.FromArgb(247, 56, 89);
             btnOkay.HoverState.ForeColor = Color.FromArgb(47, 46, 48);
+            session.ForeColor = Color.FromArgb(247, 56, 89);
+        }
+        public void InformationMessage()
+        {
+            pnlAtas.FillColor = Color.DodgerBlue;
+            pnlBawah.FillColor = Color.DodgerBlue;
+            pnlContainer.BorderColor = Color.DodgerBlue;
+            text1.ForeColor = Color.DodgerBlue;
+            btnOkay.ForeColor = Color.DodgerBlue;
+            btnOkay.BorderColor = Color.DodgerBlue;
+            btnOkay.HoverState.BorderColor = Color.DodgerBlue;
+            btnOkay.HoverState.FillColor = Color.DodgerBlue;
+            btnOkay.HoverState.ForeColor = Color.FromArgb(47, 46, 48);
+            session.ForeColor = Color.DodgerBlue;
         }
     }
 }

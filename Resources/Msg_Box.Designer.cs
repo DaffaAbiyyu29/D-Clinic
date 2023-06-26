@@ -38,7 +38,6 @@
             this.logo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlAtas = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlBawah = new Guna.UI2.WinForms.Guna2Panel();
-            this.text2 = new System.Windows.Forms.Label();
             this.pnlContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.pnlAtas.SuspendLayout();
@@ -51,7 +50,6 @@
             this.pnlContainer.BorderThickness = 5;
             this.pnlContainer.Controls.Add(this.pnlBawah);
             this.pnlContainer.Controls.Add(this.pnlAtas);
-            this.pnlContainer.Controls.Add(this.text2);
             this.pnlContainer.Controls.Add(this.text1);
             this.pnlContainer.Controls.Add(this.btnOkay);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -65,7 +63,7 @@
             this.session.BackColor = System.Drawing.Color.Transparent;
             this.session.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.session.Font = new System.Drawing.Font("Porsche Next TT", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.session.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.session.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.session.Location = new System.Drawing.Point(0, -8);
             this.session.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.session.Name = "session";
@@ -78,12 +76,12 @@
             this.text1.BackColor = System.Drawing.Color.Transparent;
             this.text1.Font = new System.Drawing.Font("Porsche Next TT", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.text1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.text1.Location = new System.Drawing.Point(11, 94);
+            this.text1.Location = new System.Drawing.Point(11, 73);
             this.text1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.text1.Name = "text1";
-            this.text1.Size = new System.Drawing.Size(427, 35);
+            this.text1.Size = new System.Drawing.Size(427, 107);
             this.text1.TabIndex = 112;
-            this.text1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.text1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnOkay
             // 
@@ -153,18 +151,6 @@
             this.pnlBawah.Size = new System.Drawing.Size(449, 27);
             this.pnlBawah.TabIndex = 0;
             // 
-            // text2
-            // 
-            this.text2.BackColor = System.Drawing.Color.Transparent;
-            this.text2.Font = new System.Drawing.Font("Porsche Next TT", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.text2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.text2.Location = new System.Drawing.Point(11, 129);
-            this.text2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.text2.Name = "text2";
-            this.text2.Size = new System.Drawing.Size(427, 35);
-            this.text2.TabIndex = 111;
-            this.text2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // Msg_Box
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,6 +180,5 @@
         public Guna.UI2.WinForms.Guna2PictureBox logo;
         public Guna.UI2.WinForms.Guna2Panel pnlAtas;
         public Guna.UI2.WinForms.Guna2Panel pnlBawah;
-        public System.Windows.Forms.Label text2;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using D_Clinic.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace D_Clinic.Halaman
 {
     public partial class Form_Master_Karyawan : Form
     {
+        Msg_Box mBox = new Msg_Box();
+
         string IDKaryawan, IDDokter, IDResepsionis, IDApoteker, IDManager;
         int lastID;
         public Form_Master_Karyawan()
@@ -364,8 +367,9 @@ namespace D_Clinic.Halaman
                     context.Dokters.InsertOnSubmit(input);
                     context.SubmitChanges();
 
-                    MessageBox.Show("Berhasil Menambahkan Dokter :D", "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mBox.text1.Text = "Berhasil Menambahkan Dokter :D";
+                    mBox.session.Text = "Karyawan";
+                    mBox.Show();
                     clearText();
                     resetIcon();
                     disablePropherties();
@@ -391,8 +395,9 @@ namespace D_Clinic.Halaman
                     context.Managers.InsertOnSubmit(input);
                     context.SubmitChanges();
 
-                    MessageBox.Show("Berhasil Menambahkan Manager :D", "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mBox.text1.Text = "Berhasil Menambahkan Manager :D";
+                    mBox.session.Text = "Karyawan";
+                    mBox.Show();
                     clearText();
                     resetIcon();
                     disablePropherties();
@@ -418,8 +423,9 @@ namespace D_Clinic.Halaman
                     context.Resepsionis.InsertOnSubmit(input);
                     context.SubmitChanges();
 
-                    MessageBox.Show("Berhasil Menambahkan Resepsionis :D", "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mBox.text1.Text = "Berhasil Menambahkan Resepsionis :D";
+                    mBox.session.Text = "Karyawan";
+                    mBox.Show();
                     clearText();
                     resetIcon();
                     disablePropherties();
@@ -445,8 +451,9 @@ namespace D_Clinic.Halaman
                     context.Apotekers.InsertOnSubmit(input);
                     context.SubmitChanges();
 
-                    MessageBox.Show("Berhasil Menambahkan Apoteker :D", "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mBox.text1.Text = "Berhasil Menambahkan Apoteker :D";
+                    mBox.session.Text = "Karyawan";
+                    mBox.Show();
                     clearText();
                     resetIcon();
                     disablePropherties();
@@ -515,7 +522,10 @@ namespace D_Clinic.Halaman
                 }
                 else
                 {
-                    MessageBox.Show("Karyawan " + txCariID.Text + txCariNama.Text + txCariUsername.Text + " Tidak Ditemukan, Silakan Cari Karyawan Kembali!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    mBox.text1.Text = "Karyawan " + txCariID.Text + txCariNama.Text + txCariUsername.Text + " Tidak Ditemukan, Silakan Cari Karyawan Kembali!";
+                    mBox.session.Text = "Karyawan";
+                    mBox.Show();
+                    mBox.WarningMessage();
                 }
                 reader.Close();
             }
@@ -524,7 +534,7 @@ namespace D_Clinic.Halaman
         {
 
         }
-        private void Hapus()
+        private void HapusKaryawan()
         {
             try
             {
@@ -535,7 +545,9 @@ namespace D_Clinic.Halaman
                     context.Karyawans.DeleteOnSubmit(delete);
                     context.SubmitChanges();
 
-                    MessageBox.Show("Karyawan Berhasil Dihapus", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mBox.text1.Text = "Berhasil Menghapus Karyawan";
+                    mBox.session.Text = "Karyawan";
+                    mBox.Show();
                     clearText();
                     resetIcon();
                     disablePropherties();
@@ -552,9 +564,9 @@ namespace D_Clinic.Halaman
         }
         private void btnHapus_Click(object sender, EventArgs e)
         {
-            Hapus();
+            HapusKaryawan();
         }
-        private void Update()
+        private void UpdateKaryawan()
         {
             try
             {
@@ -566,10 +578,11 @@ namespace D_Clinic.Halaman
                     update.Telp = txTelp.Text;
                     update.Jabatan = cbJabatan.Text;
 
-                    /*context.ms_suppliers.InsertOnSubmit(update);*/
                     context.SubmitChanges();
 
-                    MessageBox.Show("Karyawan Berhasil Diperbaharui", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mBox.text1.Text = "Berhasil Memperbarui Karyawan";
+                    mBox.session.Text = "Karyawan";
+                    mBox.Show();
                     clearText();
                     resetIcon();
                     disablePropherties();
@@ -586,7 +599,7 @@ namespace D_Clinic.Halaman
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Update();
+            UpdateKaryawan();
         }
 
         private void btnSimpan_Click(object sender, EventArgs e)
@@ -629,7 +642,10 @@ namespace D_Clinic.Halaman
             }
             else
             {
-                MessageBox.Show("Masukkan Karyawan Yang Ingin Diubah!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mBox.text1.Text = "Masukkan Karyawan Yang Ingin Diubah!";
+                mBox.session.Text = "Karyawan";
+                mBox.Show();
+                mBox.WarningMessage();
             }
         }
 

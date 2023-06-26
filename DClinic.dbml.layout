@@ -38,28 +38,28 @@
         <elementListCompartment Id="162ae49a-6ed8-450f-97d9-c31a434650cc" absoluteBounds="3.515, 7.71, 1.9700000000000002, 0.69864910592635465" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 3.625); (3.125 : 3.25); (3.125 : 1.87932455296318); (3.5 : 1.87932455296318)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 3.625); (1.75 : 3.26597333957752); (3.125 : 3.26597333957752); (3.125 : 1.87932455296318); (3.5 : 1.87932455296318)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Resepsioni" />
       <nodes>
         <classShapeMoniker Id="511152d7-0bfd-4759-aabb-40edd02a7992" />
         <classShapeMoniker Id="a2634a70-dcef-488b-ba3e-e907a411f63f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.06682455296318); (3.5 : 4.06682455296318)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.06682455296318); (3.5 : 4.06682455296318)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Manager" />
       <nodes>
         <classShapeMoniker Id="511152d7-0bfd-4759-aabb-40edd02a7992" />
         <classShapeMoniker Id="03ef6542-6f05-4c8f-8d9d-c307dfcd0e46" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.59376141433914); (3.5 : 5.59376141433914)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.59376141433914); (3.5 : 5.59376141433914)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Dokter" />
       <nodes>
         <classShapeMoniker Id="511152d7-0bfd-4759-aabb-40edd02a7992" />
         <classShapeMoniker Id="c41a40b2-c85e-46f8-a837-9c3b01b8060d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 5.93752282867829); (1.75 : 7.87932455296318); (3.5 : 7.87932455296318)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 5.93752282867829); (1.75 : 7.87932455296318); (3.5 : 7.87932455296318)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Apoteker" />
       <nodes>
         <classShapeMoniker Id="511152d7-0bfd-4759-aabb-40edd02a7992" />
@@ -72,18 +72,11 @@
         <elementListCompartment Id="44eab03b-79cd-47fc-bb5f-b6a60b65d10a" absoluteBounds="6.765, 3.96, 1.9700000000000002, 2.1740723177790642" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="733413ef-7c9d-448e-8bdd-019dbdb99f78" absoluteBounds="0.625, 0.625, 2, 1.8909733395775157">
+    <classShape Id="ebe45885-6e4c-4c03-99ac-586e65719de3" absoluteBounds="0.875, 1.125, 2, 1.8909733395775157">
       <DataClassMoniker Name="/DClinicDataContext/Riwayat_Login" />
       <nestedChildShapes>
-        <elementListCompartment Id="10ead0a4-a0ce-4bed-a83a-be717ae3bd94" absoluteBounds="0.64000000000000012, 1.085, 1.9700000000000002, 1.3309733395775158" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7b380a44-67e6-46a7-9afb-286bcf080378" absoluteBounds="0.89000000000000012, 1.585, 1.9700000000000002, 1.3309733395775158" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.6875 : 3.625); (1.6875 : 2.51597333957752)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Riwayat_Login" />
-      <nodes>
-        <classShapeMoniker Id="511152d7-0bfd-4759-aabb-40edd02a7992" />
-        <classShapeMoniker Id="733413ef-7c9d-448e-8bdd-019dbdb99f78" />
-      </nodes>
-    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
