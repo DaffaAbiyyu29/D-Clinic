@@ -673,7 +673,6 @@ namespace D_Clinic.Halaman
 
         private void Form_Master_Karyawan_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dClinicDataSet.Karyawan' table. You can move, or remove it, as needed.
             this.karyawanTableAdapter.Fill(this.dClinicDataSet.Karyawan);
 
         }
