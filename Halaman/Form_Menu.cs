@@ -190,5 +190,14 @@ namespace D_Clinic.Halaman
             pas.BringToFront();
             pas.Show();
         }
+
+        private void btnAkun_Click(object sender, EventArgs e)
+        {
+            Form_Pengaturan_Akun acc = new Form_Pengaturan_Akun();
+            acc.TopLevel = false;
+            pnlContainer.Controls.Add(acc);
+            acc.BringToFront();
+            acc.Show();
+        }
     }
 }

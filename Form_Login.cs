@@ -16,6 +16,8 @@ namespace D_Clinic
 {
     public partial class Form_Login : Form
     {
+        Msg_Box mBox = new Msg_Box();
+
         string loginSession;
         private Timer blinkTimer;
         private bool isTextVisible = true;
@@ -43,15 +45,24 @@ namespace D_Clinic
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            GenerateIDLogin();
-            LoginMenu();
+            if (txUsername.TextLength != 0 && txPassword.TextLength != 0)
+            {
+                GenerateIDLogin();
+                LoginMenu();
+            } else
+            {
+                mBox.Show();
+                loginSession = "Login Gagal";
+                mBox.text1.Text = "Masukkan Username & Password !";
+                mBox.session.Text = loginSession;
+                mBox.WarningMessage();
+            }
         }
 
         private void btnKeluar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Msg_Box mBox = new Msg_Box();
-            mBox.text1.Text = "Terimakasih Sudah Menggunakan :D";
+            mBox.text1.Text = "Terimakasih Sudah Menggunakan Aplikasi Ini :D";
             mBox.session.Text = "Logout";
             mBox.Show();
             mBox.InformationMessage();
@@ -70,8 +81,6 @@ namespace D_Clinic
         }
         private void LoginMenu()
         {
-            Msg_Box mBox = new Msg_Box();
-
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
             string query = "SELECT * FROM Karyawan WHERE Username = @username AND Password = @password";
 
@@ -109,18 +118,17 @@ namespace D_Clinic
                     loginSession = "Login Gagal";
                     mBox.text1.Text = "Username / Password Salah !";
                     mBox.session.Text = loginSession;
-
                     mBox.WarningMessage();
                 }
 
                 reader.Close();
                 if (gagal >= 3)
                 {
+                    Program.HideAllForms();
                     mBox.Show();
                     loginSession = "Akses Ditolak";
                     mBox.text1.Text = "Akses Ditolak !";
                     mBox.session.Text = loginSession;
-
                     mBox.ErrorMessage();
                 }
             }

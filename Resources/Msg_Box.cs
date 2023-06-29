@@ -105,6 +105,12 @@ namespace D_Clinic.Resources
             {
                 Program.CloseAllForms();
             }
+            else if (session.Text == "Akun Terhapus")
+            {
+                Program.HideAllForms();
+                Form_Login login = new Form_Login();
+                login.Show();
+            }
             else //if (session.Text == "Obat")
             {
                 this.Hide();

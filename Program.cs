@@ -29,5 +29,14 @@ namespace D_Clinic
                 form.Close();
             }
         }
+        public static void HideAllForms()
+        {
+            var openForms = Application.OpenForms.Cast<Form>().ToList();
+
+            foreach (var form in openForms)
+            {
+                form.Hide();
+            }
+        }
     }
 }

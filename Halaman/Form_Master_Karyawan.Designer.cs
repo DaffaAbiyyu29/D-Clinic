@@ -36,11 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.tblKaryawan = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.idKaryawanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jabatanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.karyawanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dClinicDataSet = new D_Clinic.DClinicDataSet();
             this.txCariUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTambah = new Guna.UI2.WinForms.Guna2Button();
@@ -71,10 +66,14 @@
             this.imgSearchID = new System.Windows.Forms.PictureBox();
             this.btnCari = new Guna.UI2.WinForms.Guna2Button();
             this.imgSearchNama = new System.Windows.Forms.PictureBox();
+            this.idKaryawanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jabatanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.karyawanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.karyawanTableAdapter = new D_Clinic.DClinicDataSetTableAdapters.KaryawanTableAdapter();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblKaryawan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.karyawanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchUsername)).BeginInit();
             this.guna2GroupBox2.SuspendLayout();
@@ -87,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchNama)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.karyawanBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -207,45 +207,6 @@
             this.tblKaryawan.ThemeStyle.RowsStyle.Height = 30;
             this.tblKaryawan.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.tblKaryawan.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            // 
-            // idKaryawanDataGridViewTextBoxColumn
-            // 
-            this.idKaryawanDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.idKaryawanDataGridViewTextBoxColumn.DataPropertyName = "Id_Karyawan";
-            this.idKaryawanDataGridViewTextBoxColumn.HeaderText = "ID Karyawan";
-            this.idKaryawanDataGridViewTextBoxColumn.Name = "idKaryawanDataGridViewTextBoxColumn";
-            this.idKaryawanDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idKaryawanDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // namaDataGridViewTextBoxColumn
-            // 
-            this.namaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
-            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
-            this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
-            this.namaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.namaDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // telpDataGridViewTextBoxColumn
-            // 
-            this.telpDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.telpDataGridViewTextBoxColumn.DataPropertyName = "Telp";
-            this.telpDataGridViewTextBoxColumn.HeaderText = "Telp";
-            this.telpDataGridViewTextBoxColumn.Name = "telpDataGridViewTextBoxColumn";
-            this.telpDataGridViewTextBoxColumn.ReadOnly = true;
-            this.telpDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // jabatanDataGridViewTextBoxColumn
-            // 
-            this.jabatanDataGridViewTextBoxColumn.DataPropertyName = "Jabatan";
-            this.jabatanDataGridViewTextBoxColumn.HeaderText = "Jabatan";
-            this.jabatanDataGridViewTextBoxColumn.Name = "jabatanDataGridViewTextBoxColumn";
-            this.jabatanDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // karyawanBindingSource
-            // 
-            this.karyawanBindingSource.DataMember = "Karyawan";
-            this.karyawanBindingSource.DataSource = this.dClinicDataSet;
             // 
             // dClinicDataSet
             // 
@@ -691,7 +652,6 @@
             this.txUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
             this.txUsername.DisabledState.ForeColor = System.Drawing.Color.White;
             this.txUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txUsername.Enabled = false;
             this.txUsername.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
             this.txUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.txUsername.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
@@ -738,7 +698,6 @@
             this.txPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
             this.txPassword.DisabledState.ForeColor = System.Drawing.Color.White;
             this.txPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txPassword.Enabled = false;
             this.txPassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
             this.txPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.txPassword.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
@@ -968,6 +927,45 @@
             this.imgSearchNama.TabIndex = 51;
             this.imgSearchNama.TabStop = false;
             // 
+            // idKaryawanDataGridViewTextBoxColumn
+            // 
+            this.idKaryawanDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.idKaryawanDataGridViewTextBoxColumn.DataPropertyName = "Id_Karyawan";
+            this.idKaryawanDataGridViewTextBoxColumn.HeaderText = "ID Karyawan";
+            this.idKaryawanDataGridViewTextBoxColumn.Name = "idKaryawanDataGridViewTextBoxColumn";
+            this.idKaryawanDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idKaryawanDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // namaDataGridViewTextBoxColumn
+            // 
+            this.namaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
+            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
+            this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
+            this.namaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.namaDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // telpDataGridViewTextBoxColumn
+            // 
+            this.telpDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.telpDataGridViewTextBoxColumn.DataPropertyName = "Telp";
+            this.telpDataGridViewTextBoxColumn.HeaderText = "Telp";
+            this.telpDataGridViewTextBoxColumn.Name = "telpDataGridViewTextBoxColumn";
+            this.telpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.telpDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // jabatanDataGridViewTextBoxColumn
+            // 
+            this.jabatanDataGridViewTextBoxColumn.DataPropertyName = "Jabatan";
+            this.jabatanDataGridViewTextBoxColumn.HeaderText = "Jabatan";
+            this.jabatanDataGridViewTextBoxColumn.Name = "jabatanDataGridViewTextBoxColumn";
+            this.jabatanDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // karyawanBindingSource
+            // 
+            this.karyawanBindingSource.DataMember = "Karyawan";
+            this.karyawanBindingSource.DataSource = this.dClinicDataSet;
+            // 
             // karyawanTableAdapter
             // 
             this.karyawanTableAdapter.ClearBeforeFill = true;
@@ -986,7 +984,6 @@
             this.Load += new System.EventHandler(this.Form_Master_Karyawan_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tblKaryawan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.karyawanBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchUsername)).EndInit();
             this.guna2GroupBox2.ResumeLayout(false);
@@ -999,6 +996,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchNama)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.karyawanBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

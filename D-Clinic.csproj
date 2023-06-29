@@ -93,6 +93,12 @@
     <Compile Include="Halaman\Form_Menu.Designer.cs">
       <DependentUpon>Form_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Halaman\Form_Pengaturan_Akun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_Pengaturan_Akun.Designer.cs">
+      <DependentUpon>Form_Pengaturan_Akun.cs</DependentUpon>
+    </Compile>
     <Compile Include="Halaman\Form_View_Apoteker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Form_Pengaturan_Akun.resx">
+      <DependentUpon>Form_Pengaturan_Akun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Halaman\Form_View_Apoteker.resx">
       <DependentUpon>Form_View_Apoteker.cs</DependentUpon>

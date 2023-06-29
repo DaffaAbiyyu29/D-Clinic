@@ -676,7 +676,6 @@ namespace D_Clinic.Halaman
         private void Form_Master_Karyawan_Load(object sender, EventArgs e)
         {
             this.karyawanTableAdapter.Fill(this.dClinicDataSet.Karyawan);
-
         }
     }
 }
