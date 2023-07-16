@@ -22,7 +22,11 @@ namespace D_Clinic.Halaman
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            pnlKaryawan.Height = pnlKaryawan.MinimumSize.Height;
+            Form_Dashboard dashboard = new Form_Dashboard();
+            dashboard.TopLevel = false;
+            pnlContainer.Controls.Add(dashboard);
+            dashboard.BringToFront();
+            dashboard.Show();
         }
 
         private void btnKaryawan_Click(object sender, EventArgs e)
@@ -88,6 +92,12 @@ namespace D_Clinic.Halaman
         }
         private void Form_Menu_Load(object sender, EventArgs e)
         {
+            Form_Dashboard dashboard = new Form_Dashboard();
+            dashboard.TopLevel = false;
+            pnlContainer.Controls.Add(dashboard);
+            dashboard.BringToFront();
+            dashboard.Show();
+
             GenerateNama();
             lblNama.Text = nama;
             UpdateDateTimeLabel(); // Panggil method untuk pertama kali
@@ -95,42 +105,6 @@ namespace D_Clinic.Halaman
             timer.Interval = 1000; // Interval dalam milidetik (1000ms = 1 detik)
             timer.Tick += dateTimer_Tick;
             timer.Start(); // Mulai Timer untuk memperbarui label setiap detik
-        }
-
-        private void btnManager_Click(object sender, EventArgs e)
-        {
-            Form_View_Manager mng = new Form_View_Manager();
-            mng.TopLevel = false;
-            pnlContainer.Controls.Add(mng);
-            mng.BringToFront();
-            mng.Show();
-        }
-
-        private void btnApoteker_Click(object sender, EventArgs e)
-        {
-            Form_View_Apoteker apt = new Form_View_Apoteker();
-            apt.TopLevel = false;
-            pnlContainer.Controls.Add(apt);
-            apt.BringToFront();
-            apt.Show();
-        }
-
-        private void btnDokter_Click(object sender, EventArgs e)
-        {
-            Form_View_Dokter dok = new Form_View_Dokter();
-            dok.TopLevel = false;
-            pnlContainer.Controls.Add(dok);
-            dok.BringToFront();
-            dok.Show();
-        }
-
-        private void btnResepsionis_Click(object sender, EventArgs e)
-        {
-            Form_View_Resepsionis rsp = new Form_View_Resepsionis();
-            rsp.TopLevel = false;
-            pnlContainer.Controls.Add(rsp);
-            rsp.BringToFront();
-            rsp.Show();
         }
 
         private void btnObat_Click(object sender, EventArgs e)
@@ -152,14 +126,6 @@ namespace D_Clinic.Halaman
             obt.BringToFront();
             obt.Show();
         }
-        private void btnViewObat_Click(object sender, EventArgs e)
-        {
-            Form_View_Obat obt = new Form_View_Obat();
-            obt.TopLevel = false;
-            pnlContainer.Controls.Add(obt);
-            obt.BringToFront();
-            obt.Show();
-        }
 
         private void btnPasien_Click(object sender, EventArgs e)
         {
@@ -171,15 +137,6 @@ namespace D_Clinic.Halaman
             {
                 pnlPasien.Height = pnlPasien.MaximumSize.Height;
             }
-        }
-
-        private void btnViewPasien_Click(object sender, EventArgs e)
-        {
-            Form_View_Pasien pas = new Form_View_Pasien();
-            pas.TopLevel = false;
-            pnlContainer.Controls.Add(pas);
-            pas.BringToFront();
-            pas.Show();
         }
 
         private void btnMasterPasien_Click(object sender, EventArgs e)
@@ -198,6 +155,101 @@ namespace D_Clinic.Halaman
             pnlContainer.Controls.Add(acc);
             acc.BringToFront();
             acc.Show();
+        }
+
+        private void btnDataObat_Click(object sender, EventArgs e)
+        {
+            Form_View_Obat obt = new Form_View_Obat();
+            obt.TopLevel = false;
+            pnlContainer.Controls.Add(obt);
+            obt.BringToFront();
+            obt.Show();
+        }
+
+        private void btnDataKaryawan_Click(object sender, EventArgs e)
+        {
+            Form_View_Karyawan kry = new Form_View_Karyawan();
+            kry.TopLevel = false;
+            pnlContainer.Controls.Add(kry);
+            kry.BringToFront();
+            kry.Show();
+        }
+
+        private void btnDataPasien_Click(object sender, EventArgs e)
+        {
+            Form_View_Pasien pas = new Form_View_Pasien();
+            pas.TopLevel = false;
+            pnlContainer.Controls.Add(pas);
+            pas.BringToFront();
+            pas.Show();
+        }
+
+        private void btnLaporan_Click(object sender, EventArgs e)
+        {
+            if (pnlLaporan.Height == pnlLaporan.MaximumSize.Height)
+            {
+                pnlLaporan.Height = pnlLaporan.MinimumSize.Height;
+            }
+            else if (pnlPasien.Height == pnlLaporan.MinimumSize.Height)
+            {
+                pnlLaporan.Height = pnlLaporan.MaximumSize.Height;
+            }
+        }
+
+        private void btnRSRekanan_Click(object sender, EventArgs e)
+        {
+            pnlKaryawan.Height = pnlKaryawan.MinimumSize.Height;
+
+            Form_Master_RS_Rekanan rs = new Form_Master_RS_Rekanan();
+            rs.TopLevel = false;
+            pnlContainer.Controls.Add(rs);
+            rs.BringToFront();
+            rs.Show();
+        }
+
+        private void btnRuangPeriksa_Click(object sender, EventArgs e)
+        {
+            pnlKaryawan.Height = pnlKaryawan.MinimumSize.Height;
+
+            Form_Master_Ruang_Periksa rp = new Form_Master_Ruang_Periksa();
+            rp.TopLevel = false;
+            pnlContainer.Controls.Add(rp);
+            rp.BringToFront();
+            rp.Show();
+        }
+
+        private void btnJadwalDokter_Click(object sender, EventArgs e)
+        {
+            pnlKaryawan.Height = pnlKaryawan.MinimumSize.Height;
+
+            Form_Master_Jadwal_Dokter jd = new Form_Master_Jadwal_Dokter();
+            jd.TopLevel = false;
+            pnlContainer.Controls.Add(jd);
+            jd.BringToFront();
+            jd.Show();
+        }
+        public void Pendaftaran_Pasien()
+        {
+            Form_Transaksi_Pendaftaran_Pasien daftar = new Form_Transaksi_Pendaftaran_Pasien();
+            daftar.TopLevel = false;
+            pnlContainer.Controls.Add(daftar);
+            daftar.BringToFront();
+            daftar.Show();
+            daftar.txResepsionis.Text = lblNama.Text;
+        }
+
+        private void btnPendaftaran_Click(object sender, EventArgs e)
+        {
+            Pendaftaran_Pasien();
+        }
+
+        private void btnSupplier_Click(object sender, EventArgs e)
+        {
+            Form_Master_Supplier supplier = new Form_Master_Supplier();
+            supplier.TopLevel = false;
+            pnlContainer.Controls.Add(supplier);
+            supplier.BringToFront();
+            supplier.Show();
         }
     }
 }

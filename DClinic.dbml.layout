@@ -8,22 +8,10 @@
         <elementListCompartment Id="9db16c2d-6b3e-4910-ab44-250e12773f48" absoluteBounds="3.515, 1.71, 1.9700000000000002, 0.69864910592635465" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="57d8e347-ee77-4b8a-ad16-6311b00c2b13" absoluteBounds="6.75, 0.75, 2, 2.31252282867829">
-      <DataClassMoniker Name="/DClinicDataContext/Pasien" />
-      <nestedChildShapes>
-        <elementListCompartment Id="7e238163-657e-4f9d-adf2-31c96b6eef34" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.75252282867829" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="03ef6542-6f05-4c8f-8d9d-c307dfcd0e46" absoluteBounds="3.5, 3.25, 2, 1.2586491059263549">
       <DataClassMoniker Name="/DClinicDataContext/Manager" />
       <nestedChildShapes>
         <elementListCompartment Id="d6da2597-fb0c-43cb-bc1c-3764e8062843" absoluteBounds="3.515, 3.71, 1.9700000000000002, 0.69864910592635465" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="511152d7-0bfd-4759-aabb-40edd02a7992" absoluteBounds="0.75, 3.625, 2, 2.31252282867829">
-      <DataClassMoniker Name="/DClinicDataContext/Karyawan" />
-      <nestedChildShapes>
-        <elementListCompartment Id="504abce4-129d-4172-8807-40c0756c3f72" absoluteBounds="0.765, 4.085, 1.9700000000000002, 1.75252282867829" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="c41a40b2-c85e-46f8-a837-9c3b01b8060d" absoluteBounds="3.5, 5.25, 2, 1.2586491059263558">
@@ -38,44 +26,56 @@
         <elementListCompartment Id="162ae49a-6ed8-450f-97d9-c31a434650cc" absoluteBounds="3.515, 7.71, 1.9700000000000002, 0.69864910592635465" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.75 : 3.625); (1.75 : 3.26597333957752); (3.125 : 3.26597333957752); (3.125 : 1.87932455296318); (3.5 : 1.87932455296318)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Resepsioni" />
-      <nodes>
-        <classShapeMoniker Id="511152d7-0bfd-4759-aabb-40edd02a7992" />
-        <classShapeMoniker Id="a2634a70-dcef-488b-ba3e-e907a411f63f" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.06682455296318); (3.5 : 4.06682455296318)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Manager" />
-      <nodes>
-        <classShapeMoniker Id="511152d7-0bfd-4759-aabb-40edd02a7992" />
-        <classShapeMoniker Id="03ef6542-6f05-4c8f-8d9d-c307dfcd0e46" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.59376141433914); (3.5 : 5.59376141433914)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Dokter" />
-      <nodes>
-        <classShapeMoniker Id="511152d7-0bfd-4759-aabb-40edd02a7992" />
-        <classShapeMoniker Id="c41a40b2-c85e-46f8-a837-9c3b01b8060d" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 5.93752282867829); (1.75 : 7.87932455296318); (3.5 : 7.87932455296318)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Apoteker" />
-      <nodes>
-        <classShapeMoniker Id="511152d7-0bfd-4759-aabb-40edd02a7992" />
-        <classShapeMoniker Id="e29ff27c-4d65-42dc-b3c7-8a7be2c5c10b" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="33aeb2bc-e220-4dcd-b085-2d9bdd6c47cd" absoluteBounds="6.75, 3.5, 2, 2.7340723177790642">
-      <DataClassMoniker Name="/DClinicDataContext/Obat" />
-      <nestedChildShapes>
-        <elementListCompartment Id="44eab03b-79cd-47fc-bb5f-b6a60b65d10a" absoluteBounds="6.765, 3.96, 1.9700000000000002, 2.1740723177790642" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="ebe45885-6e4c-4c03-99ac-586e65719de3" absoluteBounds="0.875, 1.125, 2, 1.8909733395775157">
       <DataClassMoniker Name="/DClinicDataContext/Riwayat_Login" />
       <nestedChildShapes>
         <elementListCompartment Id="7b380a44-67e6-46a7-9afb-286bcf080378" absoluteBounds="0.89000000000000012, 1.585, 1.9700000000000002, 1.3309733395775158" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="73cb2bb3-35a2-43e0-b450-3cbc39ce449b" absoluteBounds="0.875, 3.5, 2, 2.5232975732286773">
+      <DataClassMoniker Name="/DClinicDataContext/Karyawan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d7854bf-099c-4a34-a4d1-8e7c95c0f836" absoluteBounds="0.89000000000000012, 3.96, 1.9700000000000002, 1.9632975732286773" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.875 : 3.5); (1.875 : 3.25); (3.125 : 3.25); (3.125 : 1.87932455296318); (3.5 : 1.87932455296318)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Resepsioni" />
+      <nodes>
+        <classShapeMoniker Id="73cb2bb3-35a2-43e0-b450-3cbc39ce449b" />
+        <classShapeMoniker Id="a2634a70-dcef-488b-ba3e-e907a411f63f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 4.00432455296318); (3.5 : 4.00432455296318)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Manager" />
+      <nodes>
+        <classShapeMoniker Id="73cb2bb3-35a2-43e0-b450-3cbc39ce449b" />
+        <classShapeMoniker Id="03ef6542-6f05-4c8f-8d9d-c307dfcd0e46" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 5.63664878661434); (3.5 : 5.63664878661434)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Dokter" />
+      <nodes>
+        <classShapeMoniker Id="73cb2bb3-35a2-43e0-b450-3cbc39ce449b" />
+        <classShapeMoniker Id="c41a40b2-c85e-46f8-a837-9c3b01b8060d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.875 : 6.02329757322868); (1.875 : 7.87932455296318); (3.5 : 7.87932455296318)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Apoteker" />
+      <nodes>
+        <classShapeMoniker Id="73cb2bb3-35a2-43e0-b450-3cbc39ce449b" />
+        <classShapeMoniker Id="e29ff27c-4d65-42dc-b3c7-8a7be2c5c10b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2dcf4fdb-39cc-4dc7-ac08-c6c552cf1117" absoluteBounds="6.5, 1.375, 2, 2.7340723177790647">
+      <DataClassMoniker Name="/DClinicDataContext/Obat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3088e2dc-49cb-46c3-b646-c756f63d30fd" absoluteBounds="6.515, 1.835, 1.9700000000000002, 2.1740723177790642" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d5b6745b-fbcf-4c1d-92aa-190408dbab54" absoluteBounds="6.5, 5.375, 2, 2.1017480841279035">
+      <DataClassMoniker Name="/DClinicDataContext/Pasien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eb69d4a7-2d81-482d-86f9-026ea884dd9f" absoluteBounds="6.515, 5.835, 1.9700000000000002, 1.541748084127903" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

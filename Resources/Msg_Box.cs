@@ -73,10 +73,15 @@ namespace D_Clinic.Resources
                         if (jabatan == "Manager")
                         {
                             menu.btnKaryawan.Visible = true;
+                            menu.btnJadwalDokter.Visible = true;
+                            menu.btnRuangPeriksa.Visible = true;
+                            menu.btnRSRekanan.Visible = true;
+                            menu.btnSupplier.Visible = true;
                         }
                         else if (jabatan == "Resepsionis")
                         {
                             menu.btnPasien.Visible = true;
+                            menu.btnPendaftaran.Visible = true;
                         }
                         else if (jabatan == "Dokter")
                         {
@@ -95,6 +100,7 @@ namespace D_Clinic.Resources
         {
             if (session.Text == "Login Berhasil")
             {
+                Program.HideAllForms();
                 Masuk();
             }
             else if (session.Text == "Akses Ditolak")
@@ -111,10 +117,23 @@ namespace D_Clinic.Resources
                 Form_Login login = new Form_Login();
                 login.Show();
             }
-            else //if (session.Text == "Obat")
+            else
             {
                 this.Hide();
             }
+        }
+        public void SuccessMessage()
+        {
+            pnlAtas.FillColor = Color.FromArgb(131, 235, 97);
+            pnlBawah.FillColor = Color.FromArgb(131, 235, 97);
+            pnlContainer.BorderColor = Color.FromArgb(131, 235, 97);
+            text1.ForeColor = Color.FromArgb(131, 235, 97);
+            btnOkay.ForeColor = Color.FromArgb(131, 235, 97);
+            btnOkay.BorderColor = Color.FromArgb(131, 235, 97);
+            btnOkay.HoverState.BorderColor = Color.FromArgb(131, 235, 97);
+            btnOkay.HoverState.FillColor = Color.FromArgb(131, 235, 97);
+            btnOkay.HoverState.ForeColor = Color.FromArgb(47, 46, 48);
+            session.ForeColor = Color.FromArgb(131, 235, 97);
         }
         public void WarningMessage()
         {

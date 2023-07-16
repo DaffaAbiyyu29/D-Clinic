@@ -33,15 +33,40 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.4, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.4.4\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,8 +76,19 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DClinic-App.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DClinic-App.Designer.cs">
+      <DependentUpon>DClinic-App.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DClinic.cs">
+      <DependentUpon>DClinic.dbml</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DClinic.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,29 +99,65 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DClinicDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Halaman\Form_Master_Pasien.cs">
+    <Compile Include="Halaman\Form_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Halaman\Form_Master_Pasien.Designer.cs">
+    <Compile Include="Halaman\Form_Dashboard.Designer.cs">
+      <DependentUpon>Form_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Master\Form_Master_Jadwal_Dokter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Master\Form_Master_Jadwal_Dokter.Designer.cs">
+      <DependentUpon>Form_Master_Jadwal_Dokter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Master\Form_Master_Pasien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Master\Form_Master_Pasien.Designer.cs">
       <DependentUpon>Form_Master_Pasien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Halaman\Form_Master_Karyawan.cs">
+    <Compile Include="Halaman\Master\Form_Master_Karyawan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Halaman\Form_Master_Karyawan.Designer.cs">
+    <Compile Include="Halaman\Master\Form_Master_Karyawan.Designer.cs">
       <DependentUpon>Form_Master_Karyawan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Login.cs">
+    <Compile Include="Halaman\Form_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Login.Designer.cs">
+    <Compile Include="Halaman\Form_Login.Designer.cs">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Halaman\Form_Master_Obat.cs">
+    <Compile Include="Halaman\Master\Form_Master_Obat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Halaman\Form_Master_Obat.Designer.cs">
+    <Compile Include="Halaman\Master\Form_Master_Obat.Designer.cs">
       <DependentUpon>Form_Master_Obat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Master\Form_Master_Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Master\Form_Master_Supplier.Designer.cs">
+      <DependentUpon>Form_Master_Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Transaksi\Form_Transaksi_Pendaftaran_Pasien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Transaksi\Form_Transaksi_Pendaftaran_Pasien.Designer.cs">
+      <DependentUpon>Form_Transaksi_Pendaftaran_Pasien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Form_Master_Rekam_Medis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Form_Master_Rekam_Medis.Designer.cs">
+      <DependentUpon>Form_Master_Rekam_Medis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halaman\Master\Form_Master_RS_Rekanan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halaman\Master\Form_Master_RS_Rekanan.Designer.cs">
+      <DependentUpon>Form_Master_RS_Rekanan.cs</DependentUpon>
     </Compile>
     <Compile Include="Halaman\Form_Menu.cs">
       <SubType>Form</SubType>
@@ -99,23 +171,17 @@
     <Compile Include="Halaman\Form_Pengaturan_Akun.Designer.cs">
       <DependentUpon>Form_Pengaturan_Akun.cs</DependentUpon>
     </Compile>
-    <Compile Include="Halaman\Form_View_Apoteker.cs">
+    <Compile Include="Halaman\Master\Form_Master_Ruang_Periksa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Halaman\Form_View_Apoteker.Designer.cs">
-      <DependentUpon>Form_View_Apoteker.cs</DependentUpon>
+    <Compile Include="Halaman\Master\Form_Master_Ruang_Periksa.Designer.cs">
+      <DependentUpon>Form_Master_Ruang_Periksa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Halaman\Form_View_Dokter.cs">
+    <Compile Include="Halaman\Form_View_Karyawan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Halaman\Form_View_Dokter.Designer.cs">
-      <DependentUpon>Form_View_Dokter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Halaman\Form_View_Manager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Halaman\Form_View_Manager.Designer.cs">
-      <DependentUpon>Form_View_Manager.cs</DependentUpon>
+    <Compile Include="Halaman\Form_View_Karyawan.Designer.cs">
+      <DependentUpon>Form_View_Karyawan.cs</DependentUpon>
     </Compile>
     <Compile Include="Halaman\Form_View_Obat.cs">
       <SubType>Form</SubType>
@@ -129,12 +195,6 @@
     <Compile Include="Halaman\Form_View_Pasien.Designer.cs">
       <DependentUpon>Form_View_Pasien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Halaman\Form_View_Resepsionis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Halaman\Form_View_Resepsionis.Designer.cs">
-      <DependentUpon>Form_View_Resepsionis.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Msg_Box.cs">
@@ -143,41 +203,57 @@
     <Compile Include="Resources\Msg_Box.Designer.cs">
       <DependentUpon>Msg_Box.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Halaman\Form_Master_Pasien.resx">
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="DClinic-App.resx">
+      <DependentUpon>DClinic-App.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Form_Dashboard.resx">
+      <DependentUpon>Form_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Master\Form_Master_Jadwal_Dokter.resx">
+      <DependentUpon>Form_Master_Jadwal_Dokter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Master\Form_Master_Pasien.resx">
       <DependentUpon>Form_Master_Pasien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Halaman\Form_Master_Karyawan.resx">
+    <EmbeddedResource Include="Halaman\Master\Form_Master_Karyawan.resx">
       <DependentUpon>Form_Master_Karyawan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Halaman\Form_Master_Obat.resx">
+    <EmbeddedResource Include="Halaman\Master\Form_Master_Obat.resx">
       <DependentUpon>Form_Master_Obat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Master\Form_Master_Supplier.resx">
+      <DependentUpon>Form_Master_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Transaksi\Form_Transaksi_Pendaftaran_Pasien.resx">
+      <DependentUpon>Form_Transaksi_Pendaftaran_Pasien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Form_Master_Rekam_Medis.resx">
+      <DependentUpon>Form_Master_Rekam_Medis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halaman\Master\Form_Master_RS_Rekanan.resx">
+      <DependentUpon>Form_Master_RS_Rekanan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Halaman\Form_Menu.resx">
       <DependentUpon>Form_Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Login.resx">
+    <EmbeddedResource Include="Halaman\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Halaman\Form_Pengaturan_Akun.resx">
       <DependentUpon>Form_Pengaturan_Akun.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Halaman\Form_View_Apoteker.resx">
-      <DependentUpon>Form_View_Apoteker.cs</DependentUpon>
+    <EmbeddedResource Include="Halaman\Master\Form_Master_Ruang_Periksa.resx">
+      <DependentUpon>Form_Master_Ruang_Periksa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Halaman\Form_View_Dokter.resx">
-      <DependentUpon>Form_View_Dokter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Halaman\Form_View_Manager.resx">
-      <DependentUpon>Form_View_Manager.cs</DependentUpon>
+    <EmbeddedResource Include="Halaman\Form_View_Karyawan.resx">
+      <DependentUpon>Form_View_Karyawan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Halaman\Form_View_Obat.resx">
       <DependentUpon>Form_View_Obat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Halaman\Form_View_Pasien.resx">
       <DependentUpon>Form_View_Pasien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Halaman\Form_View_Resepsionis.resx">
-      <DependentUpon>Form_View_Resepsionis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -368,6 +444,98 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\white_location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_jabatan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_jabatan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_kode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_kode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_crud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_crud1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_dokter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_dokter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_ruang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_ruang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_pasien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_pasien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white_resepsionis.png" />
+    <None Include="Resources\green_resepsionis.png" />
+    <None Include="Resources\green_diagnosa.png" />
+    <None Include="Resources\white_diagnosa.png" />
+    <None Include="Resources\profil_default.jpg" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Halaman\Laporan\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

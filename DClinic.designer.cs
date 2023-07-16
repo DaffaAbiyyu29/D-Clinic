@@ -33,27 +33,27 @@ namespace D_Clinic
     partial void InsertResepsioni(Resepsioni instance);
     partial void UpdateResepsioni(Resepsioni instance);
     partial void DeleteResepsioni(Resepsioni instance);
-    partial void InsertPasien(Pasien instance);
-    partial void UpdatePasien(Pasien instance);
-    partial void DeletePasien(Pasien instance);
     partial void InsertManager(Manager instance);
     partial void UpdateManager(Manager instance);
     partial void DeleteManager(Manager instance);
-    partial void InsertKaryawan(Karyawan instance);
-    partial void UpdateKaryawan(Karyawan instance);
-    partial void DeleteKaryawan(Karyawan instance);
     partial void InsertDokter(Dokter instance);
     partial void UpdateDokter(Dokter instance);
     partial void DeleteDokter(Dokter instance);
     partial void InsertApoteker(Apoteker instance);
     partial void UpdateApoteker(Apoteker instance);
     partial void DeleteApoteker(Apoteker instance);
-    partial void InsertObat(Obat instance);
-    partial void UpdateObat(Obat instance);
-    partial void DeleteObat(Obat instance);
     partial void InsertRiwayat_Login(Riwayat_Login instance);
     partial void UpdateRiwayat_Login(Riwayat_Login instance);
     partial void DeleteRiwayat_Login(Riwayat_Login instance);
+    partial void InsertKaryawan(Karyawan instance);
+    partial void UpdateKaryawan(Karyawan instance);
+    partial void DeleteKaryawan(Karyawan instance);
+    partial void InsertObat(Obat instance);
+    partial void UpdateObat(Obat instance);
+    partial void DeleteObat(Obat instance);
+    partial void InsertPasien(Pasien instance);
+    partial void UpdatePasien(Pasien instance);
+    partial void DeletePasien(Pasien instance);
     #endregion
 		
 		public DClinicDataContext() : 
@@ -94,27 +94,11 @@ namespace D_Clinic
 			}
 		}
 		
-		public System.Data.Linq.Table<Pasien> Pasiens
-		{
-			get
-			{
-				return this.GetTable<Pasien>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Manager> Managers
 		{
 			get
 			{
 				return this.GetTable<Manager>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Karyawan> Karyawans
-		{
-			get
-			{
-				return this.GetTable<Karyawan>();
 			}
 		}
 		
@@ -134,6 +118,22 @@ namespace D_Clinic
 			}
 		}
 		
+		public System.Data.Linq.Table<Riwayat_Login> Riwayat_Logins
+		{
+			get
+			{
+				return this.GetTable<Riwayat_Login>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Karyawan> Karyawans
+		{
+			get
+			{
+				return this.GetTable<Karyawan>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Obat> Obats
 		{
 			get
@@ -142,11 +142,11 @@ namespace D_Clinic
 			}
 		}
 		
-		public System.Data.Linq.Table<Riwayat_Login> Riwayat_Logins
+		public System.Data.Linq.Table<Pasien> Pasiens
 		{
 			get
 			{
-				return this.GetTable<Riwayat_Login>();
+				return this.GetTable<Pasien>();
 			}
 		}
 	}
@@ -253,212 +253,6 @@ namespace D_Clinic
 						this._Id_Karyawan = default(string);
 					}
 					this.SendPropertyChanged("Karyawan");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Pasien")]
-	public partial class Pasien : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Id_Pasien;
-		
-		private string _Nama;
-		
-		private string _Jenis_Kelamin;
-		
-		private string _Golongan_Darah;
-		
-		private string _Telp;
-		
-		private string _Alamat;
-		
-		private string _Keluhan;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnId_PasienChanging(string value);
-    partial void OnId_PasienChanged();
-    partial void OnNamaChanging(string value);
-    partial void OnNamaChanged();
-    partial void OnJenis_KelaminChanging(string value);
-    partial void OnJenis_KelaminChanged();
-    partial void OnGolongan_DarahChanging(string value);
-    partial void OnGolongan_DarahChanged();
-    partial void OnTelpChanging(string value);
-    partial void OnTelpChanged();
-    partial void OnAlamatChanging(string value);
-    partial void OnAlamatChanged();
-    partial void OnKeluhanChanging(string value);
-    partial void OnKeluhanChanged();
-    #endregion
-		
-		public Pasien()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Pasien", DbType="VarChar(7) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Id_Pasien
-		{
-			get
-			{
-				return this._Id_Pasien;
-			}
-			set
-			{
-				if ((this._Id_Pasien != value))
-				{
-					this.OnId_PasienChanging(value);
-					this.SendPropertyChanging();
-					this._Id_Pasien = value;
-					this.SendPropertyChanged("Id_Pasien");
-					this.OnId_PasienChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Nama
-		{
-			get
-			{
-				return this._Nama;
-			}
-			set
-			{
-				if ((this._Nama != value))
-				{
-					this.OnNamaChanging(value);
-					this.SendPropertyChanging();
-					this._Nama = value;
-					this.SendPropertyChanged("Nama");
-					this.OnNamaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Jenis_Kelamin", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
-		public string Jenis_Kelamin
-		{
-			get
-			{
-				return this._Jenis_Kelamin;
-			}
-			set
-			{
-				if ((this._Jenis_Kelamin != value))
-				{
-					this.OnJenis_KelaminChanging(value);
-					this.SendPropertyChanging();
-					this._Jenis_Kelamin = value;
-					this.SendPropertyChanged("Jenis_Kelamin");
-					this.OnJenis_KelaminChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Golongan_Darah", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
-		public string Golongan_Darah
-		{
-			get
-			{
-				return this._Golongan_Darah;
-			}
-			set
-			{
-				if ((this._Golongan_Darah != value))
-				{
-					this.OnGolongan_DarahChanging(value);
-					this.SendPropertyChanging();
-					this._Golongan_Darah = value;
-					this.SendPropertyChanged("Golongan_Darah");
-					this.OnGolongan_DarahChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telp", DbType="VarChar(13) NOT NULL", CanBeNull=false)]
-		public string Telp
-		{
-			get
-			{
-				return this._Telp;
-			}
-			set
-			{
-				if ((this._Telp != value))
-				{
-					this.OnTelpChanging(value);
-					this.SendPropertyChanging();
-					this._Telp = value;
-					this.SendPropertyChanged("Telp");
-					this.OnTelpChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Alamat", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Alamat
-		{
-			get
-			{
-				return this._Alamat;
-			}
-			set
-			{
-				if ((this._Alamat != value))
-				{
-					this.OnAlamatChanging(value);
-					this.SendPropertyChanging();
-					this._Alamat = value;
-					this.SendPropertyChanged("Alamat");
-					this.OnAlamatChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Keluhan", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Keluhan
-		{
-			get
-			{
-				return this._Keluhan;
-			}
-			set
-			{
-				if ((this._Keluhan != value))
-				{
-					this.OnKeluhanChanging(value);
-					this.SendPropertyChanging();
-					this._Keluhan = value;
-					this.SendPropertyChanged("Keluhan");
-					this.OnKeluhanChanged();
 				}
 			}
 		}
@@ -608,324 +402,6 @@ namespace D_Clinic
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Karyawan")]
-	public partial class Karyawan : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Id_Karyawan;
-		
-		private string _Nama;
-		
-		private string _Email;
-		
-		private string _Telp;
-		
-		private string _Username;
-		
-		private string _Password;
-		
-		private string _Jabatan;
-		
-		private EntitySet<Resepsioni> _Resepsionis;
-		
-		private EntitySet<Manager> _Managers;
-		
-		private EntitySet<Dokter> _Dokters;
-		
-		private EntitySet<Apoteker> _Apotekers;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnId_KaryawanChanging(string value);
-    partial void OnId_KaryawanChanged();
-    partial void OnNamaChanging(string value);
-    partial void OnNamaChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnTelpChanging(string value);
-    partial void OnTelpChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnJabatanChanging(string value);
-    partial void OnJabatanChanged();
-    #endregion
-		
-		public Karyawan()
-		{
-			this._Resepsionis = new EntitySet<Resepsioni>(new Action<Resepsioni>(this.attach_Resepsionis), new Action<Resepsioni>(this.detach_Resepsionis));
-			this._Managers = new EntitySet<Manager>(new Action<Manager>(this.attach_Managers), new Action<Manager>(this.detach_Managers));
-			this._Dokters = new EntitySet<Dokter>(new Action<Dokter>(this.attach_Dokters), new Action<Dokter>(this.detach_Dokters));
-			this._Apotekers = new EntitySet<Apoteker>(new Action<Apoteker>(this.attach_Apotekers), new Action<Apoteker>(this.detach_Apotekers));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Karyawan", DbType="VarChar(7) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Id_Karyawan
-		{
-			get
-			{
-				return this._Id_Karyawan;
-			}
-			set
-			{
-				if ((this._Id_Karyawan != value))
-				{
-					this.OnId_KaryawanChanging(value);
-					this.SendPropertyChanging();
-					this._Id_Karyawan = value;
-					this.SendPropertyChanged("Id_Karyawan");
-					this.OnId_KaryawanChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Nama
-		{
-			get
-			{
-				return this._Nama;
-			}
-			set
-			{
-				if ((this._Nama != value))
-				{
-					this.OnNamaChanging(value);
-					this.SendPropertyChanging();
-					this._Nama = value;
-					this.SendPropertyChanged("Nama");
-					this.OnNamaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telp", DbType="VarChar(13) NOT NULL", CanBeNull=false)]
-		public string Telp
-		{
-			get
-			{
-				return this._Telp;
-			}
-			set
-			{
-				if ((this._Telp != value))
-				{
-					this.OnTelpChanging(value);
-					this.SendPropertyChanging();
-					this._Telp = value;
-					this.SendPropertyChanged("Telp");
-					this.OnTelpChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this.OnUsernameChanging(value);
-					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Jabatan", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-		public string Jabatan
-		{
-			get
-			{
-				return this._Jabatan;
-			}
-			set
-			{
-				if ((this._Jabatan != value))
-				{
-					this.OnJabatanChanging(value);
-					this.SendPropertyChanging();
-					this._Jabatan = value;
-					this.SendPropertyChanged("Jabatan");
-					this.OnJabatanChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Karyawan_Resepsioni", Storage="_Resepsionis", ThisKey="Id_Karyawan", OtherKey="Id_Karyawan")]
-		public EntitySet<Resepsioni> Resepsionis
-		{
-			get
-			{
-				return this._Resepsionis;
-			}
-			set
-			{
-				this._Resepsionis.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Karyawan_Manager", Storage="_Managers", ThisKey="Id_Karyawan", OtherKey="Id_Karyawan")]
-		public EntitySet<Manager> Managers
-		{
-			get
-			{
-				return this._Managers;
-			}
-			set
-			{
-				this._Managers.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Karyawan_Dokter", Storage="_Dokters", ThisKey="Id_Karyawan", OtherKey="Id_Karyawan")]
-		public EntitySet<Dokter> Dokters
-		{
-			get
-			{
-				return this._Dokters;
-			}
-			set
-			{
-				this._Dokters.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Karyawan_Apoteker", Storage="_Apotekers", ThisKey="Id_Karyawan", OtherKey="Id_Karyawan")]
-		public EntitySet<Apoteker> Apotekers
-		{
-			get
-			{
-				return this._Apotekers;
-			}
-			set
-			{
-				this._Apotekers.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Resepsionis(Resepsioni entity)
-		{
-			this.SendPropertyChanging();
-			entity.Karyawan = this;
-		}
-		
-		private void detach_Resepsionis(Resepsioni entity)
-		{
-			this.SendPropertyChanging();
-			entity.Karyawan = null;
-		}
-		
-		private void attach_Managers(Manager entity)
-		{
-			this.SendPropertyChanging();
-			entity.Karyawan = this;
-		}
-		
-		private void detach_Managers(Manager entity)
-		{
-			this.SendPropertyChanging();
-			entity.Karyawan = null;
-		}
-		
-		private void attach_Dokters(Dokter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Karyawan = this;
-		}
-		
-		private void detach_Dokters(Dokter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Karyawan = null;
-		}
-		
-		private void attach_Apotekers(Apoteker entity)
-		{
-			this.SendPropertyChanging();
-			entity.Karyawan = this;
-		}
-		
-		private void detach_Apotekers(Apoteker entity)
-		{
-			this.SendPropertyChanging();
-			entity.Karyawan = null;
 		}
 	}
 	
@@ -1183,260 +659,6 @@ namespace D_Clinic
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Obat")]
-	public partial class Obat : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Id_Obat;
-		
-		private string _Nama;
-		
-		private string _Merk;
-		
-		private string _Kemasan;
-		
-		private string _Efek;
-		
-		private decimal _Harga_Beli;
-		
-		private decimal _Harga_Jual;
-		
-		private System.DateTime _Tgl_Kadaluarsa;
-		
-		private int _Stok;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnId_ObatChanging(string value);
-    partial void OnId_ObatChanged();
-    partial void OnNamaChanging(string value);
-    partial void OnNamaChanged();
-    partial void OnMerkChanging(string value);
-    partial void OnMerkChanged();
-    partial void OnKemasanChanging(string value);
-    partial void OnKemasanChanged();
-    partial void OnEfekChanging(string value);
-    partial void OnEfekChanged();
-    partial void OnHarga_BeliChanging(decimal value);
-    partial void OnHarga_BeliChanged();
-    partial void OnHarga_JualChanging(decimal value);
-    partial void OnHarga_JualChanged();
-    partial void OnTgl_KadaluarsaChanging(System.DateTime value);
-    partial void OnTgl_KadaluarsaChanged();
-    partial void OnStokChanging(int value);
-    partial void OnStokChanged();
-    #endregion
-		
-		public Obat()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Obat", DbType="VarChar(7) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Id_Obat
-		{
-			get
-			{
-				return this._Id_Obat;
-			}
-			set
-			{
-				if ((this._Id_Obat != value))
-				{
-					this.OnId_ObatChanging(value);
-					this.SendPropertyChanging();
-					this._Id_Obat = value;
-					this.SendPropertyChanged("Id_Obat");
-					this.OnId_ObatChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Nama
-		{
-			get
-			{
-				return this._Nama;
-			}
-			set
-			{
-				if ((this._Nama != value))
-				{
-					this.OnNamaChanging(value);
-					this.SendPropertyChanging();
-					this._Nama = value;
-					this.SendPropertyChanged("Nama");
-					this.OnNamaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Merk", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Merk
-		{
-			get
-			{
-				return this._Merk;
-			}
-			set
-			{
-				if ((this._Merk != value))
-				{
-					this.OnMerkChanging(value);
-					this.SendPropertyChanging();
-					this._Merk = value;
-					this.SendPropertyChanged("Merk");
-					this.OnMerkChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kemasan", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Kemasan
-		{
-			get
-			{
-				return this._Kemasan;
-			}
-			set
-			{
-				if ((this._Kemasan != value))
-				{
-					this.OnKemasanChanging(value);
-					this.SendPropertyChanging();
-					this._Kemasan = value;
-					this.SendPropertyChanged("Kemasan");
-					this.OnKemasanChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Efek", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Efek
-		{
-			get
-			{
-				return this._Efek;
-			}
-			set
-			{
-				if ((this._Efek != value))
-				{
-					this.OnEfekChanging(value);
-					this.SendPropertyChanging();
-					this._Efek = value;
-					this.SendPropertyChanged("Efek");
-					this.OnEfekChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Harga_Beli", DbType="Money NOT NULL")]
-		public decimal Harga_Beli
-		{
-			get
-			{
-				return this._Harga_Beli;
-			}
-			set
-			{
-				if ((this._Harga_Beli != value))
-				{
-					this.OnHarga_BeliChanging(value);
-					this.SendPropertyChanging();
-					this._Harga_Beli = value;
-					this.SendPropertyChanged("Harga_Beli");
-					this.OnHarga_BeliChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Harga_Jual", DbType="Money NOT NULL")]
-		public decimal Harga_Jual
-		{
-			get
-			{
-				return this._Harga_Jual;
-			}
-			set
-			{
-				if ((this._Harga_Jual != value))
-				{
-					this.OnHarga_JualChanging(value);
-					this.SendPropertyChanging();
-					this._Harga_Jual = value;
-					this.SendPropertyChanged("Harga_Jual");
-					this.OnHarga_JualChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tgl_Kadaluarsa", DbType="Date NOT NULL")]
-		public System.DateTime Tgl_Kadaluarsa
-		{
-			get
-			{
-				return this._Tgl_Kadaluarsa;
-			}
-			set
-			{
-				if ((this._Tgl_Kadaluarsa != value))
-				{
-					this.OnTgl_KadaluarsaChanging(value);
-					this.SendPropertyChanging();
-					this._Tgl_Kadaluarsa = value;
-					this.SendPropertyChanged("Tgl_Kadaluarsa");
-					this.OnTgl_KadaluarsaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stok", DbType="Int NOT NULL")]
-		public int Stok
-		{
-			get
-			{
-				return this._Stok;
-			}
-			set
-			{
-				if ((this._Stok != value))
-				{
-					this.OnStokChanging(value);
-					this.SendPropertyChanging();
-					this._Stok = value;
-					this.SendPropertyChanged("Stok");
-					this.OnStokChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Riwayat_Login")]
 	public partial class Riwayat_Login : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1570,6 +792,784 @@ namespace D_Clinic
 					this._Waktu = value;
 					this.SendPropertyChanged("Waktu");
 					this.OnWaktuChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Karyawan")]
+	public partial class Karyawan : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Id_Karyawan;
+		
+		private string _Nama;
+		
+		private string _Email;
+		
+		private string _Telp;
+		
+		private string _Username;
+		
+		private string _Password;
+		
+		private string _Jabatan;
+		
+		private System.Data.Linq.Binary _Foto;
+		
+		private EntitySet<Resepsioni> _Resepsionis;
+		
+		private EntitySet<Manager> _Managers;
+		
+		private EntitySet<Dokter> _Dokters;
+		
+		private EntitySet<Apoteker> _Apotekers;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnId_KaryawanChanging(string value);
+    partial void OnId_KaryawanChanged();
+    partial void OnNamaChanging(string value);
+    partial void OnNamaChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnTelpChanging(string value);
+    partial void OnTelpChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnJabatanChanging(string value);
+    partial void OnJabatanChanged();
+    partial void OnFotoChanging(System.Data.Linq.Binary value);
+    partial void OnFotoChanged();
+    #endregion
+		
+		public Karyawan()
+		{
+			this._Resepsionis = new EntitySet<Resepsioni>(new Action<Resepsioni>(this.attach_Resepsionis), new Action<Resepsioni>(this.detach_Resepsionis));
+			this._Managers = new EntitySet<Manager>(new Action<Manager>(this.attach_Managers), new Action<Manager>(this.detach_Managers));
+			this._Dokters = new EntitySet<Dokter>(new Action<Dokter>(this.attach_Dokters), new Action<Dokter>(this.detach_Dokters));
+			this._Apotekers = new EntitySet<Apoteker>(new Action<Apoteker>(this.attach_Apotekers), new Action<Apoteker>(this.detach_Apotekers));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Karyawan", DbType="VarChar(7) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Id_Karyawan
+		{
+			get
+			{
+				return this._Id_Karyawan;
+			}
+			set
+			{
+				if ((this._Id_Karyawan != value))
+				{
+					this.OnId_KaryawanChanging(value);
+					this.SendPropertyChanging();
+					this._Id_Karyawan = value;
+					this.SendPropertyChanged("Id_Karyawan");
+					this.OnId_KaryawanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this.OnNamaChanging(value);
+					this.SendPropertyChanging();
+					this._Nama = value;
+					this.SendPropertyChanged("Nama");
+					this.OnNamaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telp", DbType="VarChar(13) NOT NULL", CanBeNull=false)]
+		public string Telp
+		{
+			get
+			{
+				return this._Telp;
+			}
+			set
+			{
+				if ((this._Telp != value))
+				{
+					this.OnTelpChanging(value);
+					this.SendPropertyChanging();
+					this._Telp = value;
+					this.SendPropertyChanged("Telp");
+					this.OnTelpChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Jabatan", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string Jabatan
+		{
+			get
+			{
+				return this._Jabatan;
+			}
+			set
+			{
+				if ((this._Jabatan != value))
+				{
+					this.OnJabatanChanging(value);
+					this.SendPropertyChanging();
+					this._Jabatan = value;
+					this.SendPropertyChanged("Jabatan");
+					this.OnJabatanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Foto", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Foto
+		{
+			get
+			{
+				return this._Foto;
+			}
+			set
+			{
+				if ((this._Foto != value))
+				{
+					this.OnFotoChanging(value);
+					this.SendPropertyChanging();
+					this._Foto = value;
+					this.SendPropertyChanged("Foto");
+					this.OnFotoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Karyawan_Resepsioni", Storage="_Resepsionis", ThisKey="Id_Karyawan", OtherKey="Id_Karyawan")]
+		public EntitySet<Resepsioni> Resepsionis
+		{
+			get
+			{
+				return this._Resepsionis;
+			}
+			set
+			{
+				this._Resepsionis.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Karyawan_Manager", Storage="_Managers", ThisKey="Id_Karyawan", OtherKey="Id_Karyawan")]
+		public EntitySet<Manager> Managers
+		{
+			get
+			{
+				return this._Managers;
+			}
+			set
+			{
+				this._Managers.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Karyawan_Dokter", Storage="_Dokters", ThisKey="Id_Karyawan", OtherKey="Id_Karyawan")]
+		public EntitySet<Dokter> Dokters
+		{
+			get
+			{
+				return this._Dokters;
+			}
+			set
+			{
+				this._Dokters.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Karyawan_Apoteker", Storage="_Apotekers", ThisKey="Id_Karyawan", OtherKey="Id_Karyawan")]
+		public EntitySet<Apoteker> Apotekers
+		{
+			get
+			{
+				return this._Apotekers;
+			}
+			set
+			{
+				this._Apotekers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Resepsionis(Resepsioni entity)
+		{
+			this.SendPropertyChanging();
+			entity.Karyawan = this;
+		}
+		
+		private void detach_Resepsionis(Resepsioni entity)
+		{
+			this.SendPropertyChanging();
+			entity.Karyawan = null;
+		}
+		
+		private void attach_Managers(Manager entity)
+		{
+			this.SendPropertyChanging();
+			entity.Karyawan = this;
+		}
+		
+		private void detach_Managers(Manager entity)
+		{
+			this.SendPropertyChanging();
+			entity.Karyawan = null;
+		}
+		
+		private void attach_Dokters(Dokter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Karyawan = this;
+		}
+		
+		private void detach_Dokters(Dokter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Karyawan = null;
+		}
+		
+		private void attach_Apotekers(Apoteker entity)
+		{
+			this.SendPropertyChanging();
+			entity.Karyawan = this;
+		}
+		
+		private void detach_Apotekers(Apoteker entity)
+		{
+			this.SendPropertyChanging();
+			entity.Karyawan = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Obat")]
+	public partial class Obat : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Id_Obat;
+		
+		private string _Nama;
+		
+		private string _Merk;
+		
+		private string _Kemasan;
+		
+		private string _Efek;
+		
+		private System.DateTime _Tgl_Kadaluarsa;
+		
+		private int _Stok;
+		
+		private decimal _Harga_Beli;
+		
+		private decimal _Harga_Jual;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnId_ObatChanging(string value);
+    partial void OnId_ObatChanged();
+    partial void OnNamaChanging(string value);
+    partial void OnNamaChanged();
+    partial void OnMerkChanging(string value);
+    partial void OnMerkChanged();
+    partial void OnKemasanChanging(string value);
+    partial void OnKemasanChanged();
+    partial void OnEfekChanging(string value);
+    partial void OnEfekChanged();
+    partial void OnTgl_KadaluarsaChanging(System.DateTime value);
+    partial void OnTgl_KadaluarsaChanged();
+    partial void OnStokChanging(int value);
+    partial void OnStokChanged();
+    partial void OnHarga_BeliChanging(decimal value);
+    partial void OnHarga_BeliChanged();
+    partial void OnHarga_JualChanging(decimal value);
+    partial void OnHarga_JualChanged();
+    #endregion
+		
+		public Obat()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Obat", DbType="VarChar(7) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Id_Obat
+		{
+			get
+			{
+				return this._Id_Obat;
+			}
+			set
+			{
+				if ((this._Id_Obat != value))
+				{
+					this.OnId_ObatChanging(value);
+					this.SendPropertyChanging();
+					this._Id_Obat = value;
+					this.SendPropertyChanged("Id_Obat");
+					this.OnId_ObatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this.OnNamaChanging(value);
+					this.SendPropertyChanging();
+					this._Nama = value;
+					this.SendPropertyChanged("Nama");
+					this.OnNamaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Merk", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Merk
+		{
+			get
+			{
+				return this._Merk;
+			}
+			set
+			{
+				if ((this._Merk != value))
+				{
+					this.OnMerkChanging(value);
+					this.SendPropertyChanging();
+					this._Merk = value;
+					this.SendPropertyChanged("Merk");
+					this.OnMerkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Kemasan", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Kemasan
+		{
+			get
+			{
+				return this._Kemasan;
+			}
+			set
+			{
+				if ((this._Kemasan != value))
+				{
+					this.OnKemasanChanging(value);
+					this.SendPropertyChanging();
+					this._Kemasan = value;
+					this.SendPropertyChanged("Kemasan");
+					this.OnKemasanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Efek", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Efek
+		{
+			get
+			{
+				return this._Efek;
+			}
+			set
+			{
+				if ((this._Efek != value))
+				{
+					this.OnEfekChanging(value);
+					this.SendPropertyChanging();
+					this._Efek = value;
+					this.SendPropertyChanged("Efek");
+					this.OnEfekChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tgl_Kadaluarsa", DbType="Date NOT NULL")]
+		public System.DateTime Tgl_Kadaluarsa
+		{
+			get
+			{
+				return this._Tgl_Kadaluarsa;
+			}
+			set
+			{
+				if ((this._Tgl_Kadaluarsa != value))
+				{
+					this.OnTgl_KadaluarsaChanging(value);
+					this.SendPropertyChanging();
+					this._Tgl_Kadaluarsa = value;
+					this.SendPropertyChanged("Tgl_Kadaluarsa");
+					this.OnTgl_KadaluarsaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stok", DbType="Int NOT NULL")]
+		public int Stok
+		{
+			get
+			{
+				return this._Stok;
+			}
+			set
+			{
+				if ((this._Stok != value))
+				{
+					this.OnStokChanging(value);
+					this.SendPropertyChanging();
+					this._Stok = value;
+					this.SendPropertyChanged("Stok");
+					this.OnStokChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Harga_Beli", DbType="Money NOT NULL")]
+		public decimal Harga_Beli
+		{
+			get
+			{
+				return this._Harga_Beli;
+			}
+			set
+			{
+				if ((this._Harga_Beli != value))
+				{
+					this.OnHarga_BeliChanging(value);
+					this.SendPropertyChanging();
+					this._Harga_Beli = value;
+					this.SendPropertyChanged("Harga_Beli");
+					this.OnHarga_BeliChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Harga_Jual", DbType="Money NOT NULL")]
+		public decimal Harga_Jual
+		{
+			get
+			{
+				return this._Harga_Jual;
+			}
+			set
+			{
+				if ((this._Harga_Jual != value))
+				{
+					this.OnHarga_JualChanging(value);
+					this.SendPropertyChanging();
+					this._Harga_Jual = value;
+					this.SendPropertyChanged("Harga_Jual");
+					this.OnHarga_JualChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Pasien")]
+	public partial class Pasien : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Id_Pasien;
+		
+		private string _Nama;
+		
+		private string _Jenis_Kelamin;
+		
+		private string _Golongan_Darah;
+		
+		private string _Telp;
+		
+		private string _Alamat;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnId_PasienChanging(string value);
+    partial void OnId_PasienChanged();
+    partial void OnNamaChanging(string value);
+    partial void OnNamaChanged();
+    partial void OnJenis_KelaminChanging(string value);
+    partial void OnJenis_KelaminChanged();
+    partial void OnGolongan_DarahChanging(string value);
+    partial void OnGolongan_DarahChanged();
+    partial void OnTelpChanging(string value);
+    partial void OnTelpChanged();
+    partial void OnAlamatChanging(string value);
+    partial void OnAlamatChanged();
+    #endregion
+		
+		public Pasien()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Pasien", DbType="VarChar(7) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Id_Pasien
+		{
+			get
+			{
+				return this._Id_Pasien;
+			}
+			set
+			{
+				if ((this._Id_Pasien != value))
+				{
+					this.OnId_PasienChanging(value);
+					this.SendPropertyChanging();
+					this._Id_Pasien = value;
+					this.SendPropertyChanged("Id_Pasien");
+					this.OnId_PasienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nama", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Nama
+		{
+			get
+			{
+				return this._Nama;
+			}
+			set
+			{
+				if ((this._Nama != value))
+				{
+					this.OnNamaChanging(value);
+					this.SendPropertyChanging();
+					this._Nama = value;
+					this.SendPropertyChanged("Nama");
+					this.OnNamaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Jenis_Kelamin", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
+		public string Jenis_Kelamin
+		{
+			get
+			{
+				return this._Jenis_Kelamin;
+			}
+			set
+			{
+				if ((this._Jenis_Kelamin != value))
+				{
+					this.OnJenis_KelaminChanging(value);
+					this.SendPropertyChanging();
+					this._Jenis_Kelamin = value;
+					this.SendPropertyChanged("Jenis_Kelamin");
+					this.OnJenis_KelaminChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Golongan_Darah", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string Golongan_Darah
+		{
+			get
+			{
+				return this._Golongan_Darah;
+			}
+			set
+			{
+				if ((this._Golongan_Darah != value))
+				{
+					this.OnGolongan_DarahChanging(value);
+					this.SendPropertyChanging();
+					this._Golongan_Darah = value;
+					this.SendPropertyChanged("Golongan_Darah");
+					this.OnGolongan_DarahChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telp", DbType="VarChar(13) NOT NULL", CanBeNull=false)]
+		public string Telp
+		{
+			get
+			{
+				return this._Telp;
+			}
+			set
+			{
+				if ((this._Telp != value))
+				{
+					this.OnTelpChanging(value);
+					this.SendPropertyChanging();
+					this._Telp = value;
+					this.SendPropertyChanged("Telp");
+					this.OnTelpChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Alamat", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Alamat
+		{
+			get
+			{
+				return this._Alamat;
+			}
+			set
+			{
+				if ((this._Alamat != value))
+				{
+					this.OnAlamatChanging(value);
+					this.SendPropertyChanging();
+					this._Alamat = value;
+					this.SendPropertyChanged("Alamat");
+					this.OnAlamatChanged();
 				}
 			}
 		}
