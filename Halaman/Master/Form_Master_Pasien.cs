@@ -18,9 +18,6 @@ namespace D_Clinic
     {
         Msg_Box mBox = new Msg_Box();
         string gender, status = "";
-
-        string IDPasien;
-        int lastID;
         public Form_Master_Pasien()
         {
             InitializeComponent();
@@ -29,6 +26,7 @@ namespace D_Clinic
         {
             //Mengkosongkan Semua Textbox dan Combobox
             DateTime currentDateTime = DateTime.Now;
+            dtpTglLahir.Format = DateTimePickerFormat.Long;
             dtpTglLahir.Value = currentDateTime;
             txCariPasien.Clear();
             txID.Enabled = true;
@@ -40,6 +38,7 @@ namespace D_Clinic
             cbGolDarah.ForeColor = Color.White;
             txTelp.Clear();
             txAlamat.Clear();
+            status = "";
         }
         
         private void disablePropherties()
@@ -59,7 +58,7 @@ namespace D_Clinic
         }
         private void Gambar()
         {
-            if (txCariPasien.Text.Length != 0)
+            if (!string.IsNullOrEmpty(txCariPasien.Text))
             {
                 txCariPasien.IconLeft = Properties.Resources.green_magnifier;
             }
@@ -68,7 +67,7 @@ namespace D_Clinic
                 txCariPasien.IconLeft = Properties.Resources.white_magnifier;
             }
 
-            if (txID.Text.Length != 0)
+            if (!string.IsNullOrEmpty(txID.Text))
             {
                 txID.IconLeft = Properties.Resources.green_id_card;
             }
@@ -77,7 +76,7 @@ namespace D_Clinic
                 txID.IconLeft = Properties.Resources.white_id_card;
             }
 
-            if (txNama.Text.Length != 0)
+            if (!string.IsNullOrEmpty(txNama.Text))
             {
                 txNama.IconLeft = Properties.Resources.green_name;
             }
@@ -86,7 +85,7 @@ namespace D_Clinic
                 txNama.IconLeft = Properties.Resources.white_name;
             }
 
-            if (txTelp.Text.Length != 0)
+            if (!string.IsNullOrEmpty(txTelp.Text))
             {
                 txTelp.IconLeft = Properties.Resources.green_telephone;
             }
@@ -95,7 +94,7 @@ namespace D_Clinic
                 txTelp.IconLeft = Properties.Resources.white_telephone;
             }
 
-            if (txAlamat.Text.Length != 0)
+            if (!string.IsNullOrEmpty(txAlamat.Text))
             {
                 txAlamat.IconLeft = Properties.Resources.green_location;
             }
@@ -113,43 +112,28 @@ namespace D_Clinic
                 imgGender.Image = Properties.Resources.white_gender;
             }
         }
-        private void GenerateIDPasien()
+        private string IDPasien()
         {
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
-            string query = "SELECT TOP 1 RIGHT(Id_Pasien, 3) AS ID FROM Pasien ORDER BY Id_Pasien DESC";
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(query, connection);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (SqlCommand command = new SqlCommand())
                 {
-                    while (reader.Read())
-                    {
-                        // Ambil nilai-nilai kolom dari reader
-                        lastID = int.Parse(reader.GetString(0));
-                    }
-                }
-                else
-                {
-                    lastID = 0;
-                }
-                reader.Close();
+                    command.Connection = connection;
+                    command.CommandType = System.Data.CommandType.Text;
+                    command.CommandText = "SELECT dbo.GenerateIDPasien()"; // Ganti "dbo" dengan skema fungsi Anda
 
-                IDPasien = string.Format("PAS{0:D3}", lastID + 1);
-                txID.Text = IDPasien;
+                    connection.Open();
+                    string result = (string)command.ExecuteScalar();
+                    return result;
+                }
             }
         }
-
         private void btnTambah_Click(object sender, EventArgs e)
         {
             clearText();
             disablePropherties();
-            GenerateIDPasien();
+            txID.Text = IDPasien();
             txNama.Enabled = true;
             dtpTglLahir.Enabled = true;
             rbLaki.Enabled = true;
@@ -159,7 +143,6 @@ namespace D_Clinic
             txTelp.Enabled = true;
             txAlamat.Enabled = true;
             btnSimpan.Enabled = true;
-            Gambar();
         }
         private void NonAktifPasien()
         {
@@ -181,7 +164,6 @@ namespace D_Clinic
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -215,7 +197,6 @@ namespace D_Clinic
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -264,7 +245,6 @@ namespace D_Clinic
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -276,16 +256,41 @@ namespace D_Clinic
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txTelp.Text.Length < 12)
+            if (txNama.Text.Length != 0 || rbLaki.Checked == true || rbPerempuan.Checked == true || cbGolDarah.SelectedIndex != -1 || txTelp.Text.Length != 0 || txAlamat.Text.Length != 0)
             {
-                mBox.text1.Text = "Nomor Telepon Tidak Valid";
-                mBox.session.Text = "Pasien";
-                mBox.Show();
-                mBox.WarningMessage();
+                if (cbGolDarah.SelectedIndex != -1)
+                {
+                    if (txTelp.Text.Length < 12)
+                    {
+                        mBox.text1.Text = "Nomor Telepon Tidak Valid";
+                        mBox.session.Text = "Pasien";
+                        mBox.Show();
+                        mBox.WarningMessage();
+                    }
+                    else
+                    {
+                        DateTime currentDateTime = DateTime.Now;
+
+                        if (dtpTglLahir.Value > currentDateTime)
+                        {
+                            mBox.text1.Text = "Tanggal Lahir Tidak Boleh Lebih Dari " + currentDateTime.ToString("dd MMMM yyyy");
+                            mBox.session.Text = "Pasien";
+                            mBox.Show();
+                            mBox.WarningMessage();
+                        }
+                        else
+                        {
+                            UpdatePasien();
+                        }
+                    }
+                }
             }
             else
             {
-                UpdatePasien();
+                mBox.text1.Text = "Masukkan Semua Data!";
+                mBox.session.Text = "Pasien";
+                mBox.Show();
+                mBox.WarningMessage();
             }
         }
         private void TambahPasien()
@@ -346,7 +351,19 @@ namespace D_Clinic
                     }
                     else
                     {
-                        TambahPasien();
+                        DateTime currentDateTime = DateTime.Now;
+
+                        if (dtpTglLahir.Value > currentDateTime)
+                        {
+                            mBox.text1.Text = "Tanggal Lahir Tidak Boleh Lebih Dari " + currentDateTime.ToString("dd MMMM yyyy");
+                            mBox.session.Text = "Pasien";
+                            mBox.Show();
+                            mBox.WarningMessage();
+                        }
+                        else
+                        {
+                            TambahPasien();
+                        }
                     }
                 }
             }
@@ -357,14 +374,12 @@ namespace D_Clinic
                 mBox.Show();
                 mBox.WarningMessage();
             }
-            Gambar();
         }
         
         private void btnBatal_Click(object sender, EventArgs e)
         {
             clearText();
             disablePropherties();
-            Gambar();
         }
         private void cariPasien()
         {
@@ -443,7 +458,7 @@ namespace D_Clinic
                     }
                     reader.Close();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     mBox.text1.Text = "Gagal Mencari Pasien";
                     mBox.session.Text = "Pasien";
@@ -451,11 +466,6 @@ namespace D_Clinic
                     mBox.ErrorMessage();
                 }
             }
-        }
-       
-        private void Gambar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Gambar();
         }
 
         private void btnCari_Click(object sender, EventArgs e)
@@ -472,20 +482,10 @@ namespace D_Clinic
                 mBox.Show();
                 mBox.WarningMessage();
             }
-            Gambar();
-        }
-        public static bool ValidasiEmail(string email)
-        {
-            // Pola regular expression untuk validasi email
-            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-
-            // Lakukan validasi menggunakan Regex.IsMatch
-            return Regex.IsMatch(email, pattern);
         }
 
         private void Integer_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Gambar();
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
@@ -511,6 +511,16 @@ namespace D_Clinic
                 imgGolDarah.Image = Properties.Resources.white_blood;
                 lblGolDarah.Visible = true;
             }
+        }
+
+        private void Gambar_TextChanged(object sender, EventArgs e)
+        {
+            Gambar();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void Form_Master_Pasien_Load(object sender, EventArgs e)

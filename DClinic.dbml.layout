@@ -26,19 +26,13 @@
         <elementListCompartment Id="162ae49a-6ed8-450f-97d9-c31a434650cc" absoluteBounds="3.515, 7.71, 1.9700000000000002, 0.69864910592635465" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ebe45885-6e4c-4c03-99ac-586e65719de3" absoluteBounds="0.875, 1.125, 2, 1.8909733395775157">
-      <DataClassMoniker Name="/DClinicDataContext/Riwayat_Login" />
-      <nestedChildShapes>
-        <elementListCompartment Id="7b380a44-67e6-46a7-9afb-286bcf080378" absoluteBounds="0.89000000000000012, 1.585, 1.9700000000000002, 1.3309733395775158" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="73cb2bb3-35a2-43e0-b450-3cbc39ce449b" absoluteBounds="0.875, 3.5, 2, 2.5232975732286773">
       <DataClassMoniker Name="/DClinicDataContext/Karyawan" />
       <nestedChildShapes>
         <elementListCompartment Id="5d7854bf-099c-4a34-a4d1-8e7c95c0f836" absoluteBounds="0.89000000000000012, 3.96, 1.9700000000000002, 1.9632975732286773" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.875 : 3.5); (1.875 : 3.25); (3.125 : 3.25); (3.125 : 1.87932455296318); (3.5 : 1.87932455296318)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.875 : 3.5); (1.875 : 3.14097333957752); (2.875 : 3.14097333957752); (2.875 : 1.87932455296318); (3.5 : 1.87932455296318)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DClinicDataContext/Karyawan/Karyawan_Resepsioni" />
       <nodes>
         <classShapeMoniker Id="73cb2bb3-35a2-43e0-b450-3cbc39ce449b" />
@@ -76,6 +70,12 @@
       <DataClassMoniker Name="/DClinicDataContext/Pasien" />
       <nestedChildShapes>
         <elementListCompartment Id="eb69d4a7-2d81-482d-86f9-026ea884dd9f" absoluteBounds="6.515, 5.835, 1.9700000000000002, 1.541748084127903" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9c3686be-4fc1-4d8b-bd96-6b3d4e269ab9" absoluteBounds="0.625, 1, 2, 1.8909733395775157">
+      <DataClassMoniker Name="/DClinicDataContext/Riwayat_Login" />
+      <nestedChildShapes>
+        <elementListCompartment Id="602da548-d97a-43d4-8b3e-b5e2ae3fa93a" absoluteBounds="0.64, 1.46, 1.9700000000000002, 1.3309733395775158" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

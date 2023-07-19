@@ -104,6 +104,7 @@
             this.btnTampilPass.Size = new System.Drawing.Size(50, 50);
             this.btnTampilPass.TabIndex = 30;
             this.btnTampilPass.UseTransparentBackground = true;
+            this.btnTampilPass.Click += new System.EventHandler(this.btnTampilPass_Click);
             // 
             // btnBatal
             // 
@@ -245,6 +246,7 @@
             this.txPassword.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txPassword.TabIndex = 24;
             this.txPassword.TextOffset = new System.Drawing.Point(0, 5);
+            this.txPassword.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
             // 
             // txUsername
             // 
@@ -278,6 +280,7 @@
             this.txUsername.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txUsername.TabIndex = 23;
             this.txUsername.TextOffset = new System.Drawing.Point(0, 5);
+            this.txUsername.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
             // 
             // guna2GroupBox3
             // 

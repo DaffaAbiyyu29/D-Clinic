@@ -1,4 +1,5 @@
-﻿using D_Clinic.Resources;
+﻿using D_Clinic.Halaman.Transaksi;
+using D_Clinic.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Permissions;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +18,7 @@ namespace D_Clinic.Halaman
     public partial class Form_Menu : Form
     {
         string nama;
+        private string dokter;
         public Form_Menu()
         {
             InitializeComponent();
@@ -31,6 +35,9 @@ namespace D_Clinic.Halaman
 
         private void btnKaryawan_Click(object sender, EventArgs e)
         {
+            pnlKaryawan.Height = pnlKaryawan.MinimumSize.Height;
+            pnlLaporan.Height = pnlLaporan.MinimumSize.Height;
+
             if (pnlKaryawan.Height == pnlKaryawan.MaximumSize.Height)
             {
                 pnlKaryawan.Height = pnlKaryawan.MinimumSize.Height;
@@ -186,6 +193,9 @@ namespace D_Clinic.Halaman
 
         private void btnLaporan_Click(object sender, EventArgs e)
         {
+            pnlKaryawan.Height = pnlKaryawan.MinimumSize.Height;
+            pnlLaporan.Height = pnlLaporan.MinimumSize.Height;
+
             if (pnlLaporan.Height == pnlLaporan.MaximumSize.Height)
             {
                 pnlLaporan.Height = pnlLaporan.MinimumSize.Height;
@@ -199,6 +209,7 @@ namespace D_Clinic.Halaman
         private void btnRSRekanan_Click(object sender, EventArgs e)
         {
             pnlKaryawan.Height = pnlKaryawan.MinimumSize.Height;
+            pnlLaporan.Height = pnlLaporan.MinimumSize.Height;
 
             Form_Master_RS_Rekanan rs = new Form_Master_RS_Rekanan();
             rs.TopLevel = false;
@@ -210,6 +221,7 @@ namespace D_Clinic.Halaman
         private void btnRuangPeriksa_Click(object sender, EventArgs e)
         {
             pnlKaryawan.Height = pnlKaryawan.MinimumSize.Height;
+            pnlLaporan.Height = pnlLaporan.MinimumSize.Height;
 
             Form_Master_Ruang_Periksa rp = new Form_Master_Ruang_Periksa();
             rp.TopLevel = false;
@@ -221,6 +233,7 @@ namespace D_Clinic.Halaman
         private void btnJadwalDokter_Click(object sender, EventArgs e)
         {
             pnlKaryawan.Height = pnlKaryawan.MinimumSize.Height;
+            pnlLaporan.Height = pnlLaporan.MinimumSize.Height;
 
             Form_Master_Jadwal_Dokter jd = new Form_Master_Jadwal_Dokter();
             jd.TopLevel = false;
@@ -228,7 +241,8 @@ namespace D_Clinic.Halaman
             jd.BringToFront();
             jd.Show();
         }
-        public void Pendaftaran_Pasien()
+
+        private void btnPendaftaran_Click(object sender, EventArgs e)
         {
             Form_Transaksi_Pendaftaran_Pasien daftar = new Form_Transaksi_Pendaftaran_Pasien();
             daftar.TopLevel = false;
@@ -238,18 +252,41 @@ namespace D_Clinic.Halaman
             daftar.txResepsionis.Text = lblNama.Text;
         }
 
-        private void btnPendaftaran_Click(object sender, EventArgs e)
-        {
-            Pendaftaran_Pasien();
-        }
-
         private void btnSupplier_Click(object sender, EventArgs e)
         {
+            pnlKaryawan.Height = pnlKaryawan.MinimumSize.Height;
+            pnlLaporan.Height = pnlLaporan.MinimumSize.Height;
+
             Form_Master_Supplier supplier = new Form_Master_Supplier();
             supplier.TopLevel = false;
             pnlContainer.Controls.Add(supplier);
             supplier.BringToFront();
             supplier.Show();
+        }
+
+        private void btnResepObat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRujukan_Click(object sender, EventArgs e)
+        {
+            Form_Transaksi_Rujukan_Pasien rujukan = new Form_Transaksi_Rujukan_Pasien();
+            rujukan.TopLevel = false;
+            pnlContainer.Controls.Add(rujukan);
+            rujukan.BringToFront();
+            rujukan.Show();
+            rujukan.txDokter.Text = lblNama.Text;
+        }
+
+        private void btnRestok_Click(object sender, EventArgs e)
+        {
+            Form_Transaksi_Restok_Obat restok = new Form_Transaksi_Restok_Obat();
+            restok.TopLevel = false;
+            pnlContainer.Controls.Add(restok);
+            restok.BringToFront();
+            restok.Show();
+            restok.txApoteker.Text = lblNama.Text;
         }
     }
 }

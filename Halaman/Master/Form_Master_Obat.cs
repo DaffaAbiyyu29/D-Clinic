@@ -6,8 +6,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Markup;
@@ -18,8 +20,7 @@ namespace D_Clinic.Halaman
     {
         Msg_Box mBox = new Msg_Box();
 
-        string IDObat, status;
-        int lastID;
+        string status;
         public Form_Master_Obat()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace D_Clinic.Halaman
         {
             //Mengkosongkan Semua Textbox dan Combobox
             DateTime currentDateTime = DateTime.Now;
+            dtpKadaluarsa.Format = DateTimePickerFormat.Long;
             dtpKadaluarsa.Value = currentDateTime;
             txCariObat.Clear();
             txID.Enabled = true;
@@ -41,6 +43,7 @@ namespace D_Clinic.Halaman
             txHargaJual.Clear();
             dtpKadaluarsa.Value.ToLocalTime();
             txStok.Clear();
+            status = "";
         }
         private void disablePropherties()
         {
@@ -61,48 +64,33 @@ namespace D_Clinic.Halaman
         }
         private void Integer_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Gambar();
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
-        private void GenerateIDObat()
+        private string IDObat()
         {
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
-            string query = "SELECT TOP 1 RIGHT(Id_Obat, 3) AS ID FROM Obat ORDER BY Id_Obat DESC";
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(query, connection);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (SqlCommand command = new SqlCommand())
                 {
-                    while (reader.Read())
-                    {
-                        // Ambil nilai-nilai kolom dari reader
-                        lastID = int.Parse(reader.GetString(0));
-                    }
-                }
-                else
-                {
-                    lastID = 0;
-                }
-                reader.Close();
+                    command.Connection = connection;
+                    command.CommandType = System.Data.CommandType.Text;
+                    command.CommandText = "SELECT dbo.GenerateIDObat()"; // Ganti "dbo" dengan skema fungsi Anda
 
-                IDObat = string.Format("OBT{0:D3}", lastID + 1);
-                txID.Text = IDObat;
+                    connection.Open();
+                    string result = (string)command.ExecuteScalar();
+                    return result;
+                }
             }
         }
         private void btnTambah_Click(object sender, EventArgs e)
         {
             clearText();
             disablePropherties();
-            GenerateIDObat();
+            txID.Text = IDObat();
             txNama.Enabled = true;
             txMerk.Enabled = true;
             cbKemasan.Enabled = true;
@@ -111,7 +99,6 @@ namespace D_Clinic.Halaman
             txHargaBeli.Enabled = true;
             txStok.Enabled = true;
             btnSimpan.Enabled = true;
-            Gambar();
         }
         private void NonAktifObat()
         {
@@ -133,7 +120,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -167,7 +153,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -185,8 +170,8 @@ namespace D_Clinic.Halaman
         {
             dtpKadaluarsa.Format = DateTimePickerFormat.Custom;
             dtpKadaluarsa.CustomFormat = "dd/MM/yy";
-            string unformatHargaBeli = txHargaBeli.Text.Replace(".", "");
-            string unformatHargaJual = txHargaJual.Text.Replace(".", "");
+            string unformatHargaBeli = Regex.Replace(txHargaBeli.Text, "[^0-9]", "");
+            string unformatHargaJual = Regex.Replace(txHargaJual.Text, "[^0-9]", "");
 
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -215,7 +200,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -227,26 +211,43 @@ namespace D_Clinic.Halaman
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            DateTime currentDateTime = DateTime.Now;
-
-            if (dtpKadaluarsa.Value < currentDateTime)
+            if (txNama.Text.Length != 0 && txMerk.Text.Length != 0 && cbKemasan.SelectedIndex != -1 && txEfek.Text.Length != 0 && txHargaBeli.Text.Length != 0 && txStok.Text.Length != 0)
             {
-                mBox.text1.Text = "Tanggal Tidak Boleh Kurang Dari " + currentDateTime.ToString("dd MMMM yyyy");
-                mBox.session.Text = "Obat";
-                mBox.Show();
-                mBox.ErrorMessage();
+                if (txStok.Text == "0")
+                {
+
+                }
+                else
+                {
+                    DateTime currentDateTime = DateTime.Now;
+
+                    if (dtpKadaluarsa.Value < currentDateTime)
+                    {
+                        mBox.text1.Text = "Tanggal Kadaluarsa Tidak Boleh Kurang Dari " + currentDateTime.ToString("dd MMMM yyyy");
+                        mBox.session.Text = "Obat";
+                        mBox.Show();
+                        mBox.WarningMessage();
+                    }
+                    else
+                    {
+                        UpdateObat();
+                    }
+                }
             }
             else
             {
-                UpdateObat();
+                mBox.text1.Text = "Masukkan Semua Data!";
+                mBox.session.Text = "Obat";
+                mBox.Show();
+                mBox.WarningMessage();
             }
         }
         private void TambahObat()
         {
             dtpKadaluarsa.Format = DateTimePickerFormat.Custom;
             dtpKadaluarsa.CustomFormat = "dd/MM/yy";
-            string unformatHargaBeli = txHargaBeli.Text.Replace(".", "");
-            string unformatHargaJual = txHargaJual.Text.Replace(".", "");
+            string unformatHargaBeli = Regex.Replace(txHargaBeli.Text, "[^0-9]", "");
+            string unformatHargaJual = Regex.Replace(txHargaJual.Text, "[^0-9]", "");
 
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -287,19 +288,24 @@ namespace D_Clinic.Halaman
         {
             if (txNama.Text.Length != 0 && txMerk.Text.Length != 0 && cbKemasan.SelectedIndex != -1 && txEfek.Text.Length != 0 && txHargaBeli.Text.Length != 0 && txStok.Text.Length != 0)
             {
-                DateTime currentDateTime = DateTime.Now;
+                if(txStok.Text == "0")
+                {
 
-                if (dtpKadaluarsa.Value < currentDateTime)
+                } else
                 {
-                    mBox.text1.Text = "Tanggal Tidak Boleh Kurang Dari " + currentDateTime.ToString("dd MMMM yyyy");
-                    mBox.session.Text = "Obat";
-                    mBox.Show();
-                    mBox.ErrorMessage();
-                }
-                else
-                {
-                    TambahObat();
-                    Gambar();
+                    DateTime currentDateTime = DateTime.Now;
+
+                    if (dtpKadaluarsa.Value < currentDateTime)
+                    {
+                        mBox.text1.Text = "Tanggal Kadaluarsa Tidak Boleh Kurang Dari " + currentDateTime.ToString("dd MMMM yyyy");
+                        mBox.session.Text = "Obat";
+                        mBox.Show();
+                        mBox.WarningMessage();
+                    }
+                    else
+                    {
+                        TambahObat();
+                    }
                 }
             }
             else
@@ -315,17 +321,16 @@ namespace D_Clinic.Halaman
         {
             clearText();
             disablePropherties();
-            Gambar();
         }
         //HARGA JUAL = HARGA BELI + 20%
         private void GenerateHargaJual()
         {
             double persen = 20;
-            string unformatHarga = txHargaBeli.Text.Replace(".", "");
+            string unformatHarga = Regex.Replace(txHargaBeli.Text, "[^0-9]", "");
             double hargaBeli = double.Parse(unformatHarga);
             double hargaJual = hargaBeli + (hargaBeli * (persen/100));
 
-            string formatHarga = hargaJual.ToString("N0");
+            string formatHarga = hargaJual.ToString("C0", new CultureInfo("id-ID"));
             txHargaJual.Text = formatHarga;
         }
         private void cariObat()
@@ -382,8 +387,8 @@ namespace D_Clinic.Halaman
                                 btnNonAktif.Visible = true;
                             }
 
-                            string formatHargaBeli = hargaBeli.ToString("N0");
-                            string formatHargaJual = hargaJual.ToString("N0");
+                            string formatHargaBeli = hargaBeli.ToString("C0", new CultureInfo("id-ID"));
+                            string formatHargaJual = hargaJual.ToString("C0", new CultureInfo("id-ID"));
                             txID.Text = id;
                             txNama.Text = nama;
                             txMerk.Text = merk;
@@ -418,26 +423,32 @@ namespace D_Clinic.Halaman
         {
             if (!string.IsNullOrEmpty(txHargaBeli.Text))
             {
-                decimal currencyValue;
-                if (decimal.TryParse(txHargaBeli.Text, out currencyValue))
+                txHargaBeli.IconLeft = Properties.Resources.green_harga;
+
+                // Menghapus karakter yang bukan angka dari TextBox
+                string numericText = Regex.Replace(txHargaBeli.Text, "[^0-9]", "");
+
+                // Mengonversi string angka ke tipe data numerik (misalnya, decimal)
+                decimal amount = 0;
+                if (Decimal.TryParse(numericText, out amount))
                 {
-                    // Format nilai mata uang Rupiah
-                    txHargaBeli.Text = currencyValue.ToString("N0");
+                    // Memformat nilai numerik ke format Rupiah
+                    string formattedAmount = string.Format(new CultureInfo("id-ID"), "{0:C0}", amount);
+
+                    // Mengatur nilai yang sudah diformat kembali ke TextBox
+                    txHargaBeli.Text = formattedAmount;
+
+                    // Mengatur posisi kursor ke akhir TextBox
                     txHargaBeli.SelectionStart = txHargaBeli.Text.Length;
-                    txHargaBeli.SelectionLength = 0;
                     GenerateHargaJual();
-                    txHargaJual.DisabledState.ForeColor = Color.FromArgb(131, 235, 97);
-                    txHargaJual.DisabledState.BorderColor = Color.FromArgb(131, 235, 97);
                 }
             }
             else
             {
                 // Jika input jumlah tidak valid, set total harga menjadi kosong atau nol
                 txHargaJual.Text = "";
-                txHargaJual.DisabledState.ForeColor = Color.White;
-                txHargaJual.DisabledState.BorderColor = Color.White;
+                txHargaBeli.IconLeft = Properties.Resources.white_harga;
             }
-            txHargaJual.DisabledState.BorderColor = Color.White;
         }
         private void Gambar()
         {
@@ -486,15 +497,6 @@ namespace D_Clinic.Halaman
                 txEfek.IconLeft = Properties.Resources.white_efek;
             }
 
-            if (!string.IsNullOrEmpty(txHargaBeli.Text))
-            {
-                txHargaBeli.IconLeft = Properties.Resources.green_harga;
-            }
-            else
-            {
-                txHargaBeli.IconLeft = Properties.Resources.white_harga;
-            }
-
             if (!string.IsNullOrEmpty(txHargaJual.Text))
             {
                 txHargaJual.IconLeft = Properties.Resources.green_harga;
@@ -514,11 +516,6 @@ namespace D_Clinic.Halaman
             }
         }
 
-        private void Gambar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Gambar();
-        }
-
         private void btnCari_Click(object sender, EventArgs e)
         {
             btnSimpan.Enabled = false;
@@ -533,7 +530,6 @@ namespace D_Clinic.Halaman
                 mBox.Show();
                 mBox.WarningMessage();
             }
-            Gambar();
         }
 
         private void cbKemasan_SelectedIndexChanged(object sender, EventArgs e)

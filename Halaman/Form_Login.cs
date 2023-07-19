@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -29,20 +30,6 @@ namespace D_Clinic
         public Form_Login()
         {
             InitializeComponent();
-        }
-
-        private void txUsername_Click(object sender, EventArgs e)
-        {
-            imgUsername.Image = Properties.Resources.green_user;
-            imgPassword.Image = Properties.Resources.white_pass;
-            txPassword.PlaceholderForeColor = Color.White;
-        }
-
-        private void txPassword_Click(object sender, EventArgs e)
-        {
-            imgUsername.Image = Properties.Resources.white_user;
-            imgPassword.Image = Properties.Resources.green_pass;
-            txUsername.PlaceholderForeColor = Color.White;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -146,9 +133,9 @@ namespace D_Clinic
             blinkTimer.Start(); // Mulai Timer untuk memulai animasi berkedip
         }
 
-        private void txUsername_KeyPress(object sender, KeyPressEventArgs e)
+        private void Gambar_TextChanged(object sender, EventArgs e)
         {
-            if(txUsername.Text.Length != -1)
+            if (!string.IsNullOrEmpty(txUsername.Text))
             {
                 imgUsername.Image = Properties.Resources.green_user;
             }
@@ -156,11 +143,8 @@ namespace D_Clinic
             {
                 imgUsername.Image = Properties.Resources.white_user;
             }
-        }
 
-        private void txPassword_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (txPassword.Text.Length != -1)
+            if (!string.IsNullOrEmpty(txPassword.Text))
             {
                 imgPassword.Image = Properties.Resources.green_pass;
             }
@@ -190,7 +174,7 @@ namespace D_Clinic
         {
             DateTime sekarang = DateTime.Now;
             string tanggal = sekarang.ToString("dd/MM/yyyy"); // Format: dd/MM/yyyy
-            string waktu = sekarang.ToString("HH:mm:ss"); // Format: HH:mm:ss
+            string waktu = sekarang.ToString("HH:mm:ss", CultureInfo.GetCultureInfo("en-US")); // Format: HH:mm:ss
 
             try
             {

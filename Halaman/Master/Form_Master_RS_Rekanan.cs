@@ -16,8 +16,7 @@ namespace D_Clinic.Halaman
     {
         Msg_Box mBox = new Msg_Box();
 
-        string IDRS, id, nama, alamat, telp, status;
-        int lastID;
+        string id, nama, alamat, telp, status;
         bool ditemukan = false;
         public Form_Master_RS_Rekanan()
         {
@@ -32,6 +31,7 @@ namespace D_Clinic.Halaman
             txNama.Clear();
             txTelp.Clear();
             txAlamat.Clear();
+            status = "";
         }
         private void disablePropherties()
         {
@@ -132,11 +132,6 @@ namespace D_Clinic.Halaman
             this.tblRSRujukan.Rows[e.RowIndex].Cells["No"].Value = (e.RowIndex + 1).ToString();
         }
 
-        private void Gambar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Gambar();
-        }
-
         private void Form_RS_Rekanan_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dClinicDataSet.RumahSakitRekanan' table. You can move, or remove it, as needed.
@@ -144,11 +139,6 @@ namespace D_Clinic.Halaman
             // TODO: This line of code loads data into the 'dClinicDataSet.RumahSakitRekanan' table. You can move, or remove it, as needed.
             this.rumahSakitRekananTableAdapter.Fill(this.dClinicDataSet.RumahSakitRekanan);
             cariData();
-        }
-
-        private void txCariRS_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
         private void TambahRS()
         {
@@ -190,7 +180,17 @@ namespace D_Clinic.Halaman
         {
             if (txNama.Text.Length != 0 && txAlamat.Text.Length != 0 && txTelp.Text.Length != 0)
             {
-                TambahRS();
+                if (txTelp.Text.Length < 12)
+                {
+                    mBox.text1.Text = "Nomor Telepon Tidak Valid";
+                    mBox.session.Text = "RS";
+                    mBox.Show();
+                    mBox.WarningMessage();
+                }
+                else
+                {
+                    TambahRS();
+                }
             }
             else
             {
@@ -199,7 +199,6 @@ namespace D_Clinic.Halaman
                 mBox.Show();
                 mBox.WarningMessage();
             }
-            Gambar();
         }
         private void UpdateRS()
         {
@@ -225,7 +224,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -241,7 +239,27 @@ namespace D_Clinic.Halaman
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            UpdateRS();
+            if (txNama.Text.Length != 0 && txAlamat.Text.Length != 0 && txTelp.Text.Length != 0)
+            {
+                if (txTelp.Text.Length < 12)
+                {
+                    mBox.text1.Text = "Nomor Telepon Tidak Valid";
+                    mBox.session.Text = "RS";
+                    mBox.Show();
+                    mBox.WarningMessage();
+                }
+                else
+                {
+                    UpdateRS();
+                }
+            }
+            else
+            {
+                mBox.text1.Text = "Masukkan Semua Data!";
+                mBox.session.Text = "RS";
+                mBox.Show();
+                mBox.WarningMessage();
+            }
         }
         private void NonAktifRS()
         {
@@ -263,7 +281,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -301,7 +318,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -361,7 +377,6 @@ namespace D_Clinic.Halaman
                 txTelp.Text = telp;
                 txAlamat.Text = alamat;
             }
-            Gambar();
         }
 
         private void Gambar_TextChanged(object sender, EventArgs e)
@@ -383,54 +398,38 @@ namespace D_Clinic.Halaman
             }
         }
 
-        private void GenerateIDRSRekanan()
+        private string IDRSRekanan()
         {
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
-            string query = "SELECT TOP 1 RIGHT(Id_RumahSakit, 3) AS ID FROM RumahSakitRekanan ORDER BY Id_RumahSakit DESC";
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(query, connection);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (SqlCommand command = new SqlCommand())
                 {
-                    while (reader.Read())
-                    {
-                        // Ambil nilai-nilai kolom dari reader
-                        lastID = int.Parse(reader.GetString(0));
-                    }
-                }
-                else
-                {
-                    lastID = 0;
-                }
-                reader.Close();
+                    command.Connection = connection;
+                    command.CommandType = System.Data.CommandType.Text;
+                    command.CommandText = "SELECT dbo.GenerateIDRumahSakitRekanan()"; // Ganti "dbo" dengan skema fungsi Anda
 
-                IDRS = string.Format("RS{0:D3}", lastID + 1);
-                txID.Text = IDRS;
+                    connection.Open();
+                    string result = (string)command.ExecuteScalar();
+                    return result;
+                }
             }
         }
         private void btnTambah_Click(object sender, EventArgs e)
         {
             clearText();
             disablePropherties();
-            GenerateIDRSRekanan();
+            txID.Text = IDRSRekanan();
             txNama.Enabled = true;
             txTelp.Enabled = true;
             txAlamat.Enabled = true;
             btnSimpan.Enabled = true;
-            Gambar();
         }
 
         private void btnBatal_Click(object sender, EventArgs e)
         {
             clearText();
             disablePropherties();
-            Gambar();
             cariData();
         }
 
@@ -477,7 +476,6 @@ namespace D_Clinic.Halaman
                 mBox.Show();
                 mBox.WarningMessage();
             }
-            Gambar();
         }
     }
 }

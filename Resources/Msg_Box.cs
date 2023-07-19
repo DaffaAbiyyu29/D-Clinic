@@ -70,6 +70,7 @@ namespace D_Clinic.Resources
                         string jabatan = reader.GetString(0);
 
                         menu.lblNama.Text = nama;
+                        menu.lblJabatan.Text = jabatan;
                         if (jabatan == "Manager")
                         {
                             menu.btnKaryawan.Visible = true;
@@ -77,6 +78,7 @@ namespace D_Clinic.Resources
                             menu.btnRuangPeriksa.Visible = true;
                             menu.btnRSRekanan.Visible = true;
                             menu.btnSupplier.Visible = true;
+                            menu.btnLaporan.Visible = true;
                         }
                         else if (jabatan == "Resepsionis")
                         {
@@ -85,11 +87,13 @@ namespace D_Clinic.Resources
                         }
                         else if (jabatan == "Dokter")
                         {
-
+                            menu.btnResepObat.Visible = true;
+                            menu.btnRujukan.Visible = true;
                         }
                         else if (jabatan == "Apoteker")
                         {
                             menu.btnObat.Visible = true;
+                            menu.btnRestok.Visible = true;
                         }
                     }
                 }

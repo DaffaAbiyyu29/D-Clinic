@@ -35,7 +35,9 @@
             this.btnTambah = new Guna.UI2.WinForms.Guna2Button();
             this.btnCari = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.gbTanggalLahir = new Guna.UI2.WinForms.Guna2GroupBox();
             this.dtpTglLahir = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnAktif = new Guna.UI2.WinForms.Guna2Button();
             this.lblGolDarah = new System.Windows.Forms.Label();
             this.txID = new Guna.UI2.WinForms.Guna2TextBox();
             this.imgGolDarah = new System.Windows.Forms.PictureBox();
@@ -53,9 +55,10 @@
             this.txAlamat = new Guna.UI2.WinForms.Guna2TextBox();
             this.dClinicDataSet = new D_Clinic.DClinicDataSet();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAktif = new Guna.UI2.WinForms.Guna2Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
+            this.gbTanggalLahir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgGolDarah)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgGender)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).BeginInit();
@@ -121,6 +124,7 @@
             this.txCariPasien.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txCariPasien.TabIndex = 49;
             this.txCariPasien.TextOffset = new System.Drawing.Point(5, 0);
+            this.txCariPasien.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
             // 
             // btnTambah
             // 
@@ -186,8 +190,9 @@
             this.guna2GroupBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.guna2GroupBox2.BorderRadius = 20;
             this.guna2GroupBox2.BorderThickness = 2;
+            this.guna2GroupBox2.Controls.Add(this.label2);
+            this.guna2GroupBox2.Controls.Add(this.gbTanggalLahir);
             this.guna2GroupBox2.Controls.Add(this.btnAktif);
-            this.guna2GroupBox2.Controls.Add(this.dtpTglLahir);
             this.guna2GroupBox2.Controls.Add(this.lblGolDarah);
             this.guna2GroupBox2.Controls.Add(this.txID);
             this.guna2GroupBox2.Controls.Add(this.imgGolDarah);
@@ -213,7 +218,25 @@
             this.guna2GroupBox2.Name = "guna2GroupBox2";
             this.guna2GroupBox2.Size = new System.Drawing.Size(1433, 613);
             this.guna2GroupBox2.TabIndex = 57;
-            this.guna2GroupBox2.Text = "Detail Pasien";
+            // 
+            // gbTanggalLahir
+            // 
+            this.gbTanggalLahir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.gbTanggalLahir.BorderColor = System.Drawing.Color.White;
+            this.gbTanggalLahir.BorderRadius = 10;
+            this.gbTanggalLahir.BorderThickness = 2;
+            this.gbTanggalLahir.Controls.Add(this.dtpTglLahir);
+            this.gbTanggalLahir.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.gbTanggalLahir.CustomBorderThickness = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.gbTanggalLahir.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.gbTanggalLahir.Font = new System.Drawing.Font("Porsche Next TT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTanggalLahir.ForeColor = System.Drawing.Color.White;
+            this.gbTanggalLahir.Location = new System.Drawing.Point(100, 283);
+            this.gbTanggalLahir.Margin = new System.Windows.Forms.Padding(2);
+            this.gbTanggalLahir.Name = "gbTanggalLahir";
+            this.gbTanggalLahir.Size = new System.Drawing.Size(478, 93);
+            this.gbTanggalLahir.TabIndex = 64;
+            this.gbTanggalLahir.Text = "Tanggal Lahir";
             // 
             // dtpTglLahir
             // 
@@ -237,17 +260,48 @@
             this.dtpTglLahir.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.dtpTglLahir.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
             this.dtpTglLahir.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.dtpTglLahir.Location = new System.Drawing.Point(100, 283);
+            this.dtpTglLahir.Location = new System.Drawing.Point(17, 40);
             this.dtpTglLahir.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpTglLahir.MinDate = new System.DateTime(1899, 6, 24, 0, 0, 0, 0);
             this.dtpTglLahir.Name = "dtpTglLahir";
             this.dtpTglLahir.ShadowDecoration.Color = System.Drawing.Color.BlanchedAlmond;
             this.dtpTglLahir.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.dtpTglLahir.Size = new System.Drawing.Size(478, 36);
+            this.dtpTglLahir.Size = new System.Drawing.Size(445, 36);
             this.dtpTglLahir.TabIndex = 62;
             this.dtpTglLahir.TextOffset = new System.Drawing.Point(18, 0);
             this.dtpTglLahir.UseTransparentBackground = true;
             this.dtpTglLahir.Value = new System.DateTime(2023, 6, 24, 0, 0, 0, 0);
+            // 
+            // btnAktif
+            // 
+            this.btnAktif.Animated = true;
+            this.btnAktif.BackColor = System.Drawing.Color.Transparent;
+            this.btnAktif.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.BorderRadius = 10;
+            this.btnAktif.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnAktif.BorderThickness = 2;
+            this.btnAktif.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.btnAktif.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.FillColor = System.Drawing.Color.Transparent;
+            this.btnAktif.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
+            this.btnAktif.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.btnAktif.Location = new System.Drawing.Point(138, 505);
+            this.btnAktif.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAktif.Name = "btnAktif";
+            this.btnAktif.PressedColor = System.Drawing.Color.NavajoWhite;
+            this.btnAktif.PressedDepth = 50;
+            this.btnAktif.Size = new System.Drawing.Size(130, 37);
+            this.btnAktif.TabIndex = 63;
+            this.btnAktif.Text = "Aktif";
+            this.btnAktif.UseTransparentBackground = true;
+            this.btnAktif.Visible = false;
+            this.btnAktif.Click += new System.EventHandler(this.btnAktif_Click);
             // 
             // lblGolDarah
             // 
@@ -297,7 +351,7 @@
             this.txID.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txID.TabIndex = 60;
             this.txID.TextOffset = new System.Drawing.Point(5, 0);
-            this.txID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Gambar_KeyPress);
+            this.txID.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
             // 
             // imgGolDarah
             // 
@@ -587,7 +641,7 @@
             this.txNama.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txNama.TabIndex = 21;
             this.txNama.TextOffset = new System.Drawing.Point(5, 0);
-            this.txNama.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Gambar_KeyPress);
+            this.txNama.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
             // 
             // txTelp
             // 
@@ -626,6 +680,7 @@
             this.txTelp.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txTelp.TabIndex = 24;
             this.txTelp.TextOffset = new System.Drawing.Point(5, 0);
+            this.txTelp.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
             this.txTelp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Integer_KeyPress);
             // 
             // txAlamat
@@ -666,7 +721,7 @@
             this.txAlamat.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txAlamat.TabIndex = 25;
             this.txAlamat.TextOffset = new System.Drawing.Point(5, 0);
-            this.txAlamat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Gambar_KeyPress);
+            this.txAlamat.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
             // 
             // dClinicDataSet
             // 
@@ -686,37 +741,19 @@
             this.label1.TabIndex = 42;
             this.label1.Text = "Pasien";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // btnAktif
+            // label2
             // 
-            this.btnAktif.Animated = true;
-            this.btnAktif.BackColor = System.Drawing.Color.Transparent;
-            this.btnAktif.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.BorderRadius = 10;
-            this.btnAktif.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnAktif.BorderThickness = 2;
-            this.btnAktif.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.btnAktif.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.FillColor = System.Drawing.Color.Transparent;
-            this.btnAktif.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
-            this.btnAktif.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.btnAktif.Location = new System.Drawing.Point(138, 505);
-            this.btnAktif.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAktif.Name = "btnAktif";
-            this.btnAktif.PressedColor = System.Drawing.Color.NavajoWhite;
-            this.btnAktif.PressedDepth = 50;
-            this.btnAktif.Size = new System.Drawing.Size(130, 37);
-            this.btnAktif.TabIndex = 63;
-            this.btnAktif.Text = "Aktif";
-            this.btnAktif.UseTransparentBackground = true;
-            this.btnAktif.Visible = false;
-            this.btnAktif.Click += new System.EventHandler(this.btnAktif_Click);
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Porsche Next TT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.label2.Location = new System.Drawing.Point(9, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 32);
+            this.label2.TabIndex = 71;
+            this.label2.Text = "Detail Pasien";
             // 
             // Form_Master_Pasien
             // 
@@ -732,6 +769,8 @@
             this.Load += new System.EventHandler(this.Form_Master_Pasien_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox2.ResumeLayout(false);
+            this.guna2GroupBox2.PerformLayout();
+            this.gbTanggalLahir.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgGolDarah)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgGender)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).EndInit();
@@ -766,5 +805,7 @@
         private System.Windows.Forms.Label lblGolDarah;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpTglLahir;
         private Guna.UI2.WinForms.Guna2Button btnAktif;
+        private Guna.UI2.WinForms.Guna2GroupBox gbTanggalLahir;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -18,8 +18,7 @@ namespace D_Clinic.Halaman
         Msg_Box mBox = new Msg_Box();
 
         DateTime currentDateTime = DateTime.Now;
-        string id_trs, id_pasien, nama;
-        int lastID;
+        string id_pasien, nama;
 
         public Form_Transaksi_Pendaftaran_Pasien()
         {
@@ -28,31 +27,25 @@ namespace D_Clinic.Halaman
 
         private void Form_Pendaftaran_Pasien_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dClinicDataSet.View_TrsPendaftaran' table. You can move, or remove it, as needed.
+            this.view_TrsPendaftaranTableAdapter.Fill(this.dClinicDataSet.View_TrsPendaftaran);
             // TODO: This line of code loads data into the 'dClinicDataSet.Pasien' table. You can move, or remove it, as needed.
             this.pasienTableAdapter.Fill(this.dClinicDataSet.Pasien);
             Dokter_Tersedia();
             txTanggal.Text = currentDateTime.ToString("dd MMMM yyyy");
-            if (cbDokter.SelectedIndex != -1)
-            {
-                imgDokter.Image = Properties.Resources.green_dokter;
-            }
-            else
-            {
-                imgDokter.Image = Properties.Resources.white_dokter;
-            }
-
+            cariData();
         }
         private void clearText()
         {
             //Mengkosongkan Semua Textbox dan Combobox
-            txID.Enabled = true;
+            txCariPasien.Clear();
             txID.Clear();
             txPasien.Clear();
             cbDokter.SelectedIndex = -1;
         }
         private void Gambar()
         {
-            if (txID.Text.Length != 0)
+            if (!string.IsNullOrEmpty(txID.Text))
             {
                 txID.IconLeft = Properties.Resources.green_kode;
             }
@@ -60,36 +53,30 @@ namespace D_Clinic.Halaman
             {
                 txID.IconLeft = Properties.Resources.white_kode;
             }
+            if (!string.IsNullOrEmpty(txPasien.Text))
+            {
+                txPasien.IconLeft = Properties.Resources.green_pasien;
+            }
+            else
+            {
+                txPasien.IconLeft = Properties.Resources.white_pasien;
+            }
         }
-        private void GenerateIDPendaftaran()
+        private string IDPendaftaran()
         {
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
-            string query = "SELECT TOP 1 RIGHT(Id_TrsPendaftaran, 3) AS ID FROM TrsPendaftaran ORDER BY Id_TrsPendaftaran DESC";
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(query, connection);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (SqlCommand command = new SqlCommand())
                 {
-                    while (reader.Read())
-                    {
-                        // Ambil nilai-nilai kolom dari reader
-                        lastID = int.Parse(reader.GetString(0));
-                    }
-                }
-                else
-                {
-                    lastID = 0;
-                }
-                reader.Close();
+                    command.Connection = connection;
+                    command.CommandType = System.Data.CommandType.Text;
+                    command.CommandText = "SELECT dbo.GenerateIDTrsPendaftaran()"; // Ganti "dbo" dengan skema fungsi Anda
 
-                id_trs = string.Format("PND{0:D3}", lastID + 1);
-                txID.Text = id_trs;
+                    connection.Open();
+                    string result = (string)command.ExecuteScalar();
+                    return result;
+                }
             }
         }
         private void btnKembali_Click(object sender, EventArgs e)
@@ -206,7 +193,9 @@ namespace D_Clinic.Halaman
 
                 SqlCommand search = new SqlCommand("sp_SearchPasien", connection);
                 search.CommandType = CommandType.StoredProcedure;
-                search.Parameters.AddWithValue("Data", data); SqlDataAdapter adapter = new SqlDataAdapter(search);
+                search.Parameters.AddWithValue("Data", data); 
+                search.Parameters.AddWithValue("Status", "Aktif"); 
+                SqlDataAdapter adapter = new SqlDataAdapter(search);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
                 tblPasien.DataSource = table;
@@ -214,8 +203,7 @@ namespace D_Clinic.Halaman
         }
         private void PendaftaranPasien()
         {
-            GenerateIDResepsionis();
-            GenerateIDDokter();
+            string waktu = currentDateTime.ToString("HH:mm:ss", CultureInfo.GetCultureInfo("en-US")); // Format: HH:mm:ss
 
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -228,6 +216,7 @@ namespace D_Clinic.Halaman
             insert.Parameters.AddWithValue("Id_Dokter", GenerateIDDokter());
             insert.Parameters.AddWithValue("Id_Pasien", id_pasien);
             insert.Parameters.AddWithValue("Tanggal", DateTime.Parse(txTanggal.Text));
+            insert.Parameters.AddWithValue("Waktu", waktu);
 
             try
             {
@@ -238,13 +227,11 @@ namespace D_Clinic.Halaman
                 mBox.Show();
                 mBox.SuccessMessage();
                 clearText();
-                Gambar();
                 cbDokter.Enabled = false;
-                txID.IconLeft = Properties.Resources.white_kode;
-                txPasien.IconLeft = Properties.Resources.white_pasien;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 mBox.text1.Text = "Pendaftaran Gagal";
                 mBox.session.Text = "Daftar";
                 mBox.Show();
@@ -252,6 +239,7 @@ namespace D_Clinic.Halaman
             }
             finally
             {
+                this.view_TrsPendaftaranTableAdapter.Fill(this.dClinicDataSet.View_TrsPendaftaran);
                 cariData();
             }
         }
@@ -281,7 +269,7 @@ namespace D_Clinic.Halaman
 
         private void tblPasien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            GenerateIDPendaftaran();
+            txID.Text = IDPendaftaran();
             if (e.RowIndex >= 0) // Pastikan baris yang diklik valid
             {
                 DataGridViewRow row = tblPasien.Rows[e.RowIndex];
@@ -290,10 +278,13 @@ namespace D_Clinic.Halaman
                 nama = row.Cells["namaPasien"].Value.ToString();
                 txPasien.Text = nama;
             }
-            txID.IconLeft = Properties.Resources.green_kode;
-            txPasien.IconLeft = Properties.Resources.green_pasien;
             cbDokter.Enabled = true;
             btnDaftar.Enabled = true;
+        }
+
+        private void tblTrsPendaftaran_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            this.tblTrsPendaftaran.Rows[e.RowIndex].Cells["nomor"].Value = (e.RowIndex + 1).ToString();
         }
 
         private void btnDaftar_Click(object sender, EventArgs e)
@@ -309,6 +300,10 @@ namespace D_Clinic.Halaman
                 mBox.Show();
                 mBox.WarningMessage();
             }
+        }
+
+        private void Gambar_TextChanged(object sender, EventArgs e)
+        {
             Gambar();
         }
 
@@ -316,8 +311,6 @@ namespace D_Clinic.Halaman
         {
             clearText();
             cbDokter.Enabled = false;
-            txID.IconLeft = Properties.Resources.white_kode;
-            txPasien.IconLeft = Properties.Resources.white_pasien;
         }
     }
 }

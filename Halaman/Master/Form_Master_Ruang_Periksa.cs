@@ -17,8 +17,7 @@ namespace D_Clinic.Halaman
         Msg_Box mBox = new Msg_Box();
 
         bool ditemukan = false;
-        string IDRuang, id, nama, status;
-        int lastID;
+        string id, nama, status;
         public Form_Master_Ruang_Periksa()
         {
             InitializeComponent();
@@ -30,6 +29,7 @@ namespace D_Clinic.Halaman
             txID.Enabled = true;
             txID.Clear();
             txNama.Clear();
+            status = "";
         }
         private void disablePropherties()
         {
@@ -45,10 +45,12 @@ namespace D_Clinic.Halaman
             if (!string.IsNullOrEmpty(txCariRuangPeriksa.Text))
             {
                 txCariRuangPeriksa.IconLeft = Properties.Resources.green_magnifier;
+                cariData();
             }
             else
             {
                 txCariRuangPeriksa.IconLeft = Properties.Resources.white_magnifier;
+                cariData();
             }
 
             if (!string.IsNullOrEmpty(txID.Text))
@@ -72,15 +74,6 @@ namespace D_Clinic.Halaman
         private void tblRuangPeriksa_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             this.tblRuangPeriksa.Rows[e.RowIndex].Cells["No"].Value = (e.RowIndex + 1).ToString();
-        }
-
-        private void Gambar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Gambar();
-        }
-        private void txCariRuangPeriksa_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
         private void cariData()
         {
@@ -144,7 +137,7 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
+
             }
             catch (Exception)
             {
@@ -160,7 +153,17 @@ namespace D_Clinic.Halaman
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            UpdateRuangan();
+            if (txNama.Text.Length != 0)
+            {
+                UpdateRuangan();
+            }
+            else
+            {
+                mBox.text1.Text = "Masukkan Semua Data!";
+                mBox.session.Text = "Ruang";
+                mBox.Show();
+                mBox.WarningMessage();
+            }
         }
         private void NonAktifRuangan()
         {
@@ -182,7 +185,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -220,7 +222,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -238,52 +239,36 @@ namespace D_Clinic.Halaman
         {
             AktifRuangan();
         }
-        private void GenerateIDRuangPeriksa()
+        private string IDRuangPeriksa()
         {
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
-            string query = "SELECT TOP 1 RIGHT(Id_RuangPeriksa, 3) AS ID FROM RuangPeriksa ORDER BY Id_RuangPeriksa DESC";
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(query, connection);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (SqlCommand command = new SqlCommand())
                 {
-                    while (reader.Read())
-                    {
-                        // Ambil nilai-nilai kolom dari reader
-                        lastID = int.Parse(reader.GetString(0));
-                    }
-                }
-                else
-                {
-                    lastID = 0;
-                }
-                reader.Close();
+                    command.Connection = connection;
+                    command.CommandType = System.Data.CommandType.Text;
+                    command.CommandText = "SELECT dbo.GenerateIDRuangPeriksa()"; // Ganti "dbo" dengan skema fungsi Anda
 
-                IDRuang = string.Format("RP{0:D3}", lastID + 1);
-                txID.Text = IDRuang;
+                    connection.Open();
+                    string result = (string)command.ExecuteScalar();
+                    return result;
+                }
             }
         }
         private void btnTambah_Click(object sender, EventArgs e)
         {
             clearText();
             disablePropherties();
-            GenerateIDRuangPeriksa();
+            txID.Text = IDRuangPeriksa();
             txNama.Enabled = true;
             btnSimpan.Enabled = true;
-            Gambar();
         }
 
         private void btnBatal_Click(object sender, EventArgs e)
         {
             clearText();
             disablePropherties();
-            Gambar();
             cariData();
         }
 
@@ -327,7 +312,6 @@ namespace D_Clinic.Halaman
                 mBox.Show();
                 mBox.WarningMessage();
             }
-            Gambar();
         }
 
         private void tblRuangPeriksa_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -357,7 +341,6 @@ namespace D_Clinic.Halaman
                 txID.Text = id;
                 txNama.Text = nama;
             }
-            Gambar();
         }
 
         private void txCariRuangPeriksa_TextChanged(object sender, EventArgs e)
@@ -378,6 +361,7 @@ namespace D_Clinic.Halaman
         {
             Gambar();
         }
+
         private void TambahRuangan()
         {
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
@@ -425,8 +409,6 @@ namespace D_Clinic.Halaman
                 mBox.Show();
                 mBox.WarningMessage();
             }
-            Gambar();
         }
-
     }
 }

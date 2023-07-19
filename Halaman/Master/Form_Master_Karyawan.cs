@@ -22,8 +22,7 @@ namespace D_Clinic.Halaman
         byte[] imageData;
         int validNamaUsername;
 
-        string IDKaryawan, jabatan, status;
-        int lastID;
+        string jabatan, status;
         public Form_Master_Karyawan()
         {
             InitializeComponent();
@@ -42,6 +41,7 @@ namespace D_Clinic.Halaman
             cbJabatan.SelectedIndex = -1;
             cbJabatan.ForeColor = Color.White;
             imgProfil.Image = null;
+            status = "";
         }
         private void disablePropherties()
         {
@@ -58,35 +58,22 @@ namespace D_Clinic.Halaman
             btnCariGambar.Enabled = false;
             btnHapusGambar.Enabled = false;
         }
-        private void GenerateIDKaryawan()
+       
+        private string IDKaryawan()
         {
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
-            string query = "SELECT TOP 1 RIGHT(Id_Karyawan, 3) AS ID FROM Karyawan ORDER BY Id_Karyawan DESC";
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(query, connection);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (SqlCommand command = new SqlCommand())
                 {
-                    while (reader.Read())
-                    {
-                        // Ambil nilai-nilai kolom dari reader
-                        lastID = int.Parse(reader.GetString(0));
-                    }
-                }
-                else
-                {
-                    lastID = 0;
-                }
-                reader.Close();
+                    command.Connection = connection;
+                    command.CommandType = System.Data.CommandType.Text;
+                    command.CommandText = "SELECT dbo.GenerateIDKaryawan()"; // Ganti "dbo" dengan skema fungsi Anda
 
-                IDKaryawan = string.Format("KRY{0:D3}", lastID + 1);
-                txID.Text = IDKaryawan;
+                    connection.Open();
+                    string result = (string)command.ExecuteScalar();
+                    return result;
+                }
             }
         }
         private int CekNamaUsername(string Nama, string Username)
@@ -150,7 +137,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception ex)
             {
@@ -259,7 +245,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -294,7 +279,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -341,7 +325,6 @@ namespace D_Clinic.Halaman
                 mBox.SuccessMessage();
                 clearText();
                 disablePropherties();
-                Gambar();
             }
             catch (Exception)
             {
@@ -355,27 +338,36 @@ namespace D_Clinic.Halaman
         {
             bool validEmail = ValidasiEmail(txEmail.Text);
 
-            if (txTelp.Text.Length < 12)
+            if (txNama.Text.Length != 0 && txTelp.Text.Length != 0 && txEmail.Text.Length != 0 && txUsername.Text.Length != 0 && txPassword.Text.Length != 0 && cbJabatan.SelectedIndex != -1)
             {
-                mBox.text1.Text = "Nomor Telepon Tidak Valid";
-                mBox.session.Text = "Karyawan";
-                mBox.Show();
-                mBox.WarningMessage();
-            }
-            else
-            {
-                if (validEmail)
+                if (txTelp.Text.Length < 12)
                 {
-                    UpdateKaryawan();
-                    Gambar();
-                }
-                else
-                {
-                    mBox.text1.Text = "Format Email Salah!\nexample@gmail.com";
+                    mBox.text1.Text = "Nomor Telepon Tidak Valid";
                     mBox.session.Text = "Karyawan";
                     mBox.Show();
                     mBox.WarningMessage();
                 }
+                else
+                {
+                    if (validEmail)
+                    {
+                        UpdateKaryawan();
+                    }
+                    else
+                    {
+                        mBox.text1.Text = "Format Email Salah!\nexample@gmail.com";
+                        mBox.session.Text = "Karyawan";
+                        mBox.Show();
+                        mBox.WarningMessage();
+                    }
+                }
+            }
+            else
+            {
+                mBox.text1.Text = "Masukkan Semua Data!";
+                mBox.session.Text = "Karyawan";
+                mBox.Show();
+                mBox.WarningMessage();
             }
         }
 
@@ -398,7 +390,6 @@ namespace D_Clinic.Halaman
                         if (validEmail)
                         {
                             TambahKaryawan();
-                            Gambar();
                         }
                         else
                         {
@@ -444,6 +435,15 @@ namespace D_Clinic.Halaman
                 txID.IconLeft = Properties.Resources.white_id_card;
             }
 
+            if (!string.IsNullOrEmpty(txNama.Text))
+            {
+                txNama.IconLeft = Properties.Resources.green_name;
+            }
+            else
+            {
+                txNama.IconLeft = Properties.Resources.white_name;
+            }
+
             if (!string.IsNullOrEmpty(txTelp.Text))
             {
                 txTelp.IconLeft = Properties.Resources.green_telephone;
@@ -470,10 +470,15 @@ namespace D_Clinic.Halaman
             {
                 txPassword.IconLeft = Properties.Resources.white_pass;
             }
-        }
-        private void Gambar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Gambar();
+
+            if (!string.IsNullOrEmpty(txUsername.Text))
+            {
+                txUsername.IconLeft = Properties.Resources.green_user;
+            }
+            else
+            {
+                txUsername.IconLeft = Properties.Resources.white_user;
+            }
         }
 
         private void btnCariGambar_Click(object sender, EventArgs e)
@@ -501,7 +506,7 @@ namespace D_Clinic.Halaman
         {
             clearText();
             disablePropherties();
-            GenerateIDKaryawan();
+            txID.Text = IDKaryawan();
             txNama.Enabled = true;
             txEmail.Enabled = true;
             txTelp.Enabled = true;
@@ -512,7 +517,6 @@ namespace D_Clinic.Halaman
             btnHapusGambar.Enabled = true;
             btnSimpan.Enabled = true;
             imgProfil.Image = Properties.Resources.profil_default;
-            Gambar();
         }
 
         private void btnHapusGambar_Click(object sender, EventArgs e)
@@ -534,17 +538,10 @@ namespace D_Clinic.Halaman
                 mBox.Show();
                 mBox.WarningMessage();
             }
-            Gambar();
-        }
-
-        private void Form_Master_Karyawan_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void Integer_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Gambar();
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
@@ -570,7 +567,6 @@ namespace D_Clinic.Halaman
         {
             clearText();
             disablePropherties();
-            Gambar();
         }
         public static bool ValidasiEmail(string email)
         {
@@ -583,23 +579,7 @@ namespace D_Clinic.Halaman
 
         private void ValidasiNamaUsername(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txNama.Text))
-            {
-                txNama.IconLeft = Properties.Resources.green_name;
-            }
-            else
-            {
-                txNama.IconLeft = Properties.Resources.white_name;
-            }
-
-            if (!string.IsNullOrEmpty(txUsername.Text))
-            {
-                txUsername.IconLeft = Properties.Resources.green_user;
-            }
-            else
-            {
-                txUsername.IconLeft = Properties.Resources.white_user;
-            }
+            Gambar();
 
             if (!string.IsNullOrEmpty(txNama.Text) || !string.IsNullOrEmpty(txUsername.Text))
             {

@@ -194,7 +194,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::D_Clinic.Properties.Resources.green_user;
+            this.pictureBox2.Image = global::D_Clinic.Properties.Resources.green_kemasan;
             this.pictureBox2.Location = new System.Drawing.Point(19, 52);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(60, 60);
@@ -248,7 +248,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::D_Clinic.Properties.Resources.green_user;
+            this.pictureBox3.Image = global::D_Clinic.Properties.Resources.green_pasien;
             this.pictureBox3.Location = new System.Drawing.Point(19, 52);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(60, 60);
@@ -302,7 +302,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::D_Clinic.Properties.Resources.green_user;
+            this.pictureBox4.Image = global::D_Clinic.Properties.Resources.green_cal;
             this.pictureBox4.Location = new System.Drawing.Point(19, 52);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(60, 60);
@@ -356,7 +356,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::D_Clinic.Properties.Resources.green_user;
+            this.pictureBox5.Image = global::D_Clinic.Properties.Resources.green_ruang;
             this.pictureBox5.Location = new System.Drawing.Point(19, 52);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(60, 60);
@@ -410,7 +410,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::D_Clinic.Properties.Resources.green_user;
+            this.pictureBox6.Image = global::D_Clinic.Properties.Resources.green_rs;
             this.pictureBox6.Location = new System.Drawing.Point(19, 52);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(60, 60);
@@ -464,7 +464,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::D_Clinic.Properties.Resources.green_user;
+            this.pictureBox7.Image = global::D_Clinic.Properties.Resources.green_stock;
             this.pictureBox7.Location = new System.Drawing.Point(19, 52);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(60, 60);

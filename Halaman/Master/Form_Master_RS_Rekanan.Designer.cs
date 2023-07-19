@@ -36,8 +36,16 @@
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.btnCari = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.btnAktif = new Guna.UI2.WinForms.Guna2Button();
             this.txID = new Guna.UI2.WinForms.Guna2TextBox();
             this.tblRSRujukan = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nama_rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alamat_rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telp_rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status_rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rumahSakitRekananBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dClinicDataSet = new D_Clinic.DClinicDataSet();
             this.txAlamat = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -51,20 +59,13 @@
             this.txCariRS = new Guna.UI2.WinForms.Guna2TextBox();
             this.radiusDGV = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAktif = new Guna.UI2.WinForms.Guna2Button();
-            this.rumahSakitRekananBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rumahSakitRekananTableAdapter = new D_Clinic.DClinicDataSetTableAdapters.RumahSakitRekananTableAdapter();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nama_rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alamat_rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telp_rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status_rs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblRSRujukan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rumahSakitRekananBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -125,6 +126,7 @@
             this.guna2GroupBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.guna2GroupBox2.BorderRadius = 20;
             this.guna2GroupBox2.BorderThickness = 2;
+            this.guna2GroupBox2.Controls.Add(this.label2);
             this.guna2GroupBox2.Controls.Add(this.btnAktif);
             this.guna2GroupBox2.Controls.Add(this.txID);
             this.guna2GroupBox2.Controls.Add(this.tblRSRujukan);
@@ -146,7 +148,37 @@
             this.guna2GroupBox2.Name = "guna2GroupBox2";
             this.guna2GroupBox2.Size = new System.Drawing.Size(1433, 613);
             this.guna2GroupBox2.TabIndex = 57;
-            this.guna2GroupBox2.Text = "Detail Rumah Sakit Rekanan";
+            // 
+            // btnAktif
+            // 
+            this.btnAktif.Animated = true;
+            this.btnAktif.BackColor = System.Drawing.Color.Transparent;
+            this.btnAktif.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.BorderRadius = 10;
+            this.btnAktif.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnAktif.BorderThickness = 2;
+            this.btnAktif.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.btnAktif.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.FillColor = System.Drawing.Color.Transparent;
+            this.btnAktif.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
+            this.btnAktif.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.btnAktif.Location = new System.Drawing.Point(138, 505);
+            this.btnAktif.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAktif.Name = "btnAktif";
+            this.btnAktif.PressedColor = System.Drawing.Color.NavajoWhite;
+            this.btnAktif.PressedDepth = 50;
+            this.btnAktif.Size = new System.Drawing.Size(130, 37);
+            this.btnAktif.TabIndex = 64;
+            this.btnAktif.Text = "Aktif";
+            this.btnAktif.UseTransparentBackground = true;
+            this.btnAktif.Visible = false;
+            this.btnAktif.Click += new System.EventHandler(this.btnAktif_Click);
             // 
             // txID
             // 
@@ -262,6 +294,58 @@
             this.tblRSRujukan.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
             this.tblRSRujukan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblRSRujukan_CellContentClick);
             this.tblRSRujukan.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.tblRSRujukan_RowPostPaint);
+            // 
+            // No
+            // 
+            this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            this.No.Width = 40;
+            // 
+            // id_rs
+            // 
+            this.id_rs.DataPropertyName = "Id_RumahSakit";
+            this.id_rs.HeaderText = "ID RS";
+            this.id_rs.Name = "id_rs";
+            this.id_rs.ReadOnly = true;
+            // 
+            // nama_rs
+            // 
+            this.nama_rs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nama_rs.DataPropertyName = "Nama";
+            this.nama_rs.HeaderText = "Nama RS";
+            this.nama_rs.Name = "nama_rs";
+            this.nama_rs.ReadOnly = true;
+            // 
+            // alamat_rs
+            // 
+            this.alamat_rs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.alamat_rs.DataPropertyName = "Alamat";
+            this.alamat_rs.HeaderText = "Alamat";
+            this.alamat_rs.Name = "alamat_rs";
+            this.alamat_rs.ReadOnly = true;
+            // 
+            // telp_rs
+            // 
+            this.telp_rs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.telp_rs.DataPropertyName = "Telp";
+            this.telp_rs.HeaderText = "No Telp";
+            this.telp_rs.Name = "telp_rs";
+            this.telp_rs.ReadOnly = true;
+            this.telp_rs.Width = 140;
+            // 
+            // status_rs
+            // 
+            this.status_rs.DataPropertyName = "Status";
+            this.status_rs.HeaderText = "Status";
+            this.status_rs.Name = "status_rs";
+            this.status_rs.ReadOnly = true;
+            // 
+            // rumahSakitRekananBindingSource
+            // 
+            this.rumahSakitRekananBindingSource.DataMember = "RumahSakitRekanan";
+            this.rumahSakitRekananBindingSource.DataSource = this.dClinicDataSet;
             // 
             // dClinicDataSet
             // 
@@ -602,92 +686,21 @@
             this.label1.Text = "Rumah Sakit Rekanan";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnAktif
-            // 
-            this.btnAktif.Animated = true;
-            this.btnAktif.BackColor = System.Drawing.Color.Transparent;
-            this.btnAktif.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.BorderRadius = 10;
-            this.btnAktif.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnAktif.BorderThickness = 2;
-            this.btnAktif.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.btnAktif.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.FillColor = System.Drawing.Color.Transparent;
-            this.btnAktif.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
-            this.btnAktif.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.btnAktif.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.btnAktif.Location = new System.Drawing.Point(138, 505);
-            this.btnAktif.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAktif.Name = "btnAktif";
-            this.btnAktif.PressedColor = System.Drawing.Color.NavajoWhite;
-            this.btnAktif.PressedDepth = 50;
-            this.btnAktif.Size = new System.Drawing.Size(130, 37);
-            this.btnAktif.TabIndex = 64;
-            this.btnAktif.Text = "Aktif";
-            this.btnAktif.UseTransparentBackground = true;
-            this.btnAktif.Visible = false;
-            this.btnAktif.Click += new System.EventHandler(this.btnAktif_Click);
-            // 
-            // rumahSakitRekananBindingSource
-            // 
-            this.rumahSakitRekananBindingSource.DataMember = "RumahSakitRekanan";
-            this.rumahSakitRekananBindingSource.DataSource = this.dClinicDataSet;
-            // 
             // rumahSakitRekananTableAdapter
             // 
             this.rumahSakitRekananTableAdapter.ClearBeforeFill = true;
             // 
-            // No
+            // label2
             // 
-            this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.No.HeaderText = "No";
-            this.No.Name = "No";
-            this.No.ReadOnly = true;
-            this.No.Width = 40;
-            // 
-            // id_rs
-            // 
-            this.id_rs.DataPropertyName = "Id_RumahSakit";
-            this.id_rs.HeaderText = "ID RS";
-            this.id_rs.Name = "id_rs";
-            this.id_rs.ReadOnly = true;
-            // 
-            // nama_rs
-            // 
-            this.nama_rs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nama_rs.DataPropertyName = "Nama";
-            this.nama_rs.HeaderText = "Nama RS";
-            this.nama_rs.Name = "nama_rs";
-            this.nama_rs.ReadOnly = true;
-            // 
-            // alamat_rs
-            // 
-            this.alamat_rs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.alamat_rs.DataPropertyName = "Alamat";
-            this.alamat_rs.HeaderText = "Alamat";
-            this.alamat_rs.Name = "alamat_rs";
-            this.alamat_rs.ReadOnly = true;
-            // 
-            // telp_rs
-            // 
-            this.telp_rs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.telp_rs.DataPropertyName = "Telp";
-            this.telp_rs.HeaderText = "No Telp";
-            this.telp_rs.Name = "telp_rs";
-            this.telp_rs.ReadOnly = true;
-            this.telp_rs.Width = 140;
-            // 
-            // status_rs
-            // 
-            this.status_rs.DataPropertyName = "Status";
-            this.status_rs.HeaderText = "Status";
-            this.status_rs.Name = "status_rs";
-            this.status_rs.ReadOnly = true;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Porsche Next TT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.label2.Location = new System.Drawing.Point(9, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(239, 32);
+            this.label2.TabIndex = 71;
+            this.label2.Text = "Detail Rumah Sakit Rekanan";
             // 
             // Form_Master_RS_Rekanan
             // 
@@ -703,9 +716,10 @@
             this.Load += new System.EventHandler(this.Form_RS_Rekanan_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox2.ResumeLayout(false);
+            this.guna2GroupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblRSRujukan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rumahSakitRekananBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -740,5 +754,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn alamat_rs;
         private System.Windows.Forms.DataGridViewTextBoxColumn telp_rs;
         private System.Windows.Forms.DataGridViewTextBoxColumn status_rs;
+        private System.Windows.Forms.Label label2;
     }
 }

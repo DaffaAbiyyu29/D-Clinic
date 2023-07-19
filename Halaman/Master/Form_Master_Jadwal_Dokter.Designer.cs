@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.btnCari = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
@@ -57,18 +58,6 @@
             this.txTarif = new Guna.UI2.WinForms.Guna2TextBox();
             this.txID = new Guna.UI2.WinForms.Guna2TextBox();
             this.tblJadwalDokter = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Tarif_Jasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDokterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dokter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idRuangPeriksaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ruang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.day = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jam1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jam2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trf_jasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stts = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.viewJadwalDokterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBatal = new Guna.UI2.WinForms.Guna2Button();
@@ -84,6 +73,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.view_DokterTableAdapter = new D_Clinic.DClinicDataSetTableAdapters.View_DokterTableAdapter();
             this.view_JadwalDokterTableAdapter = new D_Clinic.DClinicDataSetTableAdapters.View_JadwalDokterTableAdapter();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDokterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dokter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idRuangPeriksaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ruang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.day = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jam1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jam2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trf_jasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             this.pnlJam.SuspendLayout();
@@ -155,6 +156,7 @@
             this.guna2GroupBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.guna2GroupBox2.BorderRadius = 20;
             this.guna2GroupBox2.BorderThickness = 2;
+            this.guna2GroupBox2.Controls.Add(this.label2);
             this.guna2GroupBox2.Controls.Add(this.lblHari);
             this.guna2GroupBox2.Controls.Add(this.lblRuang);
             this.guna2GroupBox2.Controls.Add(this.lblDokter);
@@ -184,7 +186,6 @@
             this.guna2GroupBox2.Name = "guna2GroupBox2";
             this.guna2GroupBox2.Size = new System.Drawing.Size(1433, 613);
             this.guna2GroupBox2.TabIndex = 57;
-            this.guna2GroupBox2.Text = "Detail Jadwal Dokter";
             // 
             // lblHari
             // 
@@ -564,7 +565,7 @@
             this.txTarif.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txTarif.Location = new System.Drawing.Point(100, 437);
             this.txTarif.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txTarif.MaxLength = 7;
+            this.txTarif.MaxLength = 10;
             this.txTarif.Name = "txTarif";
             this.txTarif.PasswordChar = '\0';
             this.txTarif.PlaceholderForeColor = System.Drawing.Color.White;
@@ -574,7 +575,7 @@
             this.txTarif.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txTarif.TabIndex = 63;
             this.txTarif.TextOffset = new System.Drawing.Point(5, 0);
-            this.txTarif.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
+            this.txTarif.TextChanged += new System.EventHandler(this.txTarif_TextChanged);
             // 
             // txID
             // 
@@ -620,25 +621,25 @@
             this.tblJadwalDokter.AllowUserToDeleteRows = false;
             this.tblJadwalDokter.AllowUserToResizeColumns = false;
             this.tblJadwalDokter.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
-            this.tblJadwalDokter.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
+            this.tblJadwalDokter.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.tblJadwalDokter.AutoGenerateColumns = false;
             this.tblJadwalDokter.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             this.tblJadwalDokter.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
             this.tblJadwalDokter.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tblJadwalDokter.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Porsche Next TT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tblJadwalDokter.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Porsche Next TT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tblJadwalDokter.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.tblJadwalDokter.ColumnHeadersHeight = 40;
             this.tblJadwalDokter.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tarif_Jasa,
             this.No,
             this.id,
             this.idDokterDataGridViewTextBoxColumn,
@@ -651,20 +652,25 @@
             this.trf_jasa,
             this.stts});
             this.tblJadwalDokter.DataSource = this.viewJadwalDokterBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Porsche Next TT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tblJadwalDokter.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Porsche Next TT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tblJadwalDokter.DefaultCellStyle = dataGridViewCellStyle19;
             this.tblJadwalDokter.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.tblJadwalDokter.Location = new System.Drawing.Point(748, 21);
             this.tblJadwalDokter.MultiSelect = false;
             this.tblJadwalDokter.Name = "tblJadwalDokter";
             this.tblJadwalDokter.ReadOnly = true;
             this.tblJadwalDokter.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Porsche Next TT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tblJadwalDokter.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.tblJadwalDokter.RowHeadersVisible = false;
             this.tblJadwalDokter.RowHeadersWidth = 4;
             this.tblJadwalDokter.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -675,14 +681,14 @@
             this.tblJadwalDokter.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Green;
             this.tblJadwalDokter.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
             this.tblJadwalDokter.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.tblJadwalDokter.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.tblJadwalDokter.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
             this.tblJadwalDokter.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(241)))), ((int)(((byte)(217)))));
             this.tblJadwalDokter.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.tblJadwalDokter.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
             this.tblJadwalDokter.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.tblJadwalDokter.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
             this.tblJadwalDokter.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.tblJadwalDokter.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Porsche Next TT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tblJadwalDokter.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Porsche Next TT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tblJadwalDokter.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.tblJadwalDokter.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tblJadwalDokter.ThemeStyle.HeaderStyle.Height = 40;
@@ -696,95 +702,6 @@
             this.tblJadwalDokter.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
             this.tblJadwalDokter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblJadwalDokter_CellContentClick);
             this.tblJadwalDokter.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.tblJadwalDokter_RowPostPaint);
-            // 
-            // Tarif_Jasa
-            // 
-            this.Tarif_Jasa.DataPropertyName = "Tarif_Jasa";
-            this.Tarif_Jasa.HeaderText = "Tarif";
-            this.Tarif_Jasa.Name = "Tarif_Jasa";
-            this.Tarif_Jasa.ReadOnly = true;
-            this.Tarif_Jasa.Visible = false;
-            // 
-            // No
-            // 
-            this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.No.HeaderText = "No";
-            this.No.Name = "No";
-            this.No.ReadOnly = true;
-            this.No.Width = 40;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "Id_JadwalDokter";
-            this.id.HeaderText = "ID Jadwal";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // idDokterDataGridViewTextBoxColumn
-            // 
-            this.idDokterDataGridViewTextBoxColumn.DataPropertyName = "Id_Dokter";
-            this.idDokterDataGridViewTextBoxColumn.HeaderText = "Id_Dokter";
-            this.idDokterDataGridViewTextBoxColumn.Name = "idDokterDataGridViewTextBoxColumn";
-            this.idDokterDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDokterDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dokter
-            // 
-            this.dokter.DataPropertyName = "Nama";
-            this.dokter.HeaderText = "Dokter";
-            this.dokter.Name = "dokter";
-            this.dokter.ReadOnly = true;
-            // 
-            // idRuangPeriksaDataGridViewTextBoxColumn
-            // 
-            this.idRuangPeriksaDataGridViewTextBoxColumn.DataPropertyName = "Id_RuangPeriksa";
-            this.idRuangPeriksaDataGridViewTextBoxColumn.HeaderText = "Id_RuangPeriksa";
-            this.idRuangPeriksaDataGridViewTextBoxColumn.Name = "idRuangPeriksaDataGridViewTextBoxColumn";
-            this.idRuangPeriksaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idRuangPeriksaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // ruang
-            // 
-            this.ruang.DataPropertyName = "Nama_Ruang";
-            this.ruang.HeaderText = "Ruang";
-            this.ruang.Name = "ruang";
-            this.ruang.ReadOnly = true;
-            // 
-            // day
-            // 
-            this.day.DataPropertyName = "Hari";
-            this.day.HeaderText = "Hari";
-            this.day.Name = "day";
-            this.day.ReadOnly = true;
-            // 
-            // jam1
-            // 
-            this.jam1.DataPropertyName = "Jam_Mulai";
-            this.jam1.HeaderText = "Jam_Mulai";
-            this.jam1.Name = "jam1";
-            this.jam1.ReadOnly = true;
-            // 
-            // jam2
-            // 
-            this.jam2.DataPropertyName = "Jam_Akhir";
-            this.jam2.HeaderText = "Jam_Akhir";
-            this.jam2.Name = "jam2";
-            this.jam2.ReadOnly = true;
-            // 
-            // trf_jasa
-            // 
-            this.trf_jasa.DataPropertyName = "Tarif_Jasa";
-            this.trf_jasa.HeaderText = "Tarif_Jasa";
-            this.trf_jasa.Name = "trf_jasa";
-            this.trf_jasa.ReadOnly = true;
-            this.trf_jasa.Visible = false;
-            // 
-            // stts
-            // 
-            this.stts.DataPropertyName = "Status";
-            this.stts.HeaderText = "Status";
-            this.stts.Name = "stts";
-            this.stts.ReadOnly = true;
             // 
             // viewJadwalDokterBindingSource
             // 
@@ -1054,6 +971,108 @@
             // 
             this.view_JadwalDokterTableAdapter.ClearBeforeFill = true;
             // 
+            // No
+            // 
+            this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            this.No.Width = 40;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id.DataPropertyName = "Id_JadwalDokter";
+            this.id.HeaderText = "ID Jadwal";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 80;
+            // 
+            // idDokterDataGridViewTextBoxColumn
+            // 
+            this.idDokterDataGridViewTextBoxColumn.DataPropertyName = "Id_Dokter";
+            this.idDokterDataGridViewTextBoxColumn.HeaderText = "Id_Dokter";
+            this.idDokterDataGridViewTextBoxColumn.Name = "idDokterDataGridViewTextBoxColumn";
+            this.idDokterDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDokterDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dokter
+            // 
+            this.dokter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dokter.DataPropertyName = "Nama";
+            this.dokter.HeaderText = "Dokter";
+            this.dokter.Name = "dokter";
+            this.dokter.ReadOnly = true;
+            // 
+            // idRuangPeriksaDataGridViewTextBoxColumn
+            // 
+            this.idRuangPeriksaDataGridViewTextBoxColumn.DataPropertyName = "Id_RuangPeriksa";
+            this.idRuangPeriksaDataGridViewTextBoxColumn.HeaderText = "Id_RuangPeriksa";
+            this.idRuangPeriksaDataGridViewTextBoxColumn.Name = "idRuangPeriksaDataGridViewTextBoxColumn";
+            this.idRuangPeriksaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idRuangPeriksaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // ruang
+            // 
+            this.ruang.DataPropertyName = "Nama_Ruang";
+            this.ruang.HeaderText = "Ruang";
+            this.ruang.Name = "ruang";
+            this.ruang.ReadOnly = true;
+            // 
+            // day
+            // 
+            this.day.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.day.DataPropertyName = "Hari";
+            this.day.HeaderText = "Hari";
+            this.day.Name = "day";
+            this.day.ReadOnly = true;
+            this.day.Width = 70;
+            // 
+            // jam1
+            // 
+            this.jam1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.jam1.DataPropertyName = "Jam_Mulai";
+            this.jam1.HeaderText = "Jam Mulai";
+            this.jam1.Name = "jam1";
+            this.jam1.ReadOnly = true;
+            this.jam1.Width = 80;
+            // 
+            // jam2
+            // 
+            this.jam2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.jam2.DataPropertyName = "Jam_Akhir";
+            this.jam2.HeaderText = "Jam Akhir";
+            this.jam2.Name = "jam2";
+            this.jam2.ReadOnly = true;
+            this.jam2.Width = 80;
+            // 
+            // trf_jasa
+            // 
+            this.trf_jasa.DataPropertyName = "Tarif_Jasa";
+            this.trf_jasa.HeaderText = "Tarif_Jasa";
+            this.trf_jasa.Name = "trf_jasa";
+            this.trf_jasa.ReadOnly = true;
+            this.trf_jasa.Visible = false;
+            // 
+            // stts
+            // 
+            this.stts.DataPropertyName = "Status";
+            this.stts.HeaderText = "Status";
+            this.stts.Name = "stts";
+            this.stts.ReadOnly = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Porsche Next TT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.label2.Location = new System.Drawing.Point(9, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(178, 32);
+            this.label2.TabIndex = 70;
+            this.label2.Text = "Detail Jadwal Dokter";
+            // 
             // Form_Master_Jadwal_Dokter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1068,6 +1087,7 @@
             this.Load += new System.EventHandler(this.Form_Jadwal_Dokter_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox2.ResumeLayout(false);
+            this.guna2GroupBox2.PerformLayout();
             this.pnlJam.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgJam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMenitAkhir)).EndInit();
@@ -1127,7 +1147,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAktif;
         private System.Windows.Forms.BindingSource viewJadwalDokterBindingSource;
         private DClinicDataSetTableAdapters.View_JadwalDokterTableAdapter view_JadwalDokterTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tarif_Jasa;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDokterDataGridViewTextBoxColumn;
@@ -1139,5 +1158,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn jam2;
         private System.Windows.Forms.DataGridViewTextBoxColumn trf_jasa;
         private System.Windows.Forms.DataGridViewTextBoxColumn stts;
+        private System.Windows.Forms.Label label2;
     }
 }

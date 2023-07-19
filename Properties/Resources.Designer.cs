@@ -83,6 +83,16 @@ namespace D_Clinic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap green_apoteker {
+            get {
+                object obj = ResourceManager.GetObject("green_apoteker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap green_blood {
             get {
                 object obj = ResourceManager.GetObject("green_blood", resourceCulture);
@@ -323,6 +333,16 @@ namespace D_Clinic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap green_rs {
+            get {
+                object obj = ResourceManager.GetObject("green_rs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap green_ruang {
             get {
                 object obj = ResourceManager.GetObject("green_ruang", resourceCulture);
@@ -416,6 +436,16 @@ namespace D_Clinic.Properties {
         internal static System.Drawing.Bitmap show_pass {
             get {
                 object obj = ResourceManager.GetObject("show_pass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_apoteker {
+            get {
+                object obj = ResourceManager.GetObject("white_apoteker", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -656,6 +686,16 @@ namespace D_Clinic.Properties {
         internal static System.Drawing.Bitmap white_role {
             get {
                 object obj = ResourceManager.GetObject("white_role", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_rs {
+            get {
+                object obj = ResourceManager.GetObject("white_rs", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

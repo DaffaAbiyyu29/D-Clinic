@@ -56,6 +56,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dClinicDataSet = new D_Clinic.DClinicDataSet();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgProfil)).BeginInit();
@@ -121,6 +122,7 @@
             this.guna2GroupBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.guna2GroupBox2.BorderRadius = 20;
             this.guna2GroupBox2.BorderThickness = 2;
+            this.guna2GroupBox2.Controls.Add(this.label2);
             this.guna2GroupBox2.Controls.Add(this.btnAktif);
             this.guna2GroupBox2.Controls.Add(this.lblJabatan);
             this.guna2GroupBox2.Controls.Add(this.panel1);
@@ -149,7 +151,6 @@
             this.guna2GroupBox2.Name = "guna2GroupBox2";
             this.guna2GroupBox2.Size = new System.Drawing.Size(1433, 613);
             this.guna2GroupBox2.TabIndex = 57;
-            this.guna2GroupBox2.Text = "Detail Karyawan";
             // 
             // btnAktif
             // 
@@ -768,6 +769,18 @@
             this.label1.Text = "Karyawan";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Porsche Next TT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.label2.Location = new System.Drawing.Point(9, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 32);
+            this.label2.TabIndex = 71;
+            this.label2.Text = "Detail Karyawan";
+            // 
             // Form_Master_Karyawan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -782,6 +795,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox2.ResumeLayout(false);
+            this.guna2GroupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgProfil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgJabatan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).EndInit();
@@ -818,5 +832,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblJabatan;
         private Guna.UI2.WinForms.Guna2Button btnAktif;
+        private System.Windows.Forms.Label label2;
     }
 }

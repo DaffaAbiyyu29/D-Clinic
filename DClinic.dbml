@@ -28,15 +28,6 @@
       <Association Name="Karyawan_Apoteker" Member="Karyawan" ThisKey="Id_Karyawan" OtherKey="Id_Karyawan" Type="Karyawan" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Riwayat_Login" Member="Riwayat_Logins">
-    <Type Name="Riwayat_Login">
-      <Column Name="Id_Login" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Id_Karyawan" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
-      <Column Name="Nama" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Tanggal" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Waktu" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.Karyawan" Member="Karyawans">
     <Type Name="Karyawan">
       <Column Name="Id_Karyawan" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -74,6 +65,15 @@
       <Column Name="Golongan_Darah" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
       <Column Name="Telp" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
       <Column Name="Alamat" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Riwayat_Login" Member="Riwayat_Logins">
+    <Type Name="Riwayat_Login">
+      <Column Name="Id_Login" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id_Karyawan" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Nama" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Tanggal" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Waktu" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

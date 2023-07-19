@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -17,8 +20,8 @@ namespace D_Clinic.Halaman
     {
         Msg_Box mBox = new Msg_Box();
 
-        string IDJadwal, id_jadwal, id_dokter, id_ruang, hari, jam_mulai, jam_akhir, status;
-        int lastID, tarif;
+        string id_jadwal, id_dokter, id_ruang, hari, jam_mulai, jam_akhir, status;
+        int tarif;
         bool ditemukan = false;
         public Form_Master_Jadwal_Dokter()
         {
@@ -39,6 +42,7 @@ namespace D_Clinic.Halaman
             numJamAkhir.Value = 0;
             numMenitAkhir.Value = 0;
             txTarif.Clear();
+            status = "";
             cariData();
         }
 
@@ -68,45 +72,22 @@ namespace D_Clinic.Halaman
             {
                 txID.IconLeft = Properties.Resources.white_kode;
             }
-
-            if (!string.IsNullOrEmpty(txTarif.Text))
-            {
-                txTarif.IconLeft = Properties.Resources.green_harga;
-            }
-            else
-            {
-                txTarif.IconLeft = Properties.Resources.white_harga;
-            }
         }
-        private void GenerateIDJadwal()
+        private string IDJadwalDokter()
         {
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
-            string query = "SELECT TOP 1 RIGHT(Id_JadwalDokter, 3) AS ID FROM JadwalDokter ORDER BY Id_JadwalDokter DESC";
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(query, connection);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                using (SqlCommand command = new SqlCommand())
                 {
-                    while (reader.Read())
-                    {
-                        // Ambil nilai-nilai kolom dari reader
-                        lastID = int.Parse(reader.GetString(0));
-                    }
-                }
-                else
-                {
-                    lastID = 0;
-                }
-                reader.Close();
+                    command.Connection = connection;
+                    command.CommandType = System.Data.CommandType.Text;
+                    command.CommandText = "SELECT dbo.GenerateIDJadwalDokter()"; // Ganti "dbo" dengan skema fungsi Anda
 
-                IDJadwal = string.Format("JDW{0:D3}", lastID + 1);
-                txID.Text = IDJadwal;
+                    connection.Open();
+                    string result = (string)command.ExecuteScalar();
+                    return result;
+                }
             }
         }
         private void Form_Jadwal_Dokter_Load(object sender, EventArgs e)
@@ -137,11 +118,12 @@ namespace D_Clinic.Halaman
         {
             clearText();
             disablePropherties();
-            GenerateIDJadwal();
+            txID.Text = IDJadwalDokter();
             imgJam.Image = Properties.Resources.green_clock;
             cbDokter.Enabled = true;
             cbRuang.Enabled = true;
             cbHari.Enabled = true;
+            txTarif.Enabled = true;
             numJamAwal.Enabled = true;
             numMenitAwal.Enabled = true;
             numJamAkhir.Enabled = true;
@@ -219,7 +201,7 @@ namespace D_Clinic.Halaman
         }
         private void UpdateJadwal()
         {
-            string unformatTarif = txTarif.Text.Replace(".", "");
+            string unformatTarif = Regex.Replace(txTarif.Text, "[^0-9]", "");
 
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -268,7 +250,7 @@ namespace D_Clinic.Halaman
         }
         private void TambahJadwal()
         {
-            string unformatTarif = txTarif.Text.Replace(".", "");
+            string unformatTarif = Regex.Replace(txTarif.Text, "[^0-9]", "");
 
             string connectionString = "Integrated Security = False; Data Source = DAFFA; User = sa; Password = daffa; Initial Catalog = DClinic";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -384,7 +366,31 @@ namespace D_Clinic.Halaman
         }
         private void txTarif_TextChanged(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(txTarif.Text))
+            {
+                txTarif.IconLeft = Properties.Resources.green_harga;
 
+                // Menghapus karakter yang bukan angka dari TextBox
+                string numericText = Regex.Replace(txTarif.Text, "[^0-9]", "");
+
+                // Mengonversi string angka ke tipe data numerik (misalnya, decimal)
+                decimal amount = 0;
+                if (Decimal.TryParse(numericText, out amount))
+                {
+                    // Memformat nilai numerik ke format Rupiah
+                    string formattedAmount = string.Format(new CultureInfo("id-ID"), "{0:C0}", amount);
+
+                    // Mengatur nilai yang sudah diformat kembali ke TextBox
+                    txTarif.Text = formattedAmount;
+
+                    // Mengatur posisi kursor ke akhir TextBox
+                    txTarif.SelectionStart = txTarif.Text.Length;
+                }
+            }
+            else
+            {
+                txTarif.IconLeft = Properties.Resources.white_harga;
+            }
         }
 
         private void tblJadwalDokter_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -394,13 +400,13 @@ namespace D_Clinic.Halaman
                 DataGridViewRow row = tblJadwalDokter.Rows[e.RowIndex];
                 // Mendapatkan nilai dari kolom yang sesuai dengan kolom dalam tabel
                 string id_jadwal = row.Cells["id"].Value.ToString();
-                string nama = row.Cells["dokter"].Value.ToString();
-                string ruang = row.Cells["ruang"].Value.ToString();
+                string nama_dokter = row.Cells["dokter"].Value.ToString();
+                string nama_ruang = row.Cells["ruang"].Value.ToString();
                 string hari = row.Cells["day"].Value.ToString();
                 string jam_mulai = row.Cells["jam1"].Value.ToString();
                 string jam_akhir = row.Cells["jam2"].Value.ToString();
-                string tarif = row.Cells["trf_jasa"].Value.ToString();
-                status = row.Cells["stts"].Value.ToString();
+                string tarif = (row.Cells["trf_jasa"].Value.ToString());
+                string status = row.Cells["stts"].Value.ToString();
 
                 txID.IconLeft = Properties.Resources.green_kode;
                 txTarif.IconLeft = Properties.Resources.green_harga;
@@ -426,15 +432,18 @@ namespace D_Clinic.Halaman
                     btnNonAktif.Visible = true;
                 }
 
+                int tarif_dokter = (int)SqlMoney.Parse(tarif);
+                string formatTarif = tarif_dokter.ToString("C0", new CultureInfo("id-ID"));
+
                 txID.Text = id_jadwal;
-                cbDokter.Text = nama;
-                cbRuang.Text = ruang;
+                cbDokter.Text = nama_dokter;
+                cbRuang.Text = nama_ruang;
                 cbHari.Text = hari;
                 numJamAwal.Value = int.Parse(jam_mulai.Substring(0, 2));
                 numMenitAwal.Value = int.Parse(jam_mulai.Substring(3, 2));
                 numJamAkhir.Value = int.Parse(jam_akhir.Substring(0, 2));
                 numMenitAkhir.Value = int.Parse(jam_akhir.Substring(3, 2));
-                txTarif.Text = tarif;
+                txTarif.Text = formatTarif;
             }
         }
 
@@ -518,6 +527,7 @@ namespace D_Clinic.Halaman
                     cbDokter.Enabled = true;
                     cbRuang.Enabled = true;
                     cbHari.Enabled = true;
+                    txTarif.Enabled = true;
                     numJamAwal.Enabled = true;
                     numMenitAwal.Enabled = true;
                     numJamAkhir.Enabled = true;
@@ -534,6 +544,8 @@ namespace D_Clinic.Halaman
                         btnNonAktif.Visible = true;
                     }
 
+                    string formatTarif = tarif.ToString("C0", new CultureInfo("id-ID"));
+
                     txID.Text = id_jadwal;
                     cbDokter.SelectedValue = id_dokter;
                     cbRuang.SelectedValue = id_ruang;
@@ -542,7 +554,7 @@ namespace D_Clinic.Halaman
                     numMenitAwal.Value = int.Parse(jam_mulai.Substring(3, 2));
                     numJamAkhir.Value = int.Parse(jam_akhir.Substring(0, 2));
                     numMenitAkhir.Value = int.Parse(jam_akhir.Substring(3, 2));
-                    txTarif.Text = tarif.ToString();
+                    txTarif.Text = formatTarif;
                 }
                 else
                 {

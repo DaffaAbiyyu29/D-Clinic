@@ -36,31 +36,34 @@
             this.label1 = new System.Windows.Forms.Label();
             this.radiusDGV = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.tblSupplier = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nama_supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telp_supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status_supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dClinicDataSet = new D_Clinic.DClinicDataSet();
             this.btnTambah = new Guna.UI2.WinForms.Guna2Button();
-            this.txCariRS = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txCariSupplier = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBatal = new Guna.UI2.WinForms.Guna2Button();
             this.btnSimpan = new Guna.UI2.WinForms.Guna2Button();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
-            this.btnHapus = new Guna.UI2.WinForms.Guna2Button();
+            this.btnNonAktif = new Guna.UI2.WinForms.Guna2Button();
             this.txNama = new Guna.UI2.WinForms.Guna2TextBox();
             this.txTelp = new Guna.UI2.WinForms.Guna2TextBox();
             this.txID = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnCari = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.btnAktif = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.dClinicDataSet = new D_Clinic.DClinicDataSet();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierTableAdapter = new D_Clinic.DClinicDataSetTableAdapters.SupplierTableAdapter();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idSupplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namaSupplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noTelp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tblSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).BeginInit();
             this.guna2GroupBox2.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -112,9 +115,10 @@
             this.tblSupplier.ColumnHeadersHeight = 40;
             this.tblSupplier.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.No,
-            this.idSupplier,
-            this.namaSupplier,
-            this.noTelp});
+            this.id_supplier,
+            this.nama_supplier,
+            this.telp_supplier,
+            this.status_supplier});
             this.tblSupplier.DataSource = this.supplierBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
@@ -162,6 +166,55 @@
             this.tblSupplier.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblSupplier_CellContentClick);
             this.tblSupplier.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.tblSupplier_RowPostPaint);
             // 
+            // No
+            // 
+            this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            this.No.Width = 40;
+            // 
+            // id_supplier
+            // 
+            this.id_supplier.DataPropertyName = "Id_Supplier";
+            this.id_supplier.HeaderText = "ID Supplier";
+            this.id_supplier.Name = "id_supplier";
+            this.id_supplier.ReadOnly = true;
+            // 
+            // nama_supplier
+            // 
+            this.nama_supplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nama_supplier.DataPropertyName = "Nama_Supplier";
+            this.nama_supplier.HeaderText = "Nama Supplier";
+            this.nama_supplier.Name = "nama_supplier";
+            this.nama_supplier.ReadOnly = true;
+            // 
+            // telp_supplier
+            // 
+            this.telp_supplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.telp_supplier.DataPropertyName = "Telp";
+            this.telp_supplier.HeaderText = "No Telp";
+            this.telp_supplier.Name = "telp_supplier";
+            this.telp_supplier.ReadOnly = true;
+            this.telp_supplier.Width = 150;
+            // 
+            // status_supplier
+            // 
+            this.status_supplier.DataPropertyName = "Status";
+            this.status_supplier.HeaderText = "Status";
+            this.status_supplier.Name = "status_supplier";
+            this.status_supplier.ReadOnly = true;
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataMember = "Supplier";
+            this.supplierBindingSource.DataSource = this.dClinicDataSet;
+            // 
+            // dClinicDataSet
+            // 
+            this.dClinicDataSet.DataSetName = "DClinicDataSet";
+            this.dClinicDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // btnTambah
             // 
             this.btnTambah.Animated = true;
@@ -190,43 +243,45 @@
             this.btnTambah.TabIndex = 54;
             this.btnTambah.Text = "Tambah Supplier";
             this.btnTambah.UseTransparentBackground = true;
+            this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
             // 
-            // txCariRS
+            // txCariSupplier
             // 
-            this.txCariRS.Animated = true;
-            this.txCariRS.AutoRoundedCorners = true;
-            this.txCariRS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txCariRS.BorderColor = System.Drawing.Color.White;
-            this.txCariRS.BorderRadius = 17;
-            this.txCariRS.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.txCariRS.BorderThickness = 2;
-            this.txCariRS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txCariRS.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txCariRS.DefaultText = "";
-            this.txCariRS.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txCariRS.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txCariRS.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txCariRS.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txCariRS.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txCariRS.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.txCariRS.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.txCariRS.Font = new System.Drawing.Font("Porsche Next TT", 15F, System.Drawing.FontStyle.Bold);
-            this.txCariRS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
-            this.txCariRS.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txCariRS.IconLeft = global::D_Clinic.Properties.Resources.white_magnifier;
-            this.txCariRS.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.txCariRS.Location = new System.Drawing.Point(1128, 46);
-            this.txCariRS.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.txCariRS.MaxLength = 30;
-            this.txCariRS.Name = "txCariRS";
-            this.txCariRS.PasswordChar = '\0';
-            this.txCariRS.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txCariRS.PlaceholderText = "Search";
-            this.txCariRS.SelectedText = "";
-            this.txCariRS.Size = new System.Drawing.Size(232, 37);
-            this.txCariRS.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txCariRS.TabIndex = 47;
-            this.txCariRS.TextOffset = new System.Drawing.Point(5, 0);
+            this.txCariSupplier.Animated = true;
+            this.txCariSupplier.AutoRoundedCorners = true;
+            this.txCariSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txCariSupplier.BorderColor = System.Drawing.Color.White;
+            this.txCariSupplier.BorderRadius = 17;
+            this.txCariSupplier.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.txCariSupplier.BorderThickness = 2;
+            this.txCariSupplier.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txCariSupplier.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txCariSupplier.DefaultText = "";
+            this.txCariSupplier.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txCariSupplier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txCariSupplier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txCariSupplier.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txCariSupplier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txCariSupplier.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.txCariSupplier.FocusedState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.txCariSupplier.Font = new System.Drawing.Font("Porsche Next TT", 15F, System.Drawing.FontStyle.Bold);
+            this.txCariSupplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.txCariSupplier.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txCariSupplier.IconLeft = global::D_Clinic.Properties.Resources.white_magnifier;
+            this.txCariSupplier.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.txCariSupplier.Location = new System.Drawing.Point(1128, 46);
+            this.txCariSupplier.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.txCariSupplier.MaxLength = 30;
+            this.txCariSupplier.Name = "txCariSupplier";
+            this.txCariSupplier.PasswordChar = '\0';
+            this.txCariSupplier.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txCariSupplier.PlaceholderText = "Search";
+            this.txCariSupplier.SelectedText = "";
+            this.txCariSupplier.Size = new System.Drawing.Size(232, 37);
+            this.txCariSupplier.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txCariSupplier.TabIndex = 47;
+            this.txCariSupplier.TextOffset = new System.Drawing.Point(5, 0);
+            this.txCariSupplier.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
             // 
             // panel1
             // 
@@ -263,6 +318,7 @@
             this.btnBatal.TabIndex = 55;
             this.btnBatal.Text = "Batal";
             this.btnBatal.UseTransparentBackground = true;
+            this.btnBatal.Click += new System.EventHandler(this.btnBatal_Click);
             // 
             // btnSimpan
             // 
@@ -293,6 +349,7 @@
             this.btnSimpan.TabIndex = 18;
             this.btnSimpan.Text = "Simpan";
             this.btnSimpan.UseTransparentBackground = true;
+            this.btnSimpan.Click += new System.EventHandler(this.btnSimpan_Click);
             // 
             // btnUpdate
             // 
@@ -322,35 +379,37 @@
             this.btnUpdate.TabIndex = 27;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseTransparentBackground = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btnHapus
+            // btnNonAktif
             // 
-            this.btnHapus.Animated = true;
-            this.btnHapus.BackColor = System.Drawing.Color.Transparent;
-            this.btnHapus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
-            this.btnHapus.BorderRadius = 10;
-            this.btnHapus.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.btnHapus.BorderThickness = 2;
-            this.btnHapus.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
-            this.btnHapus.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
-            this.btnHapus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.btnHapus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
-            this.btnHapus.Enabled = false;
-            this.btnHapus.FillColor = System.Drawing.Color.Transparent;
-            this.btnHapus.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
-            this.btnHapus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
-            this.btnHapus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
-            this.btnHapus.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
-            this.btnHapus.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
-            this.btnHapus.Location = new System.Drawing.Point(138, 505);
-            this.btnHapus.Margin = new System.Windows.Forms.Padding(2);
-            this.btnHapus.Name = "btnHapus";
-            this.btnHapus.PressedColor = System.Drawing.Color.NavajoWhite;
-            this.btnHapus.PressedDepth = 50;
-            this.btnHapus.Size = new System.Drawing.Size(130, 37);
-            this.btnHapus.TabIndex = 26;
-            this.btnHapus.Text = "Hapus";
-            this.btnHapus.UseTransparentBackground = true;
+            this.btnNonAktif.Animated = true;
+            this.btnNonAktif.BackColor = System.Drawing.Color.Transparent;
+            this.btnNonAktif.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
+            this.btnNonAktif.BorderRadius = 10;
+            this.btnNonAktif.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnNonAktif.BorderThickness = 2;
+            this.btnNonAktif.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnNonAktif.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnNonAktif.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.btnNonAktif.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnNonAktif.FillColor = System.Drawing.Color.Transparent;
+            this.btnNonAktif.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
+            this.btnNonAktif.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
+            this.btnNonAktif.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(106)))), ((int)(((byte)(100)))));
+            this.btnNonAktif.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(56)))), ((int)(((byte)(89)))));
+            this.btnNonAktif.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.btnNonAktif.Location = new System.Drawing.Point(138, 505);
+            this.btnNonAktif.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNonAktif.Name = "btnNonAktif";
+            this.btnNonAktif.PressedColor = System.Drawing.Color.NavajoWhite;
+            this.btnNonAktif.PressedDepth = 50;
+            this.btnNonAktif.Size = new System.Drawing.Size(130, 37);
+            this.btnNonAktif.TabIndex = 26;
+            this.btnNonAktif.Text = "Non-Aktif";
+            this.btnNonAktif.UseTransparentBackground = true;
+            this.btnNonAktif.Visible = false;
+            this.btnNonAktif.Click += new System.EventHandler(this.btnNonAktif_Click);
             // 
             // txNama
             // 
@@ -389,6 +448,7 @@
             this.txNama.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txNama.TabIndex = 20;
             this.txNama.TextOffset = new System.Drawing.Point(5, 0);
+            this.txNama.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
             // 
             // txTelp
             // 
@@ -427,6 +487,8 @@
             this.txTelp.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txTelp.TabIndex = 21;
             this.txTelp.TextOffset = new System.Drawing.Point(5, 0);
+            this.txTelp.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
+            this.txTelp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Integer_KeyPress);
             // 
             // txID
             // 
@@ -464,6 +526,7 @@
             this.txID.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txID.TabIndex = 63;
             this.txID.TextOffset = new System.Drawing.Point(5, 0);
+            this.txID.TextChanged += new System.EventHandler(this.Gambar_TextChanged);
             // 
             // btnCari
             // 
@@ -491,6 +554,7 @@
             this.btnCari.TabIndex = 53;
             this.btnCari.Text = "Cari";
             this.btnCari.UseTransparentBackground = true;
+            this.btnCari.Click += new System.EventHandler(this.btnCari_Click);
             // 
             // guna2GroupBox2
             // 
@@ -498,13 +562,15 @@
             this.guna2GroupBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.guna2GroupBox2.BorderRadius = 20;
             this.guna2GroupBox2.BorderThickness = 2;
+            this.guna2GroupBox2.Controls.Add(this.label2);
+            this.guna2GroupBox2.Controls.Add(this.btnAktif);
             this.guna2GroupBox2.Controls.Add(this.txID);
             this.guna2GroupBox2.Controls.Add(this.tblSupplier);
             this.guna2GroupBox2.Controls.Add(this.panel1);
             this.guna2GroupBox2.Controls.Add(this.btnBatal);
             this.guna2GroupBox2.Controls.Add(this.btnSimpan);
             this.guna2GroupBox2.Controls.Add(this.btnUpdate);
-            this.guna2GroupBox2.Controls.Add(this.btnHapus);
+            this.guna2GroupBox2.Controls.Add(this.btnNonAktif);
             this.guna2GroupBox2.Controls.Add(this.txNama);
             this.guna2GroupBox2.Controls.Add(this.txTelp);
             this.guna2GroupBox2.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
@@ -517,7 +583,37 @@
             this.guna2GroupBox2.Name = "guna2GroupBox2";
             this.guna2GroupBox2.Size = new System.Drawing.Size(1433, 613);
             this.guna2GroupBox2.TabIndex = 57;
-            this.guna2GroupBox2.Text = "Detail Supplier";
+            // 
+            // btnAktif
+            // 
+            this.btnAktif.Animated = true;
+            this.btnAktif.BackColor = System.Drawing.Color.Transparent;
+            this.btnAktif.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.BorderRadius = 10;
+            this.btnAktif.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.btnAktif.BorderThickness = 2;
+            this.btnAktif.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.btnAktif.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.FillColor = System.Drawing.Color.Transparent;
+            this.btnAktif.Font = new System.Drawing.Font("Porsche Next TT", 13F, System.Drawing.FontStyle.Bold);
+            this.btnAktif.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.btnAktif.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(36)))), ((int)(((byte)(27)))));
+            this.btnAktif.Location = new System.Drawing.Point(138, 505);
+            this.btnAktif.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAktif.Name = "btnAktif";
+            this.btnAktif.PressedColor = System.Drawing.Color.NavajoWhite;
+            this.btnAktif.PressedDepth = 50;
+            this.btnAktif.Size = new System.Drawing.Size(130, 37);
+            this.btnAktif.TabIndex = 66;
+            this.btnAktif.Text = "Aktif";
+            this.btnAktif.UseTransparentBackground = true;
+            this.btnAktif.Visible = false;
+            this.btnAktif.Click += new System.EventHandler(this.btnAktif_Click);
             // 
             // guna2GroupBox1
             // 
@@ -527,7 +623,7 @@
             this.guna2GroupBox1.Controls.Add(this.btnCari);
             this.guna2GroupBox1.Controls.Add(this.guna2GroupBox2);
             this.guna2GroupBox1.Controls.Add(this.btnTambah);
-            this.guna2GroupBox1.Controls.Add(this.txCariRS);
+            this.guna2GroupBox1.Controls.Add(this.txCariSupplier);
             this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
             this.guna2GroupBox1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.guna2GroupBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -538,51 +634,21 @@
             this.guna2GroupBox1.Size = new System.Drawing.Size(1584, 746);
             this.guna2GroupBox1.TabIndex = 43;
             // 
-            // dClinicDataSet
-            // 
-            this.dClinicDataSet.DataSetName = "DClinicDataSet";
-            this.dClinicDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataMember = "Supplier";
-            this.supplierBindingSource.DataSource = this.dClinicDataSet;
-            // 
             // supplierTableAdapter
             // 
             this.supplierTableAdapter.ClearBeforeFill = true;
             // 
-            // No
+            // label2
             // 
-            this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.No.HeaderText = "No";
-            this.No.Name = "No";
-            this.No.ReadOnly = true;
-            this.No.Width = 40;
-            // 
-            // idSupplier
-            // 
-            this.idSupplier.DataPropertyName = "Id_Supplier";
-            this.idSupplier.HeaderText = "ID Supplier";
-            this.idSupplier.Name = "idSupplier";
-            this.idSupplier.ReadOnly = true;
-            // 
-            // namaSupplier
-            // 
-            this.namaSupplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.namaSupplier.DataPropertyName = "Nama_Supplier";
-            this.namaSupplier.HeaderText = "Nama Supplier";
-            this.namaSupplier.Name = "namaSupplier";
-            this.namaSupplier.ReadOnly = true;
-            // 
-            // noTelp
-            // 
-            this.noTelp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.noTelp.DataPropertyName = "Telp";
-            this.noTelp.HeaderText = "No Telepon";
-            this.noTelp.Name = "noTelp";
-            this.noTelp.ReadOnly = true;
-            this.noTelp.Width = 150;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Porsche Next TT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(235)))), ((int)(((byte)(97)))));
+            this.label2.Location = new System.Drawing.Point(9, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 32);
+            this.label2.TabIndex = 71;
+            this.label2.Text = "Detail Supplier";
             // 
             // Form_Master_Supplier
             // 
@@ -597,10 +663,11 @@
             this.Text = "Form_Master_Supplier";
             this.Load += new System.EventHandler(this.Form_Master_Supplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tblSupplier)).EndInit();
-            this.guna2GroupBox2.ResumeLayout(false);
-            this.guna2GroupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dClinicDataSet)).EndInit();
+            this.guna2GroupBox2.ResumeLayout(false);
+            this.guna2GroupBox2.PerformLayout();
+            this.guna2GroupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -618,18 +685,21 @@
         private Guna.UI2.WinForms.Guna2Button btnBatal;
         private Guna.UI2.WinForms.Guna2Button btnSimpan;
         private Guna.UI2.WinForms.Guna2Button btnUpdate;
-        private Guna.UI2.WinForms.Guna2Button btnHapus;
+        private Guna.UI2.WinForms.Guna2Button btnNonAktif;
         private Guna.UI2.WinForms.Guna2TextBox txNama;
         private Guna.UI2.WinForms.Guna2TextBox txTelp;
         private Guna.UI2.WinForms.Guna2Button btnTambah;
-        private Guna.UI2.WinForms.Guna2TextBox txCariRS;
+        private Guna.UI2.WinForms.Guna2TextBox txCariSupplier;
         private Guna.UI2.WinForms.Guna2Elipse radiusDGV;
         private DClinicDataSet dClinicDataSet;
+        private Guna.UI2.WinForms.Guna2Button btnAktif;
         private System.Windows.Forms.BindingSource supplierBindingSource;
         private DClinicDataSetTableAdapters.SupplierTableAdapter supplierTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idSupplier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namaSupplier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noTelp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_supplier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nama_supplier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telp_supplier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status_supplier;
+        private System.Windows.Forms.Label label2;
     }
 }
